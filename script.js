@@ -9,7 +9,7 @@ const container = document.getElementById('curriculum-container');
 let allData = {}; // Variable to store the fetched data
 
 // 1. Fetch Data on Load
-fetch('${API_BASE_URL}/api/curriculum')
+fetch(`${API_BASE_URL}/api/curriculum`)
     .then(response => response.json())
     .then(data => {
         allData = data; // Save data for later use
@@ -101,7 +101,7 @@ sendBtn.addEventListener('click', () => {
     userInput.value = ''; // Clear input box
 
     // B. Send to Python Backend
-    fetch('${API_BASE_URL}/api/chat', {
+    fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
