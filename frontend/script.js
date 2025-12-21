@@ -2,7 +2,7 @@ const container = document.getElementById('curriculum-container');
 let allData = {}; // Variable to store the fetched data
 
 // 1. Fetch Data on Load
-fetch('data.json')
+fetch('http://127.0.0.1:5000/api/curriculum')
     .then(response => response.json())
     .then(data => {
         allData = data; // Save data for later use
