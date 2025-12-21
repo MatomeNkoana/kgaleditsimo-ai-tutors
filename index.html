@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=./frontend/index.html" />
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kgaleditsimo AI Tutors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <p>Redirecting to <a href="./frontend/index.html">Kgaleditsimo AI Tutors</a>...</p>
+<header>
+        <h1>Kgaleditsimo AI Tutors</h1>
+        <p>Unified web platform for Chemistry, Computer Science, and Mathematics.</p>
+</header>
+
+    <main>
+        <h2>Select a Subject</h2>
+        <div id="curriculum-container">
+            </div>
+        <section id="chat-interface" class="hidden">
+            <div id="chat-history">
+                <div class="message system-message">
+                    Welcome to the AI Tutor. Ask a question about this module!
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your question here..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </section>        
+        <button id="login-btn">Login</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Kgaleditsimo AI</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
