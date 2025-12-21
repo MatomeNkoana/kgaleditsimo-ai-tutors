@@ -74,3 +74,47 @@ button {
 button:hover {
     background-color: black;
 }
+
+/* 6. Utility: Hiding Elements */
+.hidden {
+    display: none !important;
+}
+
+/* 7. Chat Interface Styling */
+#chat-interface {
+    margin-top: 30px;
+    border-top: 2px solid var(--accent-color);
+    padding-top: 20px;
+}
+
+#chat-history {
+    background: #fff;
+    border: 1px solid #ccc;
+    height: 200px;
+    overflow-y: auto; /* Scroll if too many messages */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.message {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.system-message { background-color: #eee; color: #555; font-style: italic; }
+.user-message { background-color: #d1ecf1; text-align: right; }
+.ai-message { background-color: #d4edda; }
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#user-input {
+    flex-grow: 1; /* Take up all available space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -14,7 +14,18 @@
     <main>
         <h2>Select a Subject</h2>
         <div id="curriculum-container">
-        </div>
+            </div>
+        <section id="chat-interface" class="hidden">
+            <div id="chat-history">
+                <div class="message system-message">
+                    Welcome to the AI Tutor. Ask a question about this module!
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your question here..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </section>        
         <button id="login-btn">Login</button>
     </main>
 
