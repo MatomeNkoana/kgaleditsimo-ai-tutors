@@ -7,7 +7,13 @@
             "modules": [
                 { "title": "Organic Chemistry", "id": "chem-org" },
                 { "title": "Inorganic Chemistry", "id": "chem-inorg" },
-                { "title": "Analytical Chemistry", "id": "chem-ana" },
+                {
+                    "title": "Analytical Chemistry", 
+                    "id": "chem-ana",
+                    "topics": [
+                    { "title": "Significant Figures", "content": "Non-zero digits are always significant." },
+                    { "title": "Titration", "content": "Determining concentration using a known solution." }
+    ]           },
                 { "title": "Physical Chemistry", "id": "chem-phys" }
             ]
         },

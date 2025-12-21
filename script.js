@@ -1,32 +1,69 @@
-// 1. Select the container where we want to put the text
 const container = document.getElementById('curriculum-container');
+let allData = {}; // Variable to store the fetched data
 
-// 2. Fetch (Get) the JSON data
+// 1. Fetch Data on Load
 fetch('data.json')
-    .then(response => response.json()) // Convert raw data to JSON format
+    .then(response => response.json())
     .then(data => {
+        allData = data; // Save data for later use
+        renderMainMenu(); // Show the main list initially
+    })
+    .catch(error => console.error('Error:', error));
+
+// 2. Function to Draw the Main Menu
+function renderMainMenu() {
+    container.innerHTML = ''; // Clear the screen
+
+    allData.subjects.forEach(subject => {
+        const title = document.createElement('h3');
+        title.innerText = subject.name;
+        container.appendChild(title);
+
+        const list = document.createElement('ul');
         
-        // 3. Loop through the "subjects" list (Chemistry, CS)
-        data.subjects.forEach(subject => {
+        subject.modules.forEach(module => {
+            const item = document.createElement('li');
+            item.innerText = module.title;
+            item.className = 'module-item'; // Add CSS class
             
-            // A. Create a Title for the Subject (e.g., <h3>Chemistry</h3>)
-            const subjectTitle = document.createElement('h3');
-            subjectTitle.innerText = subject.name;
-            container.appendChild(subjectTitle);
-
-            // B. Create a List for the Modules (<ul>)
-            const moduleList = document.createElement('ul');
-
-            // C. Loop through the modules inside this subject
-            subject.modules.forEach(module => {
-                const listItem = document.createElement('li');
-                listItem.innerText = module.title;
-                moduleList.appendChild(listItem); // Put <li> inside <ul>
+            // Add Click Listener
+            item.addEventListener('click', () => {
+                showTopics(module);
             });
 
-            // D. Add the list to the main container
-            container.appendChild(moduleList);
+            list.appendChild(item);
         });
+        container.appendChild(list);
+    });
+}
 
-    })
-    .catch(error => console.error('Error loading data:', error)); // Log errors if file not found
+// 3. Function to Draw the Topics (The Drill-Down)
+function showTopics(module) {
+    // A. Check if topics exist
+    if (!module.topics) {
+        alert("No topics added for this module yet!");
+        return;
+    }
+
+    container.innerHTML = ''; // Clear the screen
+
+    // B. Add Back Button
+    const backBtn = document.createElement('button');
+    backBtn.innerText = "← Back to Subjects";
+    backBtn.onclick = renderMainMenu; // Go back when clicked
+    container.appendChild(backBtn);
+
+    // C. Add Module Title
+    const title = document.createElement('h2');
+    title.innerText = module.title;
+    container.appendChild(title);
+
+    // D. List the Topics
+    const topicList = document.createElement('ul');
+    module.topics.forEach(topic => {
+        const item = document.createElement('li');
+        item.innerText = topic.title + ": " + topic.content;
+        topicList.appendChild(item);
+    });
+    container.appendChild(topicList);
+}
