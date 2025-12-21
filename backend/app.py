@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 
 # 1. The Database variable
@@ -31,7 +32,10 @@ curriculum_data = {
 }
 # 2. Initialize the Flask application
 app = Flask(__name__)
-
+# TODO: SECURITY WARNING
+# Current setting allows ALL origins ('*') for development convenience.
+# BEFORE DEPLOYING: Change to -> CORS(app, origins=["https://matomenkoana.github.io"])
+CORS(app)
 # 3. Define a "Route" (A specific URL)
 # When someone visits the root URL ('/'), run this function.
 @app.route('/')
