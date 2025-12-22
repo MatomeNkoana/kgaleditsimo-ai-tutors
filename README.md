@@ -22,17 +22,6 @@ While the current MVP demonstrates proficiency in **Formal Logic** and **Analyti
 *(Note: As this runs on a $0.00 serverless architecture, please allow ~45 seconds for the backend cold-start.)*
 
 ---
-
-## 🏗️ Distributed Cloud Architecture
-
-The system utilizes a decoupled **Microservices Architecture** to ensure separation of concerns between the user interface and the generative logic engine.
-graph LR
-    User([Student Browser]) -->|HTTPS/JSON| Frontend[GitHub Pages Frontend]
-    Frontend -->|REST API / CORS| Backend[Render.com Flask API]
-    Backend -->|Secure Context Injection| AI[Google Gemini 2.0 Flash]
-    AI -->|Generative Response| Backend
-    Backend -->|JSON Payload| Frontend
-
 ### 🛠 Technology Stack
 
 | Domain | Technology | Justification |
