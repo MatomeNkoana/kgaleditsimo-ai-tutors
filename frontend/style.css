@@ -231,3 +231,88 @@ ul {
 #send-btn:hover {
     background-color: var(--primary-color);
 }
+
+/* Update the Card to stack text vertically */
+.card {
+    /* Keep your existing colors/border/shadow lines here... */
+    display: flex;
+    flex-direction: column; /* Stack title on top of description */
+    align-items: center;    /* Center content */
+    justify-content: center;
+    text-align: center;
+    min-height: 150px;      /* Make card taller to fit text */
+    padding: 1.5rem;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555; /* Dark grey for readability */
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Container for the list of topics */
+.vertical-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between cards */
+    margin-top: 1rem;
+}
+
+/* Specific styling for the Topic Cards */
+.topic-card {
+    /* Override the default centered flex from .card */
+    flex-direction: column; 
+    align-items: flex-start; /* Align text to the left */
+    text-align: left;
+    width: 100%;             /* Take full width */
+    box-sizing: border-box;  /* Ensure padding doesn't break width */
+    border-left: 6px solid var(--accent-color); /* Nice colored accent bar */
+}
+
+.topic-header h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.topic-header p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* The Box holding the outcomes list */
+.outcomes-box {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 1rem;
+    border-radius: 6px;
+    width: 100%;               /* Fill the card width */
+    box-sizing: border-box;
+    border: 1px solid #e9ecef;
+}
+
+.outcomes-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.outcomes-box ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-type: disc; /* Ensure bullets show */
+}
+
+.outcomes-box li {
+    margin-bottom: 0.3rem;
+    color: #444;
+    font-size: 0.95rem;
+}

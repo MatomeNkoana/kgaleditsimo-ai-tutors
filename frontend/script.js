@@ -75,7 +75,14 @@ function renderModuleList(subject) {
     subject.modules.forEach(module => {
         const card = document.createElement('div');
         card.className = 'card';
-        card.innerText = module.title;
+        
+        // --- NEW CODE: Render Title + Description ---
+        const descText = module.description || "Explore this module.";
+        card.innerHTML = `
+            <h3>${module.title}</h3>
+            <p>${descText}</p>
+        `;
+        // ---------------------------------------------
 
         card.addEventListener('click', () => {
             showTopics(module);
@@ -97,6 +104,7 @@ function showTopics(module) {
     container.innerHTML = ''; 
     document.getElementById('chat-interface').classList.add('hidden');
     
+    // Navigation
     const backBtn = document.createElement('button');
     backBtn.innerText = `← Back to ${currentSubject.name}`;
     backBtn.className = "back-button";
@@ -107,25 +115,51 @@ function showTopics(module) {
     title.innerText = module.title;
     container.appendChild(title);
 
-    const list = document.createElement('ul');
-    
+    // CHANGE: Use a specific container for the vertical list layout
+    const listContainer = document.createElement('div');
+    listContainer.className = 'vertical-list-container';
+
     module.topics.forEach(topic => {
-        const item = document.createElement('li');
-        item.className = 'module-item'; 
-        item.innerHTML = `<strong>${topic.title}</strong>`;
+        const card = document.createElement('div');
+        // We reuse the 'card' class for shadow/border, but add 'topic-card' for specific layout
+        card.className = 'card topic-card'; 
         
-        // --- ROUTING UPDATE: Go to Sections, not Lesson Content ---
-        item.addEventListener('click', () => {
+        // 1. Prepare Outcomes HTML (if they exist)
+        let outcomesHtml = '';
+        if (topic.outcomes && topic.outcomes.length > 0) {
+            outcomesHtml = `<div class="outcomes-box">
+                                <strong>Learning Outcomes:</strong>
+                                <ul>`;
+            topic.outcomes.forEach(outcome => {
+                outcomesHtml += `<li>${outcome}</li>`;
+            });
+            outcomesHtml += `   </ul>
+                             </div>`;
+        }
+
+        // 2. Prepare Description
+        const descText = topic.description || "No description available.";
+
+        // 3. Render the Card Content
+        card.innerHTML = `
+            <div class="topic-header">
+                <h3>${topic.title}</h3>
+                <p>${descText}</p>
+            </div>
+            ${outcomesHtml}
+        `;
+        
+        // 4. Click Logic (Go to Sections)
+        card.addEventListener('click', () => {
             showSections(topic, module);
         });
-        // ----------------------------------------------------------
 
-        list.appendChild(item);
+        listContainer.appendChild(card);
     });
-    container.appendChild(list);
+    container.appendChild(listContainer);
 }
 
-// 5. [NEW] Sections List (e.g., Precipitation, Volatilization)
+// 5. Sections List (e.g., Precipitation, Volatilization)
 function showSections(topic, module) {
     // Fallback: If no sections exist (old data format), try showing content directly
     if (!topic.sections) {
