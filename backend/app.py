@@ -31,10 +31,30 @@ curriculum_data = {
             "modules": [
                 { "title": "Organic Chemistry", "id": "chem-org" },
                 { "title": "Inorganic Chemistry", "id": "chem-inorg" },
-                { "title": "Analytical Chemistry", "id": "chem-ana", "topics": [
-                    { "title": "Significant Figures", "content": "Non-zero digits are always significant." },
-                    { "title": "Titration", "content": "Determining concentration using a known solution." }
-                ]},
+                { "title": "Analytical Chemistry", 
+                    "id": "chem-ana", 
+                    "topics": [
+                        { 
+                            "title": "Introduction to Analytical Chemistry", 
+                            "content": "Overview of qualitative and quantitative analysis methods." 
+                        },
+                        { 
+                            "title": "Gravimetry", 
+                            "content": "Quantitative determination of an analyte based on the mass of a solid." 
+                        },
+                        { 
+                            "title": "Volumetry (Titrimetry)", 
+                            "content": """
+                            <strong>1. Apparatus:</strong> Burette (Titrant), Pipette (Analyte), Conical Flask, Indicator.<br>
+                            <strong>2. Reaction Types:</strong> Acid-Base, Redox, Complexometric, Precipitation.<br>
+                            <strong>3. The Titration Curve:</strong> Plots pH vs Volume. Key regions: Initial, Pre-Equivalence (Buffer), Equivalence Point, Post-Equivalence.<br>
+                            <strong>4. Math Logic:</strong><br>
+                            - <em>Stoichiometry:</em> (CaVa)/a = (CbVb)/b<br>
+                            - <em>Henderson-Hasselbalch:</em> pH = pKa + log([A-]/[HA])
+                            """
+                        }
+                            ]
+                },
                 { "title": "Physical Chemistry", "id": "chem-phys" }
             ]
         },

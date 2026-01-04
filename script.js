@@ -1,8 +1,8 @@
 // PRODUCTION URL (Uncomment this line when deploying)
-const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
+// const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
 
 // LOCAL URL
-// const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = 'http://127.0.0.1:5000';
 
 
 const container = document.getElementById('curriculum-container');
@@ -49,38 +49,74 @@ function renderMainMenu() {
 
 // 3. Function to Draw the Topics (The Drill-Down)
 function showTopics(module) {
-    // Check if topics exist
     if (!module.topics) {
         alert("No topics added for this module yet!");
         return;
     }
 
-    container.innerHTML = ''; // Clear the screen
-    // SHOW Chat when inside a module
-    document.getElementById('chat-interface').classList.remove('hidden');
+    container.innerHTML = ''; // Clear screen
 
-    // Update the System Message to be context-aware
-    const history = document.getElementById('chat-history');
-    history.innerHTML = `<div class="message system-message">You are studying <strong>${module.title}</strong>. How can I help?</div>`;
-    // Add Back Button
+    // 1. Header & Navigation
     const backBtn = document.createElement('button');
     backBtn.innerText = "← Back to Subjects";
-    backBtn.onclick = renderMainMenu; // Go back when clicked
+    backBtn.onclick = renderMainMenu;
     container.appendChild(backBtn);
 
-    // Add Module Title
     const title = document.createElement('h2');
     title.innerText = module.title;
     container.appendChild(title);
 
-    // List the Topics
-    const topicList = document.createElement('ul');
+    // 2. Render Topics as CARDS (Grid Layout)
+    const list = document.createElement('ul'); // Re-use grid layout from CSS
+    
     module.topics.forEach(topic => {
         const item = document.createElement('li');
-        item.innerText = topic.title + ": " + topic.content;
-        topicList.appendChild(item);
+        item.className = 'module-item'; // Apply the same card style
+        item.innerHTML = `<strong>${topic.title}</strong>`; // Just show title first
+        
+        // Click to Enter Content View
+        item.addEventListener('click', () => {
+            showLessonContent(topic);
+        });
+
+        list.appendChild(item);
     });
-    container.appendChild(topicList);
+    container.appendChild(list);
+}
+
+// 3. New Function: Show the Specific Lesson Content
+function showLessonContent(topic) {
+    container.innerHTML = ''; // Clear screen
+
+    // Navigation
+    const backBtn = document.createElement('button');
+    backBtn.innerText = "← Back to Topics";
+    // We need to reload the module view here. 
+    // In a real app, we'd pass the 'module' object again. 
+    // For now, simple reload or re-fetch might be needed, 
+    // but simply: location.reload() is the lazy way. 
+    // Better: We just re-render main menu for now or store 'currentModule' globally.
+    backBtn.onclick = renderMainMenu; 
+    container.appendChild(backBtn);
+
+    // Content Display
+    const title = document.createElement('h2');
+    title.innerText = topic.title;
+    container.appendChild(title);
+
+    const contentBox = document.createElement('div');
+    contentBox.className = 'module-item'; // Reuse card style for content container
+    contentBox.style.cursor = 'default';   // Remove pointer cursor
+    contentBox.style.transform = 'none';   // Remove hover effect
+    contentBox.innerHTML = topic.content;  // Inject the HTML content from JSON
+    container.appendChild(contentBox);
+
+    // Show Chat Interface below content
+    document.getElementById('chat-interface').classList.remove('hidden');
+    
+    // Context-aware System Message
+    const history = document.getElementById('chat-history');
+    history.innerHTML = `<div class="message system-message">Studying <strong>${topic.title}</strong>. Ask me to explain any concept!</div>`;
 }
 
 // --- CHAT LOGIC ---
