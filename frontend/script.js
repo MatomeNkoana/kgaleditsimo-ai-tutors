@@ -1,8 +1,8 @@
 // PRODUCTION URL (Uncomment this line when deploying)
- const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
+// const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
 
 // LOCAL URL
-// const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = 'http://127.0.0.1:5000';
 
 const container = document.getElementById('curriculum-container');
 let allData = {}; 
@@ -56,9 +56,9 @@ function renderMainMenu() {
 
 // 3. Module List (e.g., Organic, Inorganic)
 function renderModuleList(subject) {
+    currentSubject = subject;
     container.innerHTML = '';
     document.getElementById('chat-interface').classList.add('hidden');
-
     const backBtn = document.createElement('button');
     backBtn.innerText = "← Back to Subjects";
     backBtn.className = "back-button";
@@ -217,15 +217,33 @@ function showLessonContent(section, topic, module) {
     navBar.style.marginBottom = '1rem';
     
     const backBtn = document.createElement('button');
+    
+    // --- THE FIX: RESCUE THE CHAT BOX BEFORE NAVIGATING ---
+    const goBack = () => {
+        // 1. Find the chat box
+        const chatContainer = document.getElementById('chat-interface');
+        // 2. Move it safely back to the document body (outside the container we are about to clear)
+        if (chatContainer) {
+            document.body.appendChild(chatContainer);
+            chatContainer.classList.add('hidden');
+        }
+        // 3. Now it is safe to navigate
+        if (topic.sections) {
+            showSections(topic, module); 
+        } else {
+            showTopics(module);
+        }
+    };
+    // -----------------------------------------------------
+
     if (topic.sections) {
         backBtn.innerText = `← Back to ${topic.title}`;
-        backBtn.onclick = () => showSections(topic, module); 
     } else {
         backBtn.innerText = `← Back to ${module.title}`;
-        backBtn.onclick = () => showTopics(module);
     }
     backBtn.className = "back-button";
-    
+    backBtn.onclick = goBack; // Attach the smart back function
+
     const title = document.createElement('span');
     title.style.marginLeft = '1rem';
     title.style.fontWeight = 'bold';
@@ -252,29 +270,27 @@ function showLessonContent(section, topic, module) {
 
     // A. Chat Interface (Moved inside)
     const chatContainer = document.getElementById('chat-interface');
-    chatContainer.classList.remove('hidden');
-    chatContainer.classList.add('chat-box-embedded'); // Apply new style
-    
-    // reset chat history for context
-    const history = document.getElementById('chat-history');
-    history.innerHTML = `<div class="message system-message">Studying <strong>${section.title}</strong>. Ask me to explain any concept!</div>`;
+    if (chatContainer) {
+        chatContainer.classList.remove('hidden');
+        chatContainer.classList.add('chat-box-embedded'); 
+        
+        const history = document.getElementById('chat-history');
+        history.innerHTML = `<div class="message system-message">Studying <strong>${section.title}</strong>. Ask me to explain any concept!</div>`;
 
-    // Note: We append the EXISTING chat interface element into our new sidebar
-    sidebar.appendChild(chatContainer);
+        sidebar.appendChild(chatContainer);
+    }
 
-    // B. Quiz Widget (New!)
+    // B. Quiz Widget
     if (section.quiz && section.quiz.length > 0) {
         const quizBox = document.createElement('div');
         quizBox.className = 'quiz-box';
         
         const quizTitle = document.createElement('div');
         quizTitle.className = 'quiz-header';
-        quizTitle.innerHTML = 'Quick Check';
+        quizTitle.innerHTML = '⚡ Quick Check';
         quizBox.appendChild(quizTitle);
 
-        // Render just the first question for now
         const qData = section.quiz[0];
-        
         const qText = document.createElement('p');
         qText.innerText = qData.question;
         qText.style.fontSize = '0.9rem';
@@ -286,16 +302,16 @@ function showLessonContent(section, topic, module) {
             btn.className = 'quiz-option';
             btn.innerText = opt;
             btn.onclick = () => {
-                // Simple feedback logic
+                const feedback = quizBox.querySelector('.quiz-feedback');
                 if (opt === qData.answer) {
-                    btn.style.background = '#d4edda'; // Green
+                    btn.style.background = '#d4edda';
                     btn.style.borderColor = '#c3e6cb';
-                    feedback.innerText = "Correct!";
+                    feedback.innerText = "Correct! ✅";
                     feedback.className = "quiz-feedback correct";
                 } else {
-                    btn.style.background = '#f8d7da'; // Red
+                    btn.style.background = '#f8d7da';
                     btn.style.borderColor = '#f5c6cb';
-                    feedback.innerText = "Try again.";
+                    feedback.innerText = "Try again. ❌";
                     feedback.className = "quiz-feedback incorrect";
                 }
             };
@@ -320,7 +336,8 @@ const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
 const chatHistory = document.getElementById('chat-history');
 
-sendBtn.addEventListener('click', () => {
+// Define sendMessage logic as a standalone function so we can reuse it
+function sendMessage() {
     const question = userInput.value;
     if (question.trim() === "") return;
 
@@ -340,6 +357,16 @@ sendBtn.addEventListener('click', () => {
         console.error('Error:', error);
         appendMessage('System', 'Error connecting to the brain.', 'system-message');
     });
+}
+
+// 1. Click Listener
+sendBtn.addEventListener('click', sendMessage);
+
+// 2. Enter Key Listener (NEW FEATURE)
+userInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
 });
 
 function appendMessage(sender, text, className) {

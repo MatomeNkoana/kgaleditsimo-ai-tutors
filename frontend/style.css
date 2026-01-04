@@ -17,7 +17,14 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    html, body {
+    overflow-x: hidden; /* <--- THE FIX: Kills horizontal scrolling */
+    max-width: 100vw;   /* Ensures body never exceeds viewport width */
+    margin: 0;
+    padding: 0;
 }
+}
+
 
 /* =========================================
    2. MAIN CONTAINER (UPDATED FOR FULL WIDTH)
@@ -26,7 +33,7 @@ main {
     /* CHANGED: Switched from fixed 1000px to dynamic 98% width */
     max-width: 98%;       
     margin: 20px auto;    
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box; /* Ensures padding doesn't add to width */
 }
 
@@ -307,6 +314,14 @@ button:not(.back-button):hover {
 #send-btn:hover {
     background-color: var(--primary-color);
 }
+#chat-history {
+    flex-grow: 1;    /* Expand to fill available space */
+    min-height: 0;   /* CRITICAL: Allows flex child to shrink/scroll */
+    overflow-y: auto; /* Enables the scrollbar */
+    padding: 15px;
+    background: #f9f9f9;
+    scroll-behavior: smooth;
+}
 
 /* =========================================
    9. LESSON DASHBOARD (SPLIT SCREEN VIEW)
@@ -314,9 +329,10 @@ button:not(.back-button):hover {
 .lesson-dashboard {
     display: flex;
     gap: 1.5rem;
-    height: 80vh; /* CHANGED: Taller to fit more content */
+    min-height: 80vh; /* CHANGED: Taller to fit more content */
     width: 100%;  /* CHANGED: Forces use of full width */
     margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
 /* LEFT PANEL: Reading Material */
@@ -345,18 +361,20 @@ button:not(.back-button):hover {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    height: auto;
 }
 
 /* Embedded Chat Box */
 .chat-box-embedded {
-    flex: 1; /* Grow to fill available space */
+    flex: 1; 
     background: white;
     border-radius: 8px;
     border: 1px solid #ddd;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    padding: 10px; /* Internal padding */
+    overflow: hidden; /* Contains the scrollbar inside */
+    /* KEY FIX: Define a minimum height so it doesn't collapse */
+    min-height: 300px; 
 }
 
 /* Override #chat-history within the sidebar context */
@@ -413,3 +431,46 @@ button:not(.back-button):hover {
 }
 .correct { color: green; }
 .incorrect { color: red; }
+
+/* =========================================
+   11. MOBILE RESPONSIVENESS FIXES 
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* 1. Unstack the Dashboard (Column Mode) */
+    .lesson-dashboard {
+        flex-direction: column;
+        height: auto;      /* Allow the dashboard to grow infinitely tall */
+        min-height: auto;  /* Override desktop settings */
+    }
+
+    /* 2. Panels take full width */
+    .lesson-content-panel, 
+    .lesson-sidebar {
+        width: 100%;       
+        box-sizing: border-box; /* Ensure padding doesn't push width out */
+        margin: 0 0 1rem 0;     /* Remove side margins if any */
+    }
+
+    /* 3. Text Panel: Keep this scrollable so it doesn't take 10 pages of scrolling */
+    .lesson-content-panel {
+        height: 50vh;      /* Takes top half of screen */
+        margin-bottom: 1.5rem;
+    }
+
+    /* 4. Sidebar: CRITICAL FIX - Let it grow to fit the Quiz! */
+    .lesson-sidebar {
+        height: auto;      /* Remove fixed constraint */
+        overflow: visible; /* Ensure nothing gets cut off */
+    }
+
+    /* 5. Hide Main Menu Grid Columns (1 column only) */
+    .main-subject-grid, .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 12. FOOTER PROTECTION */
+/* Add this to ensure the footer never gets covered */
+body {
+    padding-bottom: 5rem; /* Adds empty space at the very bottom of the page */
+}
