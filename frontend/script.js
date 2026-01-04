@@ -4,9 +4,9 @@
 // LOCAL URL
 const API_BASE_URL = 'http://127.0.0.1:5000';
 
-
 const container = document.getElementById('curriculum-container');
 let allData = {}; // Variable to store the fetched data
+let currentSubject = null; // NEW: Variable to track which main subject (Chem/CS) we are viewing
 
 // 1. Fetch Data on Load
 fetch(`${API_BASE_URL}/api/curriculum`)
@@ -17,37 +17,83 @@ fetch(`${API_BASE_URL}/api/curriculum`)
     })
     .catch(error => console.error('Error:', error));
 
-// 2. Function to Draw the Main Menu
 function renderMainMenu() {
-    container.innerHTML = ''; // Clear the screen
+    container.innerHTML = ''; 
+    currentSubject = null;    
 
     // HIDE Chat when on main menu
-    document.getElementById('chat-interface').classList.add('hidden')
+    document.getElementById('chat-interface').classList.add('hidden');
+
+    const header = document.createElement('h2');
+    header.innerText = "Select a Subject";
+    container.appendChild(header);
+
+    const grid = document.createElement('div');
+    grid.className = 'main-subject-grid'; 
 
     allData.subjects.forEach(subject => {
+        const card = document.createElement('div');
+        card.className = 'main-card';
+        
         const title = document.createElement('h3');
         title.innerText = subject.name;
-        container.appendChild(title);
+        card.appendChild(title);
 
-        const list = document.createElement('ul');
-        
-        subject.modules.forEach(module => {
-            const item = document.createElement('li');
-            item.innerText = module.title;
-            item.className = 'module-item'; // Add CSS class
-            
-            // Add Click Listener
-            item.addEventListener('click', () => {
-                showTopics(module);
-            });
+        const desc = document.createElement('p');
+        // Optional safe check for description
+        desc.innerText = subject.description || `Explore ${subject.name} modules.`;
+        card.appendChild(desc);
 
-            list.appendChild(item);
+        // --- THE FIX IS HERE ---
+        card.addEventListener('click', () => {
+            currentSubject = subject; 
+            renderModuleList(subject); // This routes to the breakdown, not the topics
         });
-        container.appendChild(list);
+        // -----------------------
+
+        grid.appendChild(card);
     });
+
+    container.appendChild(grid);
 }
 
-// 3. Function to Draw the Topics (The Drill-Down)
+// 3. NEW Function: Draw the Module List (The 4 Sub-Cards)
+function renderModuleList(subject) {
+    container.innerHTML = ''; // Clear screen
+
+    // Navigation: Back to Main Menu
+    const backBtn = document.createElement('button');
+    backBtn.innerText = "← Back to Subjects";
+    backBtn.className = "back-button";
+    backBtn.onclick = renderMainMenu;
+    container.appendChild(backBtn);
+
+    // Title
+    const title = document.createElement('h2');
+    title.innerText = subject.name; // e.g., "Chemistry"
+    container.appendChild(title);
+
+    // Grid for Modules
+    const grid = document.createElement('div');
+    grid.className = 'card-grid'; // Reuse existing grid CSS
+
+    subject.modules.forEach(module => {
+        const card = document.createElement('div');
+        card.className = 'card'; // Use 'card' class for styling
+        card.innerText = module.title;
+
+        // Click Logic: Go to Topics
+        card.addEventListener('click', () => {
+            showTopics(module);
+        });
+
+        grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+}
+
+// 4. Function to Draw the Topics (Specific list inside a Module)
 function showTopics(module) {
     if (!module.topics) {
         alert("No topics added for this module yet!");
@@ -56,27 +102,31 @@ function showTopics(module) {
 
     container.innerHTML = ''; // Clear screen
 
-    // 1. Header & Navigation
+    // Navigation: Back to Module List (not Main Menu)
     const backBtn = document.createElement('button');
-    backBtn.innerText = "← Back to Subjects";
-    backBtn.onclick = renderMainMenu;
+    backBtn.innerText = `← Back to ${currentSubject.name}`;
+    backBtn.className = "back-button";
+    
+    // We use the 'currentSubject' variable to know where to go back to
+    backBtn.onclick = () => renderModuleList(currentSubject);
+    
     container.appendChild(backBtn);
 
     const title = document.createElement('h2');
     title.innerText = module.title;
     container.appendChild(title);
 
-    // 2. Render Topics as CARDS (Grid Layout)
-    const list = document.createElement('ul'); // Re-use grid layout from CSS
+    // Render Topics List
+    const list = document.createElement('ul');
     
     module.topics.forEach(topic => {
         const item = document.createElement('li');
-        item.className = 'module-item'; // Apply the same card style
-        item.innerHTML = `<strong>${topic.title}</strong>`; // Just show title first
+        item.className = 'module-item'; 
+        item.innerHTML = `<strong>${topic.title}</strong>`;
         
         // Click to Enter Content View
         item.addEventListener('click', () => {
-            showLessonContent(topic);
+            showLessonContent(topic, module); // Pass module so we can go back
         });
 
         list.appendChild(item);
@@ -84,19 +134,16 @@ function showTopics(module) {
     container.appendChild(list);
 }
 
-// 3. New Function: Show the Specific Lesson Content
-function showLessonContent(topic) {
+// 5. Function to Show the Specific Lesson Content
+function showLessonContent(topic, module) {
     container.innerHTML = ''; // Clear screen
 
-    // Navigation
+    // Navigation: Back to Topics
     const backBtn = document.createElement('button');
     backBtn.innerText = "← Back to Topics";
-    // We need to reload the module view here. 
-    // In a real app, we'd pass the 'module' object again. 
-    // For now, simple reload or re-fetch might be needed, 
-    // but simply: location.reload() is the lazy way. 
-    // Better: We just re-render main menu for now or store 'currentModule' globally.
-    backBtn.onclick = renderMainMenu; 
+    backBtn.className = "back-button";
+    // Go back to the topics of the specific module we passed in
+    backBtn.onclick = () => showTopics(module); 
     container.appendChild(backBtn);
 
     // Content Display
@@ -105,10 +152,10 @@ function showLessonContent(topic) {
     container.appendChild(title);
 
     const contentBox = document.createElement('div');
-    contentBox.className = 'module-item'; // Reuse card style for content container
-    contentBox.style.cursor = 'default';   // Remove pointer cursor
-    contentBox.style.transform = 'none';   // Remove hover effect
-    contentBox.innerHTML = topic.content;  // Inject the HTML content from JSON
+    contentBox.className = 'module-item';
+    contentBox.style.cursor = 'default';
+    contentBox.style.transform = 'none';
+    contentBox.innerHTML = topic.content;
     container.appendChild(contentBox);
 
     // Show Chat Interface below content
@@ -119,34 +166,26 @@ function showLessonContent(topic) {
     history.innerHTML = `<div class="message system-message">Studying <strong>${topic.title}</strong>. Ask me to explain any concept!</div>`;
 }
 
-// --- CHAT LOGIC ---
+// --- CHAT LOGIC (Unchanged) ---
 
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
 const chatHistory = document.getElementById('chat-history');
 
-// 1. Listen for the "Send" Click
 sendBtn.addEventListener('click', () => {
     const question = userInput.value;
-    
-    // Validation: Don't send empty messages
     if (question.trim() === "") return;
 
-    // A. Show User Message immediately
     appendMessage('User', question, 'user-message');
-    userInput.value = ''; // Clear input box
+    userInput.value = ''; 
 
-    // B. Send to Python Backend
     fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: question })
     })
     .then(response => response.json())
     .then(data => {
-        // C. Show AI Response
         appendMessage('AI Tutor', data.answer, 'ai-message');
     })
     .catch(error => {
@@ -155,14 +194,10 @@ sendBtn.addEventListener('click', () => {
     });
 });
 
-// 2. Helper Function to Draw Bubbles
 function appendMessage(sender, text, className) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${className}`;
     messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    
     chatHistory.appendChild(messageDiv);
-    
-    // Auto-scroll to the bottom
     chatHistory.scrollTop = chatHistory.scrollHeight; 
 }

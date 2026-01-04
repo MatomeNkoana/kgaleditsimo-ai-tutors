@@ -6,32 +6,30 @@
     <title>Kgaleditsimo AI Tutors</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<header>
+<body>
+
+    <header>
         <h1>Kgaleditsimo AI Tutors</h1>
         <p>Unified web platform for Chemistry, Computer Science, and Mathematics.</p>
-</header>
+    </header>
 
     <main>
-        <h2>Select a Subject</h2>
-        <div id="curriculum-container">
+        <div id="curriculum-container" class="container">
             </div>
-        <section id="chat-interface" class="hidden">
-            <div id="chat-history">
-                <div class="message system-message">
-                    Welcome to the AI Tutor. Ask a question about this module!
-                </div>
-            </div>
-            <div class="input-area">
-                <input type="text" id="user-input" placeholder="Type your question here..." />
+
+        <div id="chat-interface" class="hidden">
+            <div id="chat-history"></div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Ask your AI Tutor a question...">
                 <button id="send-btn">Send</button>
             </div>
-        </section>        
-        <button id="login-btn">Login</button>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 Kgaleditsimo AI</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
