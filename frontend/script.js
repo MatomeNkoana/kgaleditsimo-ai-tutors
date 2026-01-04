@@ -5,23 +5,23 @@
 const API_BASE_URL = 'http://127.0.0.1:5000';
 
 const container = document.getElementById('curriculum-container');
-let allData = {}; // Variable to store the fetched data
-let currentSubject = null; // NEW: Variable to track which main subject (Chem/CS) we are viewing
+let allData = {}; 
+let currentSubject = null; 
 
 // 1. Fetch Data on Load
 fetch(`${API_BASE_URL}/api/curriculum`)
     .then(response => response.json())
     .then(data => {
-        allData = data; // Save data for later use
-        renderMainMenu(); // Show the main list initially
+        allData = data; 
+        renderMainMenu(); 
     })
     .catch(error => console.error('Error:', error));
 
+// 2. Main Menu (Subject Selection)
 function renderMainMenu() {
     container.innerHTML = ''; 
     currentSubject = null;    
 
-    // HIDE Chat when on main menu
     document.getElementById('chat-interface').classList.add('hidden');
 
     const header = document.createElement('h2');
@@ -40,16 +40,13 @@ function renderMainMenu() {
         card.appendChild(title);
 
         const desc = document.createElement('p');
-        // Optional safe check for description
         desc.innerText = subject.description || `Explore ${subject.name} modules.`;
         card.appendChild(desc);
 
-        // --- THE FIX IS HERE ---
         card.addEventListener('click', () => {
             currentSubject = subject; 
-            renderModuleList(subject); // This routes to the breakdown, not the topics
+            renderModuleList(subject); 
         });
-        // -----------------------
 
         grid.appendChild(card);
     });
@@ -57,26 +54,21 @@ function renderMainMenu() {
     container.appendChild(grid);
 }
 
-// 3. NEW Function: Draw the Module List 
+// 3. Module List (e.g., Organic, Inorganic)
 function renderModuleList(subject) {
     container.innerHTML = '';
-
-    // Hide Chat when viewing modules
     document.getElementById('chat-interface').classList.add('hidden');
 
-    // Navigation: Back to Main Menu
     const backBtn = document.createElement('button');
     backBtn.innerText = "← Back to Subjects";
     backBtn.className = "back-button";
     backBtn.onclick = renderMainMenu;
     container.appendChild(backBtn);
 
-    // Title
     const title = document.createElement('h2');
-    title.innerText = subject.name; // e.g., "Chemistry"
+    title.innerText = subject.name; 
     container.appendChild(title);
 
-    // Grid for Modules
     const grid = document.createElement('div');
     grid.className = 'card-grid';
 
@@ -85,7 +77,6 @@ function renderModuleList(subject) {
         card.className = 'card';
         card.innerText = module.title;
 
-        // Click Logic: Go to Topics
         card.addEventListener('click', () => {
             showTopics(module);
         });
@@ -96,7 +87,7 @@ function renderModuleList(subject) {
     container.appendChild(grid);
 }
 
-// 4. Function to Draw the Topics (Specific list inside a Module)
+// 4. Topics List (e.g., Gravimetry, Titration)
 function showTopics(module) {
     if (!module.topics) {
         alert("No topics added for this module yet!");
@@ -106,21 +97,16 @@ function showTopics(module) {
     container.innerHTML = ''; 
     document.getElementById('chat-interface').classList.add('hidden');
     
-    // Navigation: Back to Module List (not Main Menu)
     const backBtn = document.createElement('button');
     backBtn.innerText = `← Back to ${currentSubject.name}`;
     backBtn.className = "back-button";
-    
-    // We use the 'currentSubject' variable to know where to go back to
     backBtn.onclick = () => renderModuleList(currentSubject);
-    
     container.appendChild(backBtn);
 
     const title = document.createElement('h2');
     title.innerText = module.title;
     container.appendChild(title);
 
-    // Render Topics List
     const list = document.createElement('ul');
     
     module.topics.forEach(topic => {
@@ -128,9 +114,52 @@ function showTopics(module) {
         item.className = 'module-item'; 
         item.innerHTML = `<strong>${topic.title}</strong>`;
         
-        // Click to Enter Content View
+        // --- ROUTING UPDATE: Go to Sections, not Lesson Content ---
         item.addEventListener('click', () => {
-            showLessonContent(topic, module); // Pass module so we can go back
+            showSections(topic, module);
+        });
+        // ----------------------------------------------------------
+
+        list.appendChild(item);
+    });
+    container.appendChild(list);
+}
+
+// 5. [NEW] Sections List (e.g., Precipitation, Volatilization)
+function showSections(topic, module) {
+    // Fallback: If no sections exist (old data format), try showing content directly
+    if (!topic.sections) {
+        if (topic.content) {
+            showLessonContent({ title: topic.title, content: topic.content }, topic, module);
+            return;
+        }
+        alert("No sections content added for this topic yet!");
+        return;
+    }
+
+    container.innerHTML = '';
+    document.getElementById('chat-interface').classList.add('hidden'); // Hide chat here!
+
+    const backBtn = document.createElement('button');
+    backBtn.innerText = `← Back to ${module.title}`; 
+    backBtn.className = "back-button";
+    backBtn.onclick = () => showTopics(module);
+    container.appendChild(backBtn);
+
+    const title = document.createElement('h2');
+    title.innerText = topic.title; 
+    container.appendChild(title);
+
+    const list = document.createElement('ul');
+    
+    topic.sections.forEach(section => {
+        const item = document.createElement('li');
+        item.className = 'module-item'; 
+        item.innerHTML = `<strong>${section.title}</strong>`;
+        
+        // Click now goes to Final Content
+        item.addEventListener('click', () => {
+            showLessonContent(section, topic, module);
         });
 
         list.appendChild(item);
@@ -138,39 +167,42 @@ function showTopics(module) {
     container.appendChild(list);
 }
 
-// 5. Function to Show the Specific Lesson Content
-function showLessonContent(topic, module) {
-    container.innerHTML = ''; // Clear screen
+// 6. Lesson Content (The HTML Content + Chat)
+function showLessonContent(section, topic, module) {
+    container.innerHTML = ''; 
 
-    // Navigation: Back to Topics
+    // Navigation Logic: Handle whether we came from Sections or directly from Topics
     const backBtn = document.createElement('button');
-    backBtn.innerText = "← Back to Topics";
+    if (topic.sections) {
+        backBtn.innerText = `← Back to ${topic.title}`;
+        backBtn.onclick = () => showSections(topic, module); 
+    } else {
+        // Fallback for old data structure
+        backBtn.innerText = `← Back to ${module.title}`;
+        backBtn.onclick = () => showTopics(module);
+    }
     backBtn.className = "back-button";
-    // Go back to the topics of the specific module we passed in
-    backBtn.onclick = () => showTopics(module); 
     container.appendChild(backBtn);
 
-    // Content Display
     const title = document.createElement('h2');
-    title.innerText = topic.title;
+    title.innerText = section.title;
     container.appendChild(title);
 
     const contentBox = document.createElement('div');
     contentBox.className = 'module-item';
     contentBox.style.cursor = 'default';
     contentBox.style.transform = 'none';
-    contentBox.innerHTML = topic.content;
+    contentBox.innerHTML = section.content || "<p>No content available.</p>";
     container.appendChild(contentBox);
 
-    // Show Chat Interface below content
+    // Show Chat Interface
     document.getElementById('chat-interface').classList.remove('hidden');
     
-    // Context-aware System Message
     const history = document.getElementById('chat-history');
-    history.innerHTML = `<div class="message system-message">Studying <strong>${topic.title}</strong>. Ask me to explain any concept!</div>`;
+    history.innerHTML = `<div class="message system-message">Studying <strong>${section.title}</strong>. Ask me to explain any concept!</div>`;
 }
 
-// --- CHAT LOGIC (Unchanged) ---
+// --- CHAT LOGIC ---
 
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');

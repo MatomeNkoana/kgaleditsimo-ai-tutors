@@ -5,41 +5,157 @@
       "name": "Chemistry",
       "description": "The scientific study of the properties and behavior of matter.",
       "modules": [
-        { "title": "Organic Chemistry", "id": "chem-org", "topics": [] },
-        { "title": "Inorganic Chemistry", "id": "chem-inorg", "topics": [] },
+        { 
+          "title": "Organic Chemistry", 
+          "id": "chem-org",
+          "description": "The study of carbon-containing compounds, their structure, reactions, and synthesis. [Textbook alignment pending]", 
+          "topics": [] 
+        },
+        { 
+          "title": "Inorganic Chemistry", 
+          "id": "chem-inorg",
+          "description": "The study of inorganic compounds, metals, minerals, and organometallics. [Textbook alignment pending]",
+          "topics": [] 
+        },
         { 
           "title": "Analytical Chemistry", 
           "id": "chem-ana", 
+          "description": "The science of obtaining, processing, and communicating information about the composition and structure of matter. Based on 'Fundamentals of Analytical Chemistry' by Skoog et al.",
           "topics": [
             { 
-              "title": "Introduction to Analytical Chemistry", 
-              "content": "Overview of qualitative and quantitative analysis methods." 
+              "title": "Errors in Chemical Analysis", 
+              "id": "topic-errors",
+              "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
+              "outcomes": [
+                  "Distinguish between systematic (determinate) and random (indeterminate) errors.",
+                  "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
+                  "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
+              ],
+              "sections": [
+                 {
+                    "title": "5A: Mean and Median",
+                    "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
+                 },
+                 {
+                    "title": "5B: Precision and Accuracy",
+                    "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
+                 },
+                 {
+                    "title": "5C: Types of Errors in Experimental Data",
+                    "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
+                 }
+              ]
             },
             { 
-              "title": "Gravimetry", 
+              "title": "Gravimetric Methods of Analysis", 
               "id": "topic-gravimetry",
+              "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
+              "outcomes": [
+                  "Explain the mechanism of precipitate formation: nucleation and particle growth.",
+                  "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
+                  "Differentiate between colloidal and crystalline precipitates.",
+                  "Understand the principles of volatilization gravimetry."
+              ],
               "sections": [
                 {
-                  "title": "Precipitation Gravimetry",
-                  "content": "<h3>Precipitation Gravimetry</h3><p>This method involves isolating an ion in solution by a precipitation reaction, filtering, washing, drying, and weighing the precipitate.</p>"
+                  "title": "12A: Precipitation Gravimetry",
+                  "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
                 },
                 {
-                  "title": "Volatilization Gravimetry",
-                  "content": "<h3>Volatilization Gravimetry</h3><p>In this method, the analyte is separated from other constituents of the sample by converting it to a gas of known chemical composition.</p>"
+                  "title": "12B: Calculation of Results from Gravimetric Data",
+                  "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
                 },
                 {
-                  "title": "Electrogravimetry",
-                  "content": "<h3>Electrogravimetry</h3><p>The analyte is separated by deposition on an electrode by an electrical current.</p>"
+                  "title": "12C: Properties of Precipitates and Precipitating Agents",
+                  "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
+                },
+                {
+                  "title": "12D: Volatilization Gravimetry",
+                  "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
                 }
               ]
             },
             { 
-              "title": "Volumetry (Titrimetry)", 
-              "content": "<strong>1. Apparatus:</strong> Burette, Pipette.<br><strong>2. Reaction Types:</strong> Acid-Base, Redox." 
+              "title": "Titrimetric Methods (Volumetry)", 
+              "id": "topic-titrimetry",
+              "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
+              "outcomes": [
+                  "Define the terms: standard solution, equivalence point, and end point.",
+                  "Calculate molar concentrations from titration data using stoichiometry.",
+                  "Understand the requirements for a primary standard.",
+                  "Interpret the shape of titration curves."
+              ],
+              "sections": [
+                  {
+                      "title": "13A: Terms Used in Volumetric Titrimetry",
+                      "content": "<h3>Terms and Definitions</h3><p>Defining titrants, titration, back-titration, and equivalence points.</p>"
+                  },
+                  {
+                      "title": "13B: Standard Solutions",
+                      "content": "<h3>Standard Solutions</h3><p>Properties of primary standards and the preparation of standard solutions.</p>"
+                  },
+                  {
+                      "title": "13C: Volumetric Calculations",
+                      "content": "<h3>Volumetric Calculations</h3><p>Molarity calculations and treating titration data.</p>"
+                  }
+              ]
+            },
+            { 
+              "title": "Introduction to Electrochemistry", 
+              "id": "topic-electrochem",
+              "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
+              "outcomes": [
+                  "Describe the operation of an electrochemical cell.",
+                  "Calculate electrode potentials using the Nernst Equation.",
+                  "Differentiate between galvanic and electrolytic cells."
+              ],
+              "sections": [
+                  {
+                      "title": "18A: Characterizing Oxidation-Reduction Reactions",
+                      "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
+                  },
+                  {
+                      "title": "18B: Electrochemical Cells",
+                      "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge and anode/cathode definition.</p>"
+                  },
+                  {
+                      "title": "18C: Electrode Potentials",
+                      "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
+                  }
+              ]
+            },
+            { 
+              "title": "Introduction to Spectrochemical Methods", 
+              "id": "topic-spectroscopy",
+              "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
+              "outcomes": [
+                  "Describe the wave and particle properties of electromagnetic radiation.",
+                  "Explain the phenomena of absorption, emission, and scattering.",
+                  "Understand the relationship between frequency, wavelength, and energy."
+              ],
+              "sections": [
+                  {
+                      "title": "24A: Properties of Electromagnetic Radiation",
+                      "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
+                  },
+                  {
+                      "title": "24B: Interaction of Radiation with Matter",
+                      "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
+                  },
+                  {
+                      "title": "24C: Absorption of Radiation",
+                      "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
+                  }
+              ]
             }
           ]
         },
-        { "title": "Physical Chemistry", "id": "chem-phys", "topics": [] }
+        { 
+           "title": "Physical Chemistry", 
+           "id": "chem-phys", 
+           "description": "The branch of chemistry concerned with the application of the techniques and theories of physics to the study of chemical systems. [Textbook alignment pending]",
+           "topics": [] 
+        }
       ]
     },
     {
@@ -47,11 +163,36 @@
       "name": "Computer Science",
       "description": "The study of computation, automation, and information.",
       "modules": [
-        { "title": "Formal Logic", "id": "cs-logic", "topics": [] },
-        { "title": "Artificial Intelligence", "id": "cs-ai", "topics": [] },
-        { "title": "Software Engineering Projects", "id": "cs-se-proj", "topics": [] },
-        { "title": "Theoretical Computer Science", "id": "cs-theory", "topics": [] },
-        { "title": "Data Structures & Algorithms", "id": "cs-dsa", "topics": [] }
+        { 
+            "title": "Formal Logic", 
+            "id": "cs-logic",
+            "description": "The study of inference with purely formal content, including Propositional and Predicate Logic.",
+            "topics": [] 
+        },
+        { 
+            "title": "Theoretical Computer Science", 
+            "id": "cs-theory",
+            "description": "Mathematical aspects of computer science, including complexity theory and automata.",
+            "topics": [] 
+        },
+        { 
+            "title": "Artificial Intelligence", 
+            "id": "cs-ai",
+            "description": "The simulation of human intelligence processes by computer systems, specifically learning and reasoning.",
+            "topics": [] 
+        },
+        { 
+            "title": "Data Structures & Algorithms", 
+            "id": "cs-dsa",
+            "description": "The study of methods for storing data and the algorithms used to access and manipulate it.",
+            "topics": [] 
+        },
+        { 
+            "title": "Software Engineering Projects", 
+            "id": "cs-se-proj",
+            "description": "Practical application of engineering principles to the development of software.",
+            "topics": [] 
+        }
       ]
     }
   ]
