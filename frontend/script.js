@@ -57,9 +57,12 @@ function renderMainMenu() {
     container.appendChild(grid);
 }
 
-// 3. NEW Function: Draw the Module List (The 4 Sub-Cards)
+// 3. NEW Function: Draw the Module List 
 function renderModuleList(subject) {
-    container.innerHTML = ''; // Clear screen
+    container.innerHTML = '';
+
+    // Hide Chat when viewing modules
+    document.getElementById('chat-interface').classList.add('hidden');
 
     // Navigation: Back to Main Menu
     const backBtn = document.createElement('button');
@@ -75,11 +78,11 @@ function renderModuleList(subject) {
 
     // Grid for Modules
     const grid = document.createElement('div');
-    grid.className = 'card-grid'; // Reuse existing grid CSS
+    grid.className = 'card-grid';
 
     subject.modules.forEach(module => {
         const card = document.createElement('div');
-        card.className = 'card'; // Use 'card' class for styling
+        card.className = 'card';
         card.innerText = module.title;
 
         // Click Logic: Go to Topics
@@ -100,8 +103,9 @@ function showTopics(module) {
         return;
     }
 
-    container.innerHTML = ''; // Clear screen
-
+    container.innerHTML = ''; 
+    document.getElementById('chat-interface').classList.add('hidden');
+    
     // Navigation: Back to Module List (not Main Menu)
     const backBtn = document.createElement('button');
     backBtn.innerText = `← Back to ${currentSubject.name}`;
