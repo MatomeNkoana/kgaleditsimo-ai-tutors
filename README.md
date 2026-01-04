@@ -3,7 +3,7 @@
 > **A cloud-native, multi-disciplinary AI education platform engineered to democratize access to high-level academic tutoring in South Africa.**
 
 ![Status](https://img.shields.io/badge/Status-Live-success)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Version](https://img.shields.io/badge/Version-1.2.0-blue)
 ![Stack](https://img.shields.io/badge/Tech-Python_|_Flask_|_Gemini_2.0-blueviolet)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -11,119 +11,103 @@
 
 **Kgaleditsimo** ("The Beginning of Knowledge") is not merely a chatbot; it is a scalable **AI Tutoring Engine** designed to bridge the gap between rigid university syllabi and adaptive, personalized learning.
 
-While the current MVP demonstrates proficiency in **Formal Logic** and **Analytical Chemistry**, the underlying architecture is subject-agnostic. It is built to serve as a comprehensive knowledge base for the author's multi-disciplinary focus, including:
+The platform is currently live with a robust **Analytical Chemistry** curriculum aligned with *Fundamentals of Analytical Chemistry (Skoog, 10th Ed)*. It serves as a comprehensive knowledge base for the author's multi-disciplinary focus, including:
 
-* **Computer Science:** Algorithms, Data Structures, and C++/Qt Frameworks.
+* **Natural Sciences:** Analytical Chemistry (Titrimetry, Gravimetry, Spectroscopy).
+* **Computer Science:** Formal Logic III and Algorithms.
 * **Cloud Engineering:** AWS Solutions Architecture & Azure Fundamentals.
-* **Business Intelligence:** Entrepreneurial strategy and financial modeling.
-* **Natural Sciences:** Stoichiometry, Spectroscopy, and Lab Safety.
 
 **[🔗 View Live Demo](https://matomenkoana.github.io/kgaleditsimo-ai-tutors/)**
-*(Note: As this runs on a $0.00 serverless architecture, please allow ~45 seconds for the backend cold-start.)*
+*(Note: As this runs on a serverless architecture, please allow ~45 seconds for the backend cold-start.)*
 
 ---
-### 🛠 Technology Stack
 
-| Domain | Technology | Justification |
+## 🏗 System Architecture
+
+The application follows a decoupled **Client-Server** architecture designed for low-latency mobile access in South Africa.
+
+| Domain | Technology | Implementation Details |
 | --- | --- | --- |
-| **Frontend** | **Vanilla JS / HTML5** | Zero-dependency approach for maximum performance on low-bandwidth mobile devices. |
-| **Backend** | **Python 3.10 / Flask** | Lightweight WSGI framework ideal for rapid API development and AI integration. |
-| **AI Core** | **Google Gemini 2.0** | Chosen for its superior reasoning capabilities in STEM and Logic tasks compared to GPT-3.5. |
-| **DevOps** | **Gunicorn / Render** | Production-grade server management with automated CI/CD pipelines from GitHub. |
+| **Frontend** | **Vanilla JS / HTML5 / CSS3** | Zero-dependency, responsive SPA (Single Page Application) with a custom router for efficient navigation. Optimized for mobile viewports. |
+| **Backend** | **Python 3.10 / Flask** | Lightweight REST API serving structured curriculum data (JSON) and brokering AI requests. |
+| **AI Core** | **Google Gemini 2.0 Flash** | Selected for high-speed reasoning in STEM tasks. Configured with a "Socratic Tutor" system persona. |
+| **Deployment** | **Render + GitHub Pages** | Hybrid deployment: Backend on Render (Gunicorn), Frontend on GitHub Pages for optimal caching. |
 
 ---
 
-## ⚡ Engineering Challenges Solved
+## ⚡ Key Engineering Features
 
-This project serves as a practical demonstration of **Full-Stack Cloud Competence**, addressing several key engineering hurdles:
+This project demonstrates practical **Full-Stack Competence**, solving specific user experience and data structure challenges:
 
-### 1. The "Cold Start" Latency Problem
+### 1. Dynamic Curriculum Engine
+* **Feature:** A modular JSON-based data structure that decouples content from code.
+* **Benefit:** Allows for instant updates to the syllabus (e.g., adding "Redox Titrations") without redeploying the frontend codebase. Currently structured to match *Skoog 10th Edition*.
 
-* **Challenge:** Free-tier cloud containers sleep after inactivity, causing timeouts.
-* **Solution:** Implemented asynchronous `fetch` handling with visual loading states (spinners) to maintain user engagement during server wake-up cycles.
+### 2. The "Lesson Dashboard" Interface
+* **Feature:** A split-screen workspace (Desktop) and stacked layout (Mobile) that displays rigorous academic content alongside an interactive AI tutor.
+* **Tech:** Implemented using CSS Grid/Flexbox with `box-sizing: border-box` and intrinsic sizing (`height: auto`) to prevent layout shifts on varying device sizes.
 
-### 2. Cross-Origin Resource Sharing (CORS)
+### 3. Smart State Management
+* **Feature:** Custom JavaScript routing logic (`renderModuleList`, `showLessonContent`) that preserves navigation history.
+* **Benefit:** Users can navigate deep into a topic (e.g., Titration -> Introduction) and return to the parent module without losing context or triggering page reloads.
 
-* **Challenge:** Modern browsers block requests between different domains (GitHub Pages vs. Render).
-* **Solution:** Configured strict CORS headers on the Flask backend to whitelist only the specific frontend origin, preventing unauthorized API consumption while allowing legitimate traffic.
-
-### 3. Context-Aware Prompt Engineering
-
-* **Challenge:** Generic AI models fail at specific university module requirements.
-* **Solution:** The backend injects a hidden "System Instruction" layer into every prompt. This forces the AI to adopt the persona of a strict academic tutor, limiting answers to the relevant syllabus (e.g., specific logic proofs or chemical formulas).
+### 4. Interactive Learning Aids
+* **Feature:** Embedded "Quick Check" quizzes and real-time Chat Interface.
+* **UX:** Includes "Enter-to-Send" functionality, auto-scrolling chat history, and visual feedback for quiz answers.
 
 ---
 
 ## 🧪 Installation & Local Development
 
-To replicate this environment locally for development or testing:
+To replicate this environment locally:
 
-### The Ingredients (Prerequisites)
+### Prerequisites
+* **Python 3.8+**
+* **Git**
+* **Google Gemini API Key**
 
-* **Python 3.8+** installed.
-* **Git** for version control.
-* **Google AI Studio API Key** (for the Gemini model).
-
-### The Recipe (Steps)
+### Steps
 
 1. **Clone the Repository**
 ```bash
 git clone [https://github.com/matomenkoana/kgaleditsimo-ai-tutors.git](https://github.com/matomenkoana/kgaleditsimo-ai-tutors.git)
-cd kgaleditsimo-ai-tutors
-
+cd kgaleditsimo-ai-tutors 
 ```
-
 
 2. **Initialize Virtual Environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
-
 ```
-
-
 3. **Install Dependencies**
 ```bash
-pip install -r requirements.txt
-
+pip install -r backend/requirements.txt
 ```
-
-
-4. **Configure Environment Variables**
-Create a `.env` file in the root:
-```env
+4. **Configure Environment Create a ```.env``` file in the root:**
+```code snippert
 GEMINI_API_KEY=your_key_here
 PORT=5000
-
 ```
-
-
 5. **Launch the API**
 ```bash
-python app.py
-
+python backend/app.py
 ```
-
-
-
----
+*Frontend runs via Live Server or by opening ```index.html```*
 
 ## 🚀 Strategic Roadmap
 
 The development of Kgaleditsimo follows a phased engineering roadmap:
 
-* ✅ **Phase K (Completed):** Core Infrastructure, Cloud Deployment, and Basic AI Integration.
-* 🔄 **Phase L (In Progress):** **Syllabus Injection (RAG).** implementing Retrieval-Augmented Generation to allow the AI to "read" specific PDF textbooks for Formal Logic and AWS documentation.
-* 🔜 **Phase M (Planned):** **Multi-Modal Support.** enabling the user to upload images of logic circuits or chemical equations for analysis.
-* 🔜 **Phase N (Planned):** **User Authentication.** Personalized learning tracks for different academic majors.
+* ✅ **Phase K (Completed):** Core Infrastructure, Split-Screen Dashboard, Mobile Responsiveness, and CI/CD Pipeline.
+* 🔄 **Phase L (In Progress):** **Content Population.** rigorously populating the "Titrimetric Methods" and "Formal Logic" modules with university-grade content and quizzes.
+* 🔜 **Phase M (Planned):** **Syllabus Injection (RAG).** implementing Retrieval-Augmented Generation to allow the AI to cite specific page numbers from uploaded PDF textbooks.
+* 🔜 **Phase N (Planned):** **User Authentication.** Personalized learning tracks and progress saving.
 
 ---
 
 ## 🤝 Contact & Attribution
 
 **Lead Engineer:** Matome Nkoana
-
-
 *Multidisciplinary Developer | Cloud Aspirant | Entrepreneur*
 
 **License:** Distributed under the MIT License. Open for educational collaboration.
