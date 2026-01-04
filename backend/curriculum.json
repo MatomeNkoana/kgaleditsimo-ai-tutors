@@ -21,133 +21,189 @@
           "title": "Analytical Chemistry", 
           "id": "chem-ana", 
           "description": "The science of obtaining, processing, and communicating information about the composition and structure of matter. Based on 'Fundamentals of Analytical Chemistry' by Skoog et al.",
-          "topics": [
-            { 
-              "title": "Errors in Chemical Analysis", 
-              "id": "topic-errors",
-              "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
-              "outcomes": [
-                  "Distinguish between systematic (determinate) and random (indeterminate) errors.",
-                  "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
-                  "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
-              ],
-              "sections": [
-                 {
-                    "title": "5A: Mean and Median",
-                    "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
-                 },
-                 {
-                    "title": "5B: Precision and Accuracy",
-                    "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
-                 },
-                 {
-                    "title": "5C: Types of Errors in Experimental Data",
-                    "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
-                 }
-              ]
+         "topics": [
+        { 
+            "title": "Introduction to Analytical Chemistry", 
+            "id": "topic-intro",
+            "description": "The foundational overview of the scope, methods, and systematic process of analytical chemistry.",
+            "outcomes": [
+                "Define analytical chemistry and distinguish between qualitative and quantitative analysis.",
+                "Classify analytical methods into gravimetric, volumetric, electroanalytical, and spectroscopic categories.",
+                "Outline the steps in a typical quantitative analysis, from sampling to reporting results."
+            ],
+            "sections": [
+            {
+                "title": "1A: The Role of Analytical Chemistry",
+                "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>"
             },
-            { 
-              "title": "Gravimetric Methods of Analysis", 
-              "id": "topic-gravimetry",
-              "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
-              "outcomes": [
-                  "Explain the mechanism of precipitate formation: nucleation and particle growth.",
-                  "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
-                  "Differentiate between colloidal and crystalline precipitates.",
-                  "Understand the principles of volatilization gravimetry."
-              ],
-              "sections": [
-                {
-                  "title": "12A: Precipitation Gravimetry",
-                  "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
-                },
-                {
-                  "title": "12B: Calculation of Results from Gravimetric Data",
-                  "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
-                },
-                {
-                  "title": "12C: Properties of Precipitates and Precipitating Agents",
-                  "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
-                },
-                {
-                  "title": "12D: Volatilization Gravimetry",
-                  "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
-                }
-              ]
+            {
+                "title": "1B: Classifying Quantitative Analytical Methods",
+                "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>"
             },
-            { 
+            {
+                "title": "1C: Stepping Through a Typical Quantitative Analysis",
+                "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>"
+            }
+            ]
+        },
+        { 
+            "title": "Errors in Chemical Analysis", 
+            "id": "topic-errors",
+            "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
+            "outcomes": [
+                "Distinguish between systematic (determinate) and random (indeterminate) errors.",
+                "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
+                "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
+            ],
+            "sections": [
+            {
+                "title": "5A: Mean and Median",
+                "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
+            },
+            {
+                "title": "5B: Precision and Accuracy",
+                "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
+            },
+            {
+                "title": "5C: Types of Errors in Experimental Data",
+                "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
+            }
+            ]
+        },
+        { 
+            "title": "Gravimetric Methods of Analysis", 
+            "id": "topic-gravimetry",
+            "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
+            "outcomes": [
+                "Explain the mechanism of precipitate formation: nucleation and particle growth.",
+                "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
+                "Differentiate between colloidal and crystalline precipitates.",
+                "Understand the principles of volatilization gravimetry."
+            ],
+            "sections": [
+            {
+                "title": "12A: Precipitation Gravimetry",
+                "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
+            },
+            {
+                "title": "12B: Calculation of Results from Gravimetric Data",
+                "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
+            },
+            {
+                "title": "12C: Properties of Precipitates and Precipitating Agents",
+                "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
+            },
+            {
+                "title": "12D: Volatilization Gravimetry",
+                "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
+            }
+            ]
+        },
+        { 
               "title": "Titrimetric Methods (Volumetry)", 
               "id": "topic-titrimetry",
               "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
               "outcomes": [
-                  "Define the terms: standard solution, equivalence point, and end point.",
-                  "Calculate molar concentrations from titration data using stoichiometry.",
-                  "Understand the requirements for a primary standard.",
-                  "Interpret the shape of titration curves."
+                  "Define standard solution, equivalence point, and end point.",
+                  "Classify titrations into Neutralization, Precipitation, Complexometric, and Redox types.",
+                  "Construct and interpret titration curves (pH, pAg, pM, E) for all method types.",
+                  "Perform stoichiometric calculations for each titration category."
               ],
               "sections": [
                   {
-                      "title": "13A: Terms Used in Volumetric Titrimetry",
-                      "content": "<h3>Terms and Definitions</h3><p>Defining titrants, titration, back-titration, and equivalence points.</p>"
+                      "title": "Introduction to Titrimetric Methods",
+                      "content": "<h3>What is Titrimetry?</h3><p>Titrimetry is a group of analytical methods based on determining the quantity of a reagent of known concentration that is required to react completely with the analyte.</p>"
                   },
                   {
-                      "title": "13B: Standard Solutions",
-                      "content": "<h3>Standard Solutions</h3><p>Properties of primary standards and the preparation of standard solutions.</p>"
+                      "title": "Terms Used in Volumetry",
+                      "content": "<h3>Essential Definitions</h3><ul><li><strong>Titrant:</strong> The solution of known concentration added from the burette.</li><li><strong>Analyte:</strong> The solution of unknown concentration in the flask.</li><li><strong>Equivalence Point:</strong> The theoretical point where moles of titrant equals moles of analyte.</li><li><strong>End Point:</strong> The physical point where the indicator changes color.</li></ul>"
                   },
                   {
-                      "title": "13C: Volumetric Calculations",
-                      "content": "<h3>Volumetric Calculations</h3><p>Molarity calculations and treating titration data.</p>"
+                      "title": "Standard Solutions",
+                      "content": "<h3>Primary Standards</h3><p>A primary standard is a highly purified compound that serves as the reference material. It must be stable, pure, and have a high molar mass.</p>"
+                  },
+                  {
+                      "title": "Neutralization Titrations (Theory)",
+                      "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-) to form water. Includes Strong Acid/Strong Base and Weak/Strong combinations.</p>"
+                  },
+                  {
+                      "title": "Neutralization: Calculations & Curves",
+                      "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence (Buffer), Equivalence, and Post-Equivalence stages. Plotting <strong>pH vs Volume</strong>.</p>"
+                  },
+                  {
+                      "title": "Precipitation Titrations (Theory)",
+                      "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility. The most common is <strong>Argentometry</strong> (using Silver Nitrate) to determine Halides (Cl-, Br-, I-).</p>"
+                  },
+                  {
+                      "title": "Precipitation: Calculations & Curves",
+                      "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations. Plotting <strong>pAg vs Volume</strong> reveals the saturation and equivalence points.</p>"
+                  },
+                  {
+                      "title": "Complexometric Titrations (Theory)",
+                      "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>, used to determine water hardness (Calcium and Magnesium ions).</p>"
+                  },
+                  {
+                      "title": "Complexometric: Calculations & Curves",
+                      "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration. Plotting <strong>pM (e.g., pCa) vs Volume</strong> of EDTA.</p>"
+                  },
+                  {
+                      "title": "Redox Titrations (Theory)",
+                      "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant. Common oxidants include Permanganate (MnO4-) and Dichromate (Cr2O7 2-).</p>"
+                  },
+                  {
+                      "title": "Redox: Calculations & Curves",
+                      "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential ($E_{cell}$) at various stages. Plotting <strong>Potential (V) vs Volume</strong>.</p>"
                   }
               ]
             },
-            { 
-              "title": "Introduction to Electrochemistry", 
-              "id": "topic-electrochem",
-              "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
-              "outcomes": [
-                  "Describe the operation of an electrochemical cell.",
-                  "Calculate electrode potentials using the Nernst Equation.",
-                  "Differentiate between galvanic and electrolytic cells."
-              ],
-              "sections": [
-                  {
-                      "title": "18A: Characterizing Oxidation-Reduction Reactions",
-                      "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
-                  },
-                  {
-                      "title": "18B: Electrochemical Cells",
-                      "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge and anode/cathode definition.</p>"
-                  },
-                  {
-                      "title": "18C: Electrode Potentials",
-                      "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
-                  }
-              ]
-            },
-            { 
-              "title": "Introduction to Spectrochemical Methods", 
-              "id": "topic-spectroscopy",
-              "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
-              "outcomes": [
-                  "Describe the wave and particle properties of electromagnetic radiation.",
-                  "Explain the phenomena of absorption, emission, and scattering.",
-                  "Understand the relationship between frequency, wavelength, and energy."
-              ],
-              "sections": [
-                  {
-                      "title": "24A: Properties of Electromagnetic Radiation",
-                      "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
-                  },
-                  {
-                      "title": "24B: Interaction of Radiation with Matter",
-                      "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
-                  },
-                  {
-                      "title": "24C: Absorption of Radiation",
-                      "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
-                  }
-              ]
-            }
+        { 
+            "title": "Introduction to Electrochemistry", 
+            "id": "topic-electrochem",
+            "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
+            "outcomes": [
+                "Describe the operation of an electrochemical cell.",
+                "Calculate electrode potentials using the Nernst Equation.",
+                "Differentiate between galvanic and electrolytic cells."
+            ],
+            "sections": [
+                {
+                    "title": "18A: Characterizing Oxidation-Reduction Reactions",
+                    "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
+                },
+                {
+                    "title": "18B: Electrochemical Cells",
+                    "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge and anode/cathode definition.</p>"
+                },
+                {
+                    "title": "18C: Electrode Potentials",
+                    "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
+                }
+            ]
+        },
+        { 
+            "title": "Introduction to Spectrochemical Methods", 
+            "id": "topic-spectroscopy",
+            "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
+            "outcomes": [
+                "Describe the wave and particle properties of electromagnetic radiation.",
+                "Explain the phenomena of absorption, emission, and scattering.",
+                "Understand the relationship between frequency, wavelength, and energy."
+            ],
+            "sections": [
+                {
+                    "title": "24A: Properties of Electromagnetic Radiation",
+                    "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
+                },
+                {
+                    "title": "24B: Interaction of Radiation with Matter",
+                    "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
+                },
+                {
+                    "title": "24C: Absorption of Radiation",
+                    "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
+                }
+            ]
+        }
           ]
         },
         { 
