@@ -316,3 +316,22 @@ ul {
     color: #444;
     font-size: 0.95rem;
 }
+/* Specific styling for Section Cards (Level 4) */
+.section-card {
+    min-height: 120px; /* Slightly shorter than main module cards */
+    background-color: #fff;
+    border-left: 4px solid var(--accent-color); /* Add a colored strip to the left */
+    font-size: 0.95rem; /* Slightly compact text */
+    justify-content: center; /* Ensure text is centered */
+}
+
+.section-card h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.section-card:hover {
+    background-color: #f0f8ff; /* Very light blue on hover */
+    border-color: var(--primary-color);
+}

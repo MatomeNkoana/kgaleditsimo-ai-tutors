@@ -161,7 +161,7 @@ function showTopics(module) {
 
 // 5. Sections List (e.g., Precipitation, Volatilization)
 function showSections(topic, module) {
-    // Fallback: If no sections exist (old data format), try showing content directly
+    // Fallback logic remains the same
     if (!topic.sections) {
         if (topic.content) {
             showLessonContent({ title: topic.title, content: topic.content }, topic, module);
@@ -172,33 +172,40 @@ function showSections(topic, module) {
     }
 
     container.innerHTML = '';
-    document.getElementById('chat-interface').classList.add('hidden'); // Hide chat here!
+    document.getElementById('chat-interface').classList.add('hidden'); 
 
+    // Navigation
     const backBtn = document.createElement('button');
     backBtn.innerText = `← Back to ${module.title}`; 
     backBtn.className = "back-button";
     backBtn.onclick = () => showTopics(module);
     container.appendChild(backBtn);
 
+    // Page Title
     const title = document.createElement('h2');
     title.innerText = topic.title; 
     container.appendChild(title);
 
-    const list = document.createElement('ul');
-    
+    // CHANGE: Use 'card-grid' instead of a list
+    const grid = document.createElement('div');
+    grid.className = 'card-grid';
+
     topic.sections.forEach(section => {
-        const item = document.createElement('li');
-        item.className = 'module-item'; 
-        item.innerHTML = `<strong>${section.title}</strong>`;
+        const card = document.createElement('div');
+        // We use 'card' for the shape, and 'section-card' for specific tweaks
+        card.className = 'card section-card'; 
         
-        // Click now goes to Final Content
-        item.addEventListener('click', () => {
+        // Render Title
+        card.innerHTML = `<h3>${section.title}</h3>`;
+        
+        // Click Logic
+        card.addEventListener('click', () => {
             showLessonContent(section, topic, module);
         });
 
-        list.appendChild(item);
+        grid.appendChild(card);
     });
-    container.appendChild(list);
+    container.appendChild(grid);
 }
 
 // 6. Lesson Content (The HTML Content + Chat)
