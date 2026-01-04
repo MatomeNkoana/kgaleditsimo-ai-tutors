@@ -1,0 +1,58 @@
+{
+  "subjects": [
+    {
+      "id": "subj-chem",
+      "name": "Chemistry",
+      "description": "The scientific study of the properties and behavior of matter.",
+      "modules": [
+        { "title": "Organic Chemistry", "id": "chem-org", "topics": [] },
+        { "title": "Inorganic Chemistry", "id": "chem-inorg", "topics": [] },
+        { 
+          "title": "Analytical Chemistry", 
+          "id": "chem-ana", 
+          "topics": [
+            { 
+              "title": "Introduction to Analytical Chemistry", 
+              "content": "Overview of qualitative and quantitative analysis methods." 
+            },
+            { 
+              "title": "Gravimetry", 
+              "id": "topic-gravimetry",
+              "sections": [
+                {
+                  "title": "Precipitation Gravimetry",
+                  "content": "<h3>Precipitation Gravimetry</h3><p>This method involves isolating an ion in solution by a precipitation reaction, filtering, washing, drying, and weighing the precipitate.</p>"
+                },
+                {
+                  "title": "Volatilization Gravimetry",
+                  "content": "<h3>Volatilization Gravimetry</h3><p>In this method, the analyte is separated from other constituents of the sample by converting it to a gas of known chemical composition.</p>"
+                },
+                {
+                  "title": "Electrogravimetry",
+                  "content": "<h3>Electrogravimetry</h3><p>The analyte is separated by deposition on an electrode by an electrical current.</p>"
+                }
+              ]
+            },
+            { 
+              "title": "Volumetry (Titrimetry)", 
+              "content": "<strong>1. Apparatus:</strong> Burette, Pipette.<br><strong>2. Reaction Types:</strong> Acid-Base, Redox." 
+            }
+          ]
+        },
+        { "title": "Physical Chemistry", "id": "chem-phys", "topics": [] }
+      ]
+    },
+    {
+      "id": "subj-cs",
+      "name": "Computer Science",
+      "description": "The study of computation, automation, and information.",
+      "modules": [
+        { "title": "Formal Logic", "id": "cs-logic", "topics": [] },
+        { "title": "Artificial Intelligence", "id": "cs-ai", "topics": [] },
+        { "title": "Software Engineering Projects", "id": "cs-se-proj", "topics": [] },
+        { "title": "Theoretical Computer Science", "id": "cs-theory", "topics": [] },
+        { "title": "Data Structures & Algorithms", "id": "cs-dsa", "topics": [] }
+      ]
+    }
+  ]
+}
