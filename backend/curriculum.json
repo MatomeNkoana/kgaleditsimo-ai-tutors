@@ -111,16 +111,19 @@
               ],
               "sections": [
                   {
-                      "title": "Introduction to Titrimetric Methods",
-                      "content": "<h3>What is Titrimetry?</h3><p>Titrimetry is a group of analytical methods based on determining the quantity of a reagent of known concentration that is required to react completely with the analyte.</p>"
-                  },
-                  {
-                      "title": "Terms Used in Volumetry",
-                      "content": "<h3>Essential Definitions</h3><ul><li><strong>Titrant:</strong> The solution of known concentration added from the burette.</li><li><strong>Analyte:</strong> The solution of unknown concentration in the flask.</li><li><strong>Equivalence Point:</strong> The theoretical point where moles of titrant equals moles of analyte.</li><li><strong>End Point:</strong> The physical point where the indicator changes color.</li></ul>"
+                      "title": "Introduction & Fundamentals",
+                      "content": "<h3>What is Titrimetry?</h3><p>Titrimetry includes a group of analytical methods based on determining the quantity of a reagent of known concentration that is required to react completely with the analyte.</p><h3>The Setup</h3><p>A standard titration uses a <strong>buret</strong> to dispense the reagent (titrant) into a flask containing the sample (analyte).</p><h3>Key Terms</h3><ul><li><strong>Titrant:</strong> The reagent solution of known concentration (usually in the buret).</li><li><strong>Analyte:</strong> The solution of unknown concentration (usually in the flask).</li><li><strong>Equivalence Point:</strong> The theoretical point where the amount of added titrant is chemically equivalent to the amount of analyte.</li><li><strong>End Point:</strong> The physical change (e.g., color change) observed in the experiment. Ideally, End Point ≈ Equivalence Point.</li><li><strong>Titration Error:</strong> The difference in volume between the equivalence point and the end point (Et = Vep - Veq).</li></ul>",
+                      "quiz": [
+                          {
+                              "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
+                              "options": ["End Point", "Equivalence Point", "Standard Point", "Neutral Point"],
+                              "answer": "Equivalence Point"
+                          }
+                      ]
                   },
                   {
                       "title": "Standard Solutions",
-                      "content": "<h3>Primary Standards</h3><p>A primary standard is a highly purified compound that serves as the reference material. It must be stable, pure, and have a high molar mass.</p>"
+                      "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material. It must be stable, pure, non-hygroscopic, and have a high molar mass.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>"
                   },
                   {
                       "title": "Neutralization Titrations (Theory)",
@@ -128,31 +131,31 @@
                   },
                   {
                       "title": "Neutralization: Calculations & Curves",
-                      "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence (Buffer), Equivalence, and Post-Equivalence stages. Plotting <strong>pH vs Volume</strong>.</p>"
+                      "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence (Buffer), Equivalence, and Post-Equivalence stages.</p>"
                   },
                   {
                       "title": "Precipitation Titrations (Theory)",
-                      "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility. The most common is <strong>Argentometry</strong> (using Silver Nitrate) to determine Halides (Cl-, Br-, I-).</p>"
+                      "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl). Common methods include Mohr, Volhard, and Fjans.</p>"
                   },
                   {
                       "title": "Precipitation: Calculations & Curves",
-                      "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations. Plotting <strong>pAg vs Volume</strong> reveals the saturation and equivalence points.</p>"
+                      "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>"
                   },
                   {
                       "title": "Complexometric Titrations (Theory)",
-                      "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>, used to determine water hardness (Calcium and Magnesium ions).</p>"
+                      "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>, used to determine water hardness.</p>"
                   },
                   {
                       "title": "Complexometric: Calculations & Curves",
-                      "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration. Plotting <strong>pM (e.g., pCa) vs Volume</strong> of EDTA.</p>"
+                      "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>"
                   },
                   {
                       "title": "Redox Titrations (Theory)",
-                      "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant. Common oxidants include Permanganate (MnO4-) and Dichromate (Cr2O7 2-).</p>"
+                      "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant. Common oxidants include Permanganate (MnO4-) and Dichromate.</p>"
                   },
                   {
                       "title": "Redox: Calculations & Curves",
-                      "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential ($E_{cell}$) at various stages. Plotting <strong>Potential (V) vs Volume</strong>.</p>"
+                      "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell) at various stages.</p>"
                   }
               ]
             },

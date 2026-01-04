@@ -1,4 +1,6 @@
-/* 1. Global Settings & Colors */
+/* =========================================
+   1. GLOBAL SETTINGS & COLORS
+   ========================================= */
 :root {
     --primary-color: #2c3e50; /* Dark Blue */
     --accent-color: #3498db;  /* Bright Blue */
@@ -17,11 +19,19 @@ body {
     padding: 0;
 }
 
-/* 2. Main Container */
+/* =========================================
+   2. MAIN CONTAINER (UPDATED FOR FULL WIDTH)
+   ========================================= */
 main {
-    max-width: 1000px;
-    margin: 40px auto;
+    /* CHANGED: Switched from fixed 1000px to dynamic 98% width */
+    max-width: 98%;       
+    margin: 20px auto;    
     padding: 20px;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+#curriculum-container {
+    width: 100%;
 }
 
 header {
@@ -39,11 +49,12 @@ h2 {
     display: block; 
     border-bottom: 2px solid var(--accent-color);
     margin-top: 10px;
-    width: 100%; /* Forces it to take full width */
+    width: 100%; 
 }
 
-/* 3. Navigation & Back Buttons */
-/* NOTE: We style .back-button specifically to override generic button styles */
+/* =========================================
+   3. NAVIGATION & BUTTONS
+   ========================================= */
 .back-button {
     background: none;
     border: none;
@@ -51,12 +62,12 @@ h2 {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    display: flex;       /* Ensures icon and text align */
+    display: flex;       
     align-items: center;
     padding: 0.5rem 0;
-    margin-bottom: 1rem; /* Pushes the Title down */
+    margin-bottom: 1rem; 
     transition: color 0.2s, transform 0.2s;
-    width: 100%;         /* Ensures it takes its own row */
+    width: 100%;        
     text-align: left;
 }
 
@@ -64,10 +75,10 @@ h2 {
     color: var(--primary-color);
     text-decoration: underline;
     transform: translateX(-3px);
-    background-color: transparent; /* Override generic button hover */
+    background-color: transparent; 
 }
 
-/* Generic Button (for Chat or other interactions) */
+/* Generic Button (Chat/Quiz) */
 button:not(.back-button) {
     background-color: var(--text-color);
     color: white;
@@ -81,9 +92,12 @@ button:not(.back-button):hover {
     background-color: black;
 }
 
-/* 4. Main Menu: Large Subject Cards */
+/* =========================================
+   4. MAIN MENU: LARGE SUBJECT CARDS
+   ========================================= */
 .main-subject-grid {
     display: grid;
+    /* Responsive columns that stretch to fill space */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
@@ -113,13 +127,16 @@ button:not(.back-button):hover {
     color: var(--accent-color);
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    border: none; /* Remove bottom border from generic H3 */
+    border: none; 
 }
 
-/* 5. Module List: Sub-Cards (Organic, Inorganic...) */
+/* =========================================
+   5. MODULE LIST & GRID (UPDATED)
+   ========================================= */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* CHANGED: auto-fill allows grid to expand seamlessly */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
     width: 100%;
@@ -137,9 +154,10 @@ button:not(.back-button):hover {
     font-weight: 600;
     color: var(--text-color);
     display: flex;
+    flex-direction: column; /* Stack title & desc */
     align-items: center;
     justify-content: center;
-    min-height: 80px;
+    min-height: 150px;      
 }
 
 .card:hover {
@@ -149,54 +167,112 @@ button:not(.back-button):hover {
     color: var(--accent-color);
 }
 
-/* 6. Topics & Content List */
-/* Used when listing topics inside a module */
-.module-item {
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-left: 5px solid var(--accent-color);
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 1rem; /* Separation between list items */
-    list-style: none;    /* Ensure no bullets if using LI */
+.card h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
 }
 
-.module-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--hover-shadow);
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* =========================================
+   6. TOPICS LIST (VERTICAL LIST VIEW)
+   ========================================= */
+.vertical-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    margin-top: 1rem;
+}
+
+.topic-card {
+    flex-direction: column; 
+    align-items: flex-start; 
+    text-align: left;
+    width: 100%;            
+    box-sizing: border-box; 
+    border-left: 6px solid var(--accent-color);
+    padding: 1.5rem;
+}
+
+.topic-header h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.topic-header p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.outcomes-box {
     background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    width: 100%; 
+    box-sizing: border-box;
+    border: 1px solid #e9ecef;
 }
 
-/* Ensure UL lists don't mess up layout */
-ul {
-    list-style-type: none;
-    padding: 0;
-    display: block; /* Reset grid if applied globally */
+.outcomes-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* 7. Chat Interface */
+.outcomes-box ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-type: disc; 
+}
+
+.outcomes-box li {
+    margin-bottom: 0.3rem;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   7. SECTION CARDS (LEVEL 4)
+   ========================================= */
+.section-card {
+    min-height: 120px; 
+    background-color: #fff;
+    border-left: 4px solid var(--accent-color);
+    font-size: 0.95rem; 
+    justify-content: center; 
+}
+
+.section-card h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.section-card:hover {
+    background-color: #f0f8ff; 
+    border-color: var(--primary-color);
+}
+
+/* =========================================
+   8. CHAT INTERFACE (LEGACY)
+   ========================================= */
 .hidden {
     display: none !important;
 }
 
+/* This is the raw chat interface usually hidden until needed */
 #chat-interface {
-    margin-top: 40px;
     border-top: 2px solid var(--accent-color);
     padding-top: 20px;
-}
-
-#chat-history {
-    background: #fff;
-    border: 1px solid #ccc;
-    height: 300px; /* Taller chat window */
-    overflow-y: auto;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
 }
 
 .message {
@@ -232,106 +308,108 @@ ul {
     background-color: var(--primary-color);
 }
 
-/* Update the Card to stack text vertically */
-.card {
-    /* Keep your existing colors/border/shadow lines here... */
+/* =========================================
+   9. LESSON DASHBOARD (SPLIT SCREEN VIEW)
+   ========================================= */
+.lesson-dashboard {
     display: flex;
-    flex-direction: column; /* Stack title on top of description */
-    align-items: center;    /* Center content */
-    justify-content: center;
-    text-align: center;
-    min-height: 150px;      /* Make card taller to fit text */
-    padding: 1.5rem;
-}
-
-.card h3 {
-    margin: 0 0 10px 0;
-    color: var(--primary-color);
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: #555; /* Dark grey for readability */
-    margin: 0;
-    line-height: 1.4;
-}
-
-/* Container for the list of topics */
-.vertical-list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Space between cards */
+    gap: 1.5rem;
+    height: 80vh; /* CHANGED: Taller to fit more content */
+    width: 100%;  /* CHANGED: Forces use of full width */
     margin-top: 1rem;
 }
 
-/* Specific styling for the Topic Cards */
-.topic-card {
-    /* Override the default centered flex from .card */
-    flex-direction: column; 
-    align-items: flex-start; /* Align text to the left */
-    text-align: left;
-    width: 100%;             /* Take full width */
-    box-sizing: border-box;  /* Ensure padding doesn't break width */
-    border-left: 6px solid var(--accent-color); /* Nice colored accent bar */
+/* LEFT PANEL: Reading Material */
+.lesson-content-panel {
+    flex: 3; /* Takes up 60% of width */
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow-y: auto; 
+    border: 1px solid #e0e0e0;
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    line-height: 1.7;
 }
 
-.topic-header h3 {
-    margin-top: 0;
+.lesson-content-panel h3 {
     color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
 }
 
-.topic-header p {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 1rem;
+/* RIGHT PANEL: Tools (Chat + Quiz) */
+.lesson-sidebar {
+    flex: 2; /* Takes up 40% of width */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-/* The Box holding the outcomes list */
-.outcomes-box {
-    background-color: #f8f9fa; /* Light grey background */
+/* Embedded Chat Box */
+.chat-box-embedded {
+    flex: 1; /* Grow to fill available space */
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 10px; /* Internal padding */
+}
+
+/* Override #chat-history within the sidebar context */
+.lesson-sidebar #chat-history {
+    height: auto; /* Let flexbox handle height */
+    flex-grow: 1;
+    border: none; /* Remove duplicate border */
+    background: #f9f9f9;
+}
+
+/* =========================================
+   10. QUIZ BOX STYLING
+   ========================================= */
+.quiz-box {
+    flex: 0 0 auto; /* Do not stretch vertically */
+    background: #fff;
+    border: 1px solid #ffd700; /* Gold border */
+    border-radius: 8px;
     padding: 1rem;
-    border-radius: 6px;
-    width: 100%;               /* Fill the card width */
-    box-sizing: border-box;
-    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-.outcomes-box strong {
-    display: block;
+.quiz-header {
+    font-weight: bold;
+    color: #b8860b; 
     margin-bottom: 0.5rem;
-    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #eee;
+    background: #fdfdfd;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.quiz-option:hover {
+    background: #fff8dc; 
+    border-color: #ffd700;
+}
+
+.quiz-feedback {
+    margin-top: 10px;
+    font-weight: bold;
     font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
-
-.outcomes-box ul {
-    margin: 0;
-    padding-left: 1.2rem;
-    list-style-type: disc; /* Ensure bullets show */
-}
-
-.outcomes-box li {
-    margin-bottom: 0.3rem;
-    color: #444;
-    font-size: 0.95rem;
-}
-/* Specific styling for Section Cards (Level 4) */
-.section-card {
-    min-height: 120px; /* Slightly shorter than main module cards */
-    background-color: #fff;
-    border-left: 4px solid var(--accent-color); /* Add a colored strip to the left */
-    font-size: 0.95rem; /* Slightly compact text */
-    justify-content: center; /* Ensure text is centered */
-}
-
-.section-card h3 {
-    font-size: 1.1rem;
-    margin: 0;
-    color: var(--text-color);
-}
-
-.section-card:hover {
-    background-color: #f0f8ff; /* Very light blue on hover */
-    border-color: var(--primary-color);
-}
+.correct { color: green; }
+.incorrect { color: red; }

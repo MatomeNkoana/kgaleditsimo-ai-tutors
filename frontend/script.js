@@ -1,8 +1,8 @@
 // PRODUCTION URL (Uncomment this line when deploying)
-// const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
+ const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
 
 // LOCAL URL
-const API_BASE_URL = 'http://127.0.0.1:5000';
+// const API_BASE_URL = 'http://127.0.0.1:5000';
 
 const container = document.getElementById('curriculum-container');
 let allData = {}; 
@@ -212,35 +212,106 @@ function showSections(topic, module) {
 function showLessonContent(section, topic, module) {
     container.innerHTML = ''; 
 
-    // Navigation Logic: Handle whether we came from Sections or directly from Topics
+    // 1. Navigation Header
+    const navBar = document.createElement('div');
+    navBar.style.marginBottom = '1rem';
+    
     const backBtn = document.createElement('button');
     if (topic.sections) {
         backBtn.innerText = `← Back to ${topic.title}`;
         backBtn.onclick = () => showSections(topic, module); 
     } else {
-        // Fallback for old data structure
         backBtn.innerText = `← Back to ${module.title}`;
         backBtn.onclick = () => showTopics(module);
     }
     backBtn.className = "back-button";
-    container.appendChild(backBtn);
-
-    const title = document.createElement('h2');
-    title.innerText = section.title;
-    container.appendChild(title);
-
-    const contentBox = document.createElement('div');
-    contentBox.className = 'module-item';
-    contentBox.style.cursor = 'default';
-    contentBox.style.transform = 'none';
-    contentBox.innerHTML = section.content || "<p>No content available.</p>";
-    container.appendChild(contentBox);
-
-    // Show Chat Interface
-    document.getElementById('chat-interface').classList.remove('hidden');
     
+    const title = document.createElement('span');
+    title.style.marginLeft = '1rem';
+    title.style.fontWeight = 'bold';
+    title.style.fontSize = '1.2rem';
+    title.innerText = section.title;
+
+    navBar.appendChild(backBtn);
+    navBar.appendChild(title);
+    container.appendChild(navBar);
+
+    // 2. Dashboard Layout Container
+    const dashboard = document.createElement('div');
+    dashboard.className = 'lesson-dashboard';
+
+    // --- LEFT PANEL: Content ---
+    const contentPanel = document.createElement('div');
+    contentPanel.className = 'lesson-content-panel';
+    contentPanel.innerHTML = section.content || "<p>No content available.</p>";
+    dashboard.appendChild(contentPanel);
+
+    // --- RIGHT PANEL: Sidebar (Chat + Quiz) ---
+    const sidebar = document.createElement('div');
+    sidebar.className = 'lesson-sidebar';
+
+    // A. Chat Interface (Moved inside)
+    const chatContainer = document.getElementById('chat-interface');
+    chatContainer.classList.remove('hidden');
+    chatContainer.classList.add('chat-box-embedded'); // Apply new style
+    
+    // reset chat history for context
     const history = document.getElementById('chat-history');
     history.innerHTML = `<div class="message system-message">Studying <strong>${section.title}</strong>. Ask me to explain any concept!</div>`;
+
+    // Note: We append the EXISTING chat interface element into our new sidebar
+    sidebar.appendChild(chatContainer);
+
+    // B. Quiz Widget (New!)
+    if (section.quiz && section.quiz.length > 0) {
+        const quizBox = document.createElement('div');
+        quizBox.className = 'quiz-box';
+        
+        const quizTitle = document.createElement('div');
+        quizTitle.className = 'quiz-header';
+        quizTitle.innerHTML = 'Quick Check';
+        quizBox.appendChild(quizTitle);
+
+        // Render just the first question for now
+        const qData = section.quiz[0];
+        
+        const qText = document.createElement('p');
+        qText.innerText = qData.question;
+        qText.style.fontSize = '0.9rem';
+        quizBox.appendChild(qText);
+
+        const optionsDiv = document.createElement('div');
+        qData.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-option';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                // Simple feedback logic
+                if (opt === qData.answer) {
+                    btn.style.background = '#d4edda'; // Green
+                    btn.style.borderColor = '#c3e6cb';
+                    feedback.innerText = "Correct!";
+                    feedback.className = "quiz-feedback correct";
+                } else {
+                    btn.style.background = '#f8d7da'; // Red
+                    btn.style.borderColor = '#f5c6cb';
+                    feedback.innerText = "Try again.";
+                    feedback.className = "quiz-feedback incorrect";
+                }
+            };
+            optionsDiv.appendChild(btn);
+        });
+        quizBox.appendChild(optionsDiv);
+
+        const feedback = document.createElement('div');
+        feedback.className = 'quiz-feedback';
+        quizBox.appendChild(feedback);
+
+        sidebar.appendChild(quizBox);
+    }
+
+    dashboard.appendChild(sidebar);
+    container.appendChild(dashboard);
 }
 
 // --- CHAT LOGIC ---
