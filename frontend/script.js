@@ -8,21 +8,90 @@ const container = document.getElementById('curriculum-container');
 let allData = {}; 
 let currentSubject = null; 
 
-// 1. Fetch Data on Load
+// ==========================================
+// 0. HELPER FUNCTIONS (CRITICAL FIXES)
+// ==========================================
+
+// HELPER: Rescue the Chat Box before clearing the screen
+// This prevents the "Cannot read properties of null" error when navigating back
+function rescueChatInterface() {
+    const chatContainer = document.getElementById('chat-interface');
+    // If chat exists and is NOT attached to the body (meaning it's inside the container), move it out!
+    if (chatContainer && chatContainer.parentElement !== document.body) {
+        document.body.appendChild(chatContainer);
+        chatContainer.classList.add('hidden');
+    }
+}
+
+// ==========================================
+// 1. BROWSER HISTORY & NAVIGATION LOGIC
+// ==========================================
+
+window.addEventListener('popstate', (event) => {
+    const state = event.state;
+
+    // 1. RESCUE FIRST! Before we do anything else.
+    rescueChatInterface(); 
+
+    // 2. Safety Check: If no state or data isn't loaded, reset.
+    if (!state || !allData.subjects) {
+        renderMainMenu(false); 
+        return;
+    }
+
+    // 3. Restore Global Context
+    if (state.subject) {
+        currentSubject = state.subject;
+    }
+
+    // 4. Try to Render (with Error Boundary)
+    try {
+        if (state.view === 'main') renderMainMenu(false);
+        else if (state.view === 'modules') renderModuleList(state.subject, false);
+        else if (state.view === 'topics') showTopics(state.module, false);
+        else if (state.view === 'sections') showSections(state.topic, state.module, false);
+        else if (state.view === 'lesson') showLessonContent(state.section, state.topic, state.module, false);
+    } catch (error) {
+        console.warn("State Restore Failed:", error);
+        rescueChatInterface(); // Try to rescue again just in case
+        renderMainMenu(false);
+    }
+});
+
+// ==========================================
+// 2. INITIALIZATION
+// ==========================================
+
 fetch(`${API_BASE_URL}/api/curriculum`)
     .then(response => response.json())
     .then(data => {
         allData = data; 
-        renderMainMenu(); 
+        // Initial History State
+        history.replaceState({ view: 'main' }, '', '#main'); 
+        renderMainMenu(false); 
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Data Load Error:', error);
+        container.innerHTML = '<p class="error">Failed to load curriculum. Please check backend connection.</p>';
+    });
 
-// 2. Main Menu (Subject Selection)
-function renderMainMenu() {
+
+// ==========================================
+// 3. CORE RENDERING FUNCTIONS
+// ==========================================
+
+function renderMainMenu(pushToHistory = true) {
+    if (!allData.subjects) return; // Safety
+
+    if (pushToHistory) history.pushState({ view: 'main' }, '', '#main');
+
+    rescueChatInterface(); // SAFETY: Save chat before clearing
     container.innerHTML = ''; 
     currentSubject = null;    
 
-    document.getElementById('chat-interface').classList.add('hidden');
+    // Safe Hide
+    const chat = document.getElementById('chat-interface');
+    if (chat) chat.classList.add('hidden');
 
     const header = document.createElement('h2');
     header.innerText = "Select a Subject";
@@ -34,35 +103,36 @@ function renderMainMenu() {
     allData.subjects.forEach(subject => {
         const card = document.createElement('div');
         card.className = 'main-card';
+        card.innerHTML = `<h3>${subject.name}</h3><p>${subject.description || 'Explore modules.'}</p>`;
         
-        const title = document.createElement('h3');
-        title.innerText = subject.name;
-        card.appendChild(title);
-
-        const desc = document.createElement('p');
-        desc.innerText = subject.description || `Explore ${subject.name} modules.`;
-        card.appendChild(desc);
-
         card.addEventListener('click', () => {
             currentSubject = subject; 
             renderModuleList(subject); 
         });
-
         grid.appendChild(card);
     });
 
     container.appendChild(grid);
 }
 
-// 3. Module List (e.g., Organic, Inorganic)
-function renderModuleList(subject) {
+function renderModuleList(subject, pushToHistory = true) {
+    if (!subject) { renderMainMenu(false); return; }
     currentSubject = subject;
+    
+    if (pushToHistory) {
+        history.pushState({ view: 'modules', subject: subject }, '', `#${subject.name.replace(/\s/g, '')}`);
+    }
+
+    rescueChatInterface(); // SAFETY: Save chat before clearing
     container.innerHTML = '';
-    document.getElementById('chat-interface').classList.add('hidden');
+    
+    const chat = document.getElementById('chat-interface');
+    if (chat) chat.classList.add('hidden');
+    
     const backBtn = document.createElement('button');
     backBtn.innerText = "← Back to Subjects";
     backBtn.className = "back-button";
-    backBtn.onclick = renderMainMenu;
+    backBtn.onclick = () => renderMainMenu(true); 
     container.appendChild(backBtn);
 
     const title = document.createElement('h2');
@@ -72,177 +142,147 @@ function renderModuleList(subject) {
     const grid = document.createElement('div');
     grid.className = 'card-grid';
 
-    subject.modules.forEach(module => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        
-        // --- NEW CODE: Render Title + Description ---
-        const descText = module.description || "Explore this module.";
-        card.innerHTML = `
-            <h3>${module.title}</h3>
-            <p>${descText}</p>
-        `;
-        // ---------------------------------------------
-
-        card.addEventListener('click', () => {
-            showTopics(module);
+    if (subject.modules) {
+        subject.modules.forEach(module => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const descText = module.description || "Explore this module.";
+            card.innerHTML = `<h3>${module.title}</h3><p>${descText}</p>`;
+            card.addEventListener('click', () => showTopics(module));
+            grid.appendChild(card);
         });
-
-        grid.appendChild(card);
-    });
+    }
 
     container.appendChild(grid);
 }
 
-// 4. Topics List (e.g., Gravimetry, Titration)
-function showTopics(module) {
-    if (!module.topics) {
-        alert("No topics added for this module yet!");
+function showTopics(module, pushToHistory = true) {
+    if (!module || !module.topics) {
+        // Fallback safety
+        if (currentSubject) renderModuleList(currentSubject, false);
+        else renderMainMenu(false);
         return;
     }
 
+    if (pushToHistory) {
+        history.pushState({ view: 'topics', module: module, subject: currentSubject }, '', '#topics');
+    }
+
+    rescueChatInterface(); // SAFETY: Save chat before clearing
     container.innerHTML = ''; 
-    document.getElementById('chat-interface').classList.add('hidden');
     
-    // Navigation
+    const chat = document.getElementById('chat-interface');
+    if (chat) chat.classList.add('hidden');
+    
     const backBtn = document.createElement('button');
-    backBtn.innerText = `← Back to ${currentSubject.name}`;
+    const subjectName = currentSubject ? currentSubject.name : "Modules";
+    backBtn.innerText = `← Back to ${subjectName}`;
     backBtn.className = "back-button";
-    backBtn.onclick = () => renderModuleList(currentSubject);
+    backBtn.onclick = () => {
+        if (currentSubject) renderModuleList(currentSubject, true);
+        else renderMainMenu(true);
+    };
     container.appendChild(backBtn);
 
     const title = document.createElement('h2');
     title.innerText = module.title;
     container.appendChild(title);
 
-    // CHANGE: Use a specific container for the vertical list layout
     const listContainer = document.createElement('div');
     listContainer.className = 'vertical-list-container';
 
     module.topics.forEach(topic => {
         const card = document.createElement('div');
-        // We reuse the 'card' class for shadow/border, but add 'topic-card' for specific layout
         card.className = 'card topic-card'; 
+        const descText = topic.description || "No description available.";
         
-        // 1. Prepare Outcomes HTML (if they exist)
         let outcomesHtml = '';
         if (topic.outcomes && topic.outcomes.length > 0) {
-            outcomesHtml = `<div class="outcomes-box">
-                                <strong>Learning Outcomes:</strong>
-                                <ul>`;
-            topic.outcomes.forEach(outcome => {
-                outcomesHtml += `<li>${outcome}</li>`;
-            });
-            outcomesHtml += `   </ul>
-                             </div>`;
+            outcomesHtml = `<div class="outcomes-box"><strong>Learning Outcomes:</strong><ul>` + 
+                           topic.outcomes.map(o => `<li>${o}</li>`).join('') + 
+                           `</ul></div>`;
         }
 
-        // 2. Prepare Description
-        const descText = topic.description || "No description available.";
-
-        // 3. Render the Card Content
-        card.innerHTML = `
-            <div class="topic-header">
-                <h3>${topic.title}</h3>
-                <p>${descText}</p>
-            </div>
-            ${outcomesHtml}
-        `;
-        
-        // 4. Click Logic (Go to Sections)
-        card.addEventListener('click', () => {
-            showSections(topic, module);
-        });
-
+        card.innerHTML = `<div class="topic-header"><h3>${topic.title}</h3><p>${descText}</p></div>${outcomesHtml}`;
+        card.addEventListener('click', () => showSections(topic, module));
         listContainer.appendChild(card);
     });
     container.appendChild(listContainer);
 }
 
-// 5. Sections List (e.g., Precipitation, Volatilization)
-function showSections(topic, module) {
-    // Fallback logic remains the same
+function showSections(topic, module, pushToHistory = true) {
+    if (!topic || !module) { renderMainMenu(false); return; }
+
     if (!topic.sections) {
         if (topic.content) {
-            showLessonContent({ title: topic.title, content: topic.content }, topic, module);
+            showLessonContent({ title: topic.title, content: topic.content }, topic, module, pushToHistory);
             return;
         }
-        alert("No sections content added for this topic yet!");
+        alert("No content available.");
         return;
     }
 
-    container.innerHTML = '';
-    document.getElementById('chat-interface').classList.add('hidden'); 
+    if (pushToHistory) {
+        history.pushState({ view: 'sections', topic: topic, module: module, subject: currentSubject }, '', '#sections');
+    }
 
-    // Navigation
+    rescueChatInterface(); // SAFETY: Save chat before clearing
+    container.innerHTML = '';
+    
+    const chat = document.getElementById('chat-interface');
+    if (chat) chat.classList.add('hidden');
+
     const backBtn = document.createElement('button');
     backBtn.innerText = `← Back to ${module.title}`; 
     backBtn.className = "back-button";
-    backBtn.onclick = () => showTopics(module);
+    backBtn.onclick = () => showTopics(module, true);
     container.appendChild(backBtn);
 
-    // Page Title
     const title = document.createElement('h2');
     title.innerText = topic.title; 
     container.appendChild(title);
 
-    // CHANGE: Use 'card-grid' instead of a list
     const grid = document.createElement('div');
     grid.className = 'card-grid';
 
     topic.sections.forEach(section => {
         const card = document.createElement('div');
-        // We use 'card' for the shape, and 'section-card' for specific tweaks
         card.className = 'card section-card'; 
-        
-        // Render Title
         card.innerHTML = `<h3>${section.title}</h3>`;
-        
-        // Click Logic
-        card.addEventListener('click', () => {
-            showLessonContent(section, topic, module);
-        });
-
+        card.addEventListener('click', () => showLessonContent(section, topic, module));
         grid.appendChild(card);
     });
     container.appendChild(grid);
 }
 
-// 6. Lesson Content (The HTML Content + Chat)
-function showLessonContent(section, topic, module) {
+function showLessonContent(section, topic, module, pushToHistory = true) {
+    if (!section || !topic) { 
+        if (module) showTopics(module, false);
+        else renderMainMenu(false);
+        return;
+    }
+
+    if (pushToHistory) {
+        history.pushState({ view: 'lesson', section: section, topic: topic, module: module, subject: currentSubject }, '', '#lesson');
+    }
+
+    rescueChatInterface(); // SAFETY: Save chat before clearing
     container.innerHTML = ''; 
 
-    // 1. Navigation Header
+    // Header & Navigation
     const navBar = document.createElement('div');
     navBar.style.marginBottom = '1rem';
     
     const backBtn = document.createElement('button');
-    
-    // --- THE FIX: RESCUE THE CHAT BOX BEFORE NAVIGATING ---
     const goBack = () => {
-        // 1. Find the chat box
-        const chatContainer = document.getElementById('chat-interface');
-        // 2. Move it safely back to the document body (outside the container we are about to clear)
-        if (chatContainer) {
-            document.body.appendChild(chatContainer);
-            chatContainer.classList.add('hidden');
-        }
-        // 3. Now it is safe to navigate
-        if (topic.sections) {
-            showSections(topic, module); 
-        } else {
-            showTopics(module);
-        }
+        rescueChatInterface(); // Move chat out before navigating away
+        if (topic.sections) showSections(topic, module, true); 
+        else showTopics(module, true);
     };
-    // -----------------------------------------------------
 
-    if (topic.sections) {
-        backBtn.innerText = `← Back to ${topic.title}`;
-    } else {
-        backBtn.innerText = `← Back to ${module.title}`;
-    }
+    backBtn.innerText = `← Back to ${topic.sections ? topic.title : module.title}`;
     backBtn.className = "back-button";
-    backBtn.onclick = goBack; // Attach the smart back function
+    backBtn.onclick = goBack; 
 
     const title = document.createElement('span');
     title.style.marginLeft = '1rem';
@@ -254,21 +294,19 @@ function showLessonContent(section, topic, module) {
     navBar.appendChild(title);
     container.appendChild(navBar);
 
-    // 2. Dashboard Layout Container
+    // Dashboard
     const dashboard = document.createElement('div');
     dashboard.className = 'lesson-dashboard';
 
-    // --- LEFT PANEL: Content ---
     const contentPanel = document.createElement('div');
     contentPanel.className = 'lesson-content-panel';
     contentPanel.innerHTML = section.content || "<p>No content available.</p>";
     dashboard.appendChild(contentPanel);
 
-    // --- RIGHT PANEL: Sidebar (Chat + Quiz) ---
     const sidebar = document.createElement('div');
     sidebar.className = 'lesson-sidebar';
 
-    // A. Chat Interface (Moved inside)
+    // --- EMBED CHAT INTO SIDEBAR ---
     const chatContainer = document.getElementById('chat-interface');
     if (chatContainer) {
         chatContainer.classList.remove('hidden');
@@ -276,67 +314,58 @@ function showLessonContent(section, topic, module) {
         
         const history = document.getElementById('chat-history');
         history.innerHTML = `<div class="message system-message">Studying <strong>${section.title}</strong>. Ask me to explain any concept!</div>`;
-
+        
         sidebar.appendChild(chatContainer);
     }
 
-    // B. Quiz Widget
     if (section.quiz && section.quiz.length > 0) {
-        const quizBox = document.createElement('div');
-        quizBox.className = 'quiz-box';
-        
-        const quizTitle = document.createElement('div');
-        quizTitle.className = 'quiz-header';
-        quizTitle.innerHTML = '⚡ Quick Check';
-        quizBox.appendChild(quizTitle);
-
-        const qData = section.quiz[0];
-        const qText = document.createElement('p');
-        qText.innerText = qData.question;
-        qText.style.fontSize = '0.9rem';
-        quizBox.appendChild(qText);
-
-        const optionsDiv = document.createElement('div');
-        qData.options.forEach(opt => {
-            const btn = document.createElement('button');
-            btn.className = 'quiz-option';
-            btn.innerText = opt;
-            btn.onclick = () => {
-                const feedback = quizBox.querySelector('.quiz-feedback');
-                if (opt === qData.answer) {
-                    btn.style.background = '#d4edda';
-                    btn.style.borderColor = '#c3e6cb';
-                    feedback.innerText = "Correct! ✅";
-                    feedback.className = "quiz-feedback correct";
-                } else {
-                    btn.style.background = '#f8d7da';
-                    btn.style.borderColor = '#f5c6cb';
-                    feedback.innerText = "Try again. ❌";
-                    feedback.className = "quiz-feedback incorrect";
-                }
-            };
-            optionsDiv.appendChild(btn);
-        });
-        quizBox.appendChild(optionsDiv);
-
-        const feedback = document.createElement('div');
-        feedback.className = 'quiz-feedback';
-        quizBox.appendChild(feedback);
-
-        sidebar.appendChild(quizBox);
+        renderQuiz(section.quiz[0], sidebar);
     }
 
     dashboard.appendChild(sidebar);
     container.appendChild(dashboard);
 }
 
-// --- CHAT LOGIC ---
+// Helper: Render Quiz Widget
+function renderQuiz(qData, parentContainer) {
+    const quizBox = document.createElement('div');
+    quizBox.className = 'quiz-box';
+    
+    quizBox.innerHTML = `<div class="quiz-header">⚡ Quick Check</div><p style="font-size:0.9rem">${qData.question}</p>`;
+    
+    const optionsDiv = document.createElement('div');
+    qData.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.innerText = opt;
+        btn.onclick = () => {
+            const feedback = quizBox.querySelector('.quiz-feedback');
+            if (opt === qData.answer) {
+                btn.style.background = '#d4edda'; btn.style.borderColor = '#c3e6cb';
+                feedback.innerText = "Correct! ✅"; feedback.className = "quiz-feedback correct";
+            } else {
+                btn.style.background = '#f8d7da'; btn.style.borderColor = '#f5c6cb';
+                feedback.innerText = "Try again. ❌"; feedback.className = "quiz-feedback incorrect";
+            }
+        };
+        optionsDiv.appendChild(btn);
+    });
+    
+    quizBox.appendChild(optionsDiv);
+    const feedback = document.createElement('div');
+    feedback.className = 'quiz-feedback';
+    quizBox.appendChild(feedback);
+    parentContainer.appendChild(quizBox);
+}
+
+// ==========================================
+// 4. CHAT LOGIC
+// ==========================================
 
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
 const chatHistory = document.getElementById('chat-history');
 
-// Define sendMessage logic as a standalone function so we can reuse it
 function sendMessage() {
     const question = userInput.value;
     if (question.trim() === "") return;
@@ -350,24 +379,15 @@ function sendMessage() {
         body: JSON.stringify({ question: question })
     })
     .then(response => response.json())
-    .then(data => {
-        appendMessage('AI Tutor', data.answer, 'ai-message');
-    })
+    .then(data => appendMessage('AI Tutor', data.answer, 'ai-message'))
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Chat Error:', error);
         appendMessage('System', 'Error connecting to the brain.', 'system-message');
     });
 }
 
-// 1. Click Listener
 sendBtn.addEventListener('click', sendMessage);
-
-// 2. Enter Key Listener (NEW FEATURE)
-userInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
-});
+userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
 
 function appendMessage(sender, text, className) {
     const messageDiv = document.createElement('div');
