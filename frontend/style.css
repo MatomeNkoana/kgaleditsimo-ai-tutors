@@ -11,39 +11,309 @@
     --hover-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-body {
+html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    html, body {
-    overflow-x: hidden; /* <--- THE FIX: Kills horizontal scrolling */
-    max-width: 100vw;   /* Ensures body never exceeds viewport width */
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden; /* CRITICAL: Prevents horizontal scrollbars */
+    max-width: 100vw;   
+    padding-bottom: 5rem;
 }
-}
-
 
 /* =========================================
-   2. MAIN CONTAINER (UPDATED FOR FULL WIDTH)
+   2. NAVBAR (STICKY HEADER)
+   ========================================= */
+.navbar {
+    position: sticky;   
+    top: 0;
+    z-index: 1000;      
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    height: 70px;       
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar-container {
+    width: 98%;         
+    max-width: 1400px;  
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 10px;
+}
+
+/* Logo & Branding */
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;           
+    text-decoration: none;
+}
+
+.nav-logo-link:hover .nav-icon {
+    transform: scale(1.1); 
+}
+
+.nav-icon {
+    height: 50px;       
+    width: auto;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.nav-text-container {
+    display: flex;
+    flex-direction: column; 
+    line-height: 1.1;       
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: 700;       
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+.brand-sub {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-color); 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+#nav-status {
+    font-size: 0.85rem;
+    background-color: #f0fdf4;
+    color: #166534;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid #bbf7d0;
+    pointer-events: none; 
+}
+
+/* =========================================
+   3. HERO SECTION (GALAXY THEME)
+   ========================================= */
+.hero-section {
+    background: radial-gradient(ellipse at bottom, #0f172a 0%, #000000 100%);
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* LAYOUT ENGINE: Flexbox for Side-by-Side */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    
+    position: relative; 
+    overflow: hidden; 
+    min-height: 85vh; /* Full viewport height impact */
+}
+
+/* --- STAR FIELD (12 Layers) --- */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    background-image: 
+        /* Small Stars */
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        /* Medium Stars */
+        radial-gradient(rgba(255,255,255,0.8) 2px, transparent 2px),
+        radial-gradient(white 1.5px, transparent 1.5px),
+        /* Large Clusters */
+        radial-gradient(rgba(255,255,255,0.6) 2px, transparent 2px),
+        radial-gradient(white 2px, transparent 2px),
+        radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px),
+        /* Nebulas */
+        radial-gradient(rgba(72, 198, 239, 0.3) 1px, transparent 1px),
+        radial-gradient(rgba(72, 198, 239, 0.2) 2px, transparent 2px);
+
+    background-size: 
+        550px 550px, 350px 350px, 250px 250px, 
+        150px 150px, 450px 450px, 
+        120px 120px, 200px 200px, 300px 300px, 
+        400px 400px, 500px 500px;
+        
+    background-position: 
+        0 0, 40px 60px, 130px 270px, 
+        70px 100px, 20px 20px, 
+        80px 300px, 150px 20px, 10px 150px, 
+        200px 100px, 50px 50px;
+    
+    opacity: 0.9; 
+    z-index: 1; /* Sits behind everything */
+    
+    /* Animation: Slow Drift */
+    animation: spaceTravel 60s linear infinite; 
+}
+
+@keyframes spaceTravel {
+    from { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 20px 20px, 80px 300px, 150px 20px, 10px 150px, 200px 100px, 50px 50px; }
+    to   { background-position: -500px -500px, -360px -340px, -170px -30px, -180px -150px, -230px -230px, -300px -80px, -200px -150px, -250px -10px, -400px -400px, -350px -350px; }
+}
+
+/* --- HERO CONTAINER (Alignment) --- */
+.hero-container {
+    max-width: 1300px; 
+    width: 95%;
+    position: relative;
+    z-index: 10; 
+    
+    /* Forces items to be Side-by-Side */
+    display: flex;
+    flex-direction: row;        
+    justify-content: space-between; 
+    align-items: center;        
+    gap: 2rem;
+}
+
+/* --- LEFT SIDE: TEXT --- */
+.hero-text {
+    flex: 1; /* Takes 50% width */
+    text-align: left; 
+    padding-left: 2rem; 
+}
+
+/* H1 Animation */
+.hero-text h1 {
+    font-size: 4rem; 
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: white; 
+    line-height: 1.1;
+    border: none;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    
+    /* Start invisible, then slide in */
+    opacity: 0; 
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.highlight {
+    color: #48c6ef; 
+    text-shadow: 0 0 30px rgba(72, 198, 239, 0.6);
+}
+
+/* Paragraph Animation (Delayed) */
+.hero-text p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    color: #cbd5e1; 
+    max-width: 600px;
+    line-height: 1.6;
+    
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 0.2s forwards;
+}
+
+/* Button Animation (Delayed More) */
+.hero-btn {
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 0.5s forwards;
+    
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    color: #48c6ef;
+    padding: 18px 45px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px; 
+    border: 2px solid #48c6ef; 
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hero-btn:hover {
+    background: #48c6ef;
+    color: black;
+    box-shadow: 0 0 25px rgba(72, 198, 239, 0.6);
+}
+
+/* Keyframes for Text Sliding */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- RIGHT SIDE: BRAIN --- */
+.hero-image-container {
+    flex: 1; /* Takes 50% width */
+    display: flex;
+    justify-content: flex-end; 
+    padding-right: 2rem;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 600px; 
+    height: auto;
+    mix-blend-mode: screen; /* Removes black box */
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px rgba(72, 198, 239, 0.3));
+    
+    /* Float Animation */
+    animation: float 6s ease-in-out infinite; 
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* =========================================
+   4. MAIN CONTENT LAYOUT
    ========================================= */
 main {
-    /* CHANGED: Switched from fixed 1000px to dynamic 98% width */
     max-width: 98%;       
-    margin: 20px auto;    
+    margin: 0 auto 20px auto; 
     padding: 10px;
-    box-sizing: border-box; /* Ensures padding doesn't add to width */
+    box-sizing: border-box; 
+    background-color: var(--bg-color); 
+    position: relative;
+    z-index: 50; /* Sits above background elements */
+    border-radius: 20px 20px 0 0; 
 }
 
 #curriculum-container {
     width: 100%;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 2rem;
 }
 
 h2, h3 {
@@ -51,7 +321,6 @@ h2, h3 {
     padding-bottom: 10px;
 }
 
-/* Ensure titles start on a new line */
 h2 {
     display: block; 
     border-bottom: 2px solid var(--accent-color);
@@ -60,7 +329,7 @@ h2 {
 }
 
 /* =========================================
-   3. NAVIGATION & BUTTONS
+   5. UTILITIES (BUTTONS & HELPERS)
    ========================================= */
 .back-button {
     background: none;
@@ -85,8 +354,7 @@ h2 {
     background-color: transparent; 
 }
 
-/* Generic Button (Chat/Quiz) */
-button:not(.back-button) {
+button:not(.back-button):not(.hero-btn):not(.quiz-option) {
     background-color: var(--text-color);
     color: white;
     padding: 10px 20px;
@@ -95,16 +363,19 @@ button:not(.back-button) {
     cursor: pointer;
 }
 
-button:not(.back-button):hover {
+button:not(.back-button):not(.hero-btn):not(.quiz-option):hover {
     background-color: black;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* =========================================
-   4. MAIN MENU: LARGE SUBJECT CARDS
+   6. CARDS (SUBJECTS & MODULES)
    ========================================= */
 .main-subject-grid {
     display: grid;
-    /* Responsive columns that stretch to fill space */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
@@ -137,12 +408,8 @@ button:not(.back-button):hover {
     border: none; 
 }
 
-/* =========================================
-   5. MODULE LIST & GRID (UPDATED)
-   ========================================= */
 .card-grid {
     display: grid;
-    /* CHANGED: auto-fill allows grid to expand seamlessly */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
@@ -161,7 +428,7 @@ button:not(.back-button):hover {
     font-weight: 600;
     color: var(--text-color);
     display: flex;
-    flex-direction: column; /* Stack title & desc */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     min-height: 150px;      
@@ -186,9 +453,7 @@ button:not(.back-button):hover {
     line-height: 1.4;
 }
 
-/* =========================================
-   6. TOPICS LIST (VERTICAL LIST VIEW)
-   ========================================= */
+/* Vertical Topic List */
 .vertical-list-container {
     display: flex;
     flex-direction: column;
@@ -241,15 +506,6 @@ button:not(.back-button):hover {
     list-style-type: disc; 
 }
 
-.outcomes-box li {
-    margin-bottom: 0.3rem;
-    color: #444;
-    font-size: 0.95rem;
-}
-
-/* =========================================
-   7. SECTION CARDS (LEVEL 4)
-   ========================================= */
 .section-card {
     min-height: 120px; 
     background-color: #fff;
@@ -270,16 +526,74 @@ button:not(.back-button):hover {
 }
 
 /* =========================================
-   8. CHAT INTERFACE (LEGACY)
+   7. LESSON DASHBOARD (SPLIT SCREEN)
    ========================================= */
-.hidden {
-    display: none !important;
+.lesson-dashboard {
+    display: flex;
+    gap: 1.5rem;
+    min-height: 80vh; 
+    width: 100%;  
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
-/* This is the raw chat interface usually hidden until needed */
+.lesson-content-panel {
+    flex: 3; 
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow-y: auto; 
+    border: 1px solid #e0e0e0;
+    font-size: 1.1rem; 
+    line-height: 1.7;
+}
+
+.lesson-content-panel h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.lesson-sidebar {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+}
+
+.chat-box-embedded {
+    flex: 1; 
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+    min-height: 300px; 
+}
+
 #chat-interface {
     border-top: 2px solid var(--accent-color);
     padding-top: 20px;
+}
+
+.lesson-sidebar #chat-history {
+    height: auto; 
+    flex-grow: 1;
+    border: none; 
+    background: #f9f9f9;
+}
+
+#chat-history {
+    flex-grow: 1;    
+    min-height: 0;   
+    overflow-y: auto; 
+    padding: 15px;
+    background: #f9f9f9;
+    scroll-behavior: smooth;
 }
 
 .message {
@@ -314,84 +628,14 @@ button:not(.back-button):hover {
 #send-btn:hover {
     background-color: var(--primary-color);
 }
-#chat-history {
-    flex-grow: 1;    /* Expand to fill available space */
-    min-height: 0;   /* CRITICAL: Allows flex child to shrink/scroll */
-    overflow-y: auto; /* Enables the scrollbar */
-    padding: 15px;
-    background: #f9f9f9;
-    scroll-behavior: smooth;
-}
 
 /* =========================================
-   9. LESSON DASHBOARD (SPLIT SCREEN VIEW)
-   ========================================= */
-.lesson-dashboard {
-    display: flex;
-    gap: 1.5rem;
-    min-height: 80vh; /* CHANGED: Taller to fit more content */
-    width: 100%;  /* CHANGED: Forces use of full width */
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-}
-
-/* LEFT PANEL: Reading Material */
-.lesson-content-panel {
-    flex: 3; /* Takes up 60% of width */
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    overflow-y: auto; 
-    border: 1px solid #e0e0e0;
-    font-size: 1.1rem; /* Slightly larger text for readability */
-    line-height: 1.7;
-}
-
-.lesson-content-panel h3 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.5rem;
-    margin-top: 1.5rem;
-}
-
-/* RIGHT PANEL: Tools (Chat + Quiz) */
-.lesson-sidebar {
-    flex: 2; /* Takes up 40% of width */
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    height: auto;
-}
-
-/* Embedded Chat Box */
-.chat-box-embedded {
-    flex: 1; 
-    background: white;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Contains the scrollbar inside */
-    /* KEY FIX: Define a minimum height so it doesn't collapse */
-    min-height: 300px; 
-}
-
-/* Override #chat-history within the sidebar context */
-.lesson-sidebar #chat-history {
-    height: auto; /* Let flexbox handle height */
-    flex-grow: 1;
-    border: none; /* Remove duplicate border */
-    background: #f9f9f9;
-}
-
-/* =========================================
-   10. QUIZ BOX STYLING
+   8. QUIZ WIDGET
    ========================================= */
 .quiz-box {
-    flex: 0 0 auto; /* Do not stretch vertically */
+    flex: 0 0 auto; 
     background: #fff;
-    border: 1px solid #ffd700; /* Gold border */
+    border: 1px solid #ffd700; 
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -433,44 +677,59 @@ button:not(.back-button):hover {
 .incorrect { color: red; }
 
 /* =========================================
-   11. MOBILE RESPONSIVENESS FIXES 
+   9. MOBILE RESPONSIVENESS
    ========================================= */
-@media screen and (max-width: 768px) {
-    /* 1. Unstack the Dashboard (Column Mode) */
-    .lesson-dashboard {
-        flex-direction: column;
-        height: auto;      /* Allow the dashboard to grow infinitely tall */
-        min-height: auto;  /* Override desktop settings */
+@media screen and (max-width: 900px) {
+    .hero-section {
+        min-height: auto;
+        padding: 4rem 1rem;
+    }
+    
+    .hero-container {
+        /* Stack vertically on mobile: Brain TOP, Text BOTTOM */
+        flex-direction: column-reverse; 
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-text {
+        text-align: center;
+        padding: 0;
+    }
+    
+    .hero-image-container {
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .hero-img {
+        max-width: 300px;
     }
 
-    /* 2. Panels take full width */
+    /* Unstack Dashboard */
+    .lesson-dashboard {
+        flex-direction: column;
+        height: auto;      
+        min-height: auto;  
+    }
+
     .lesson-content-panel, 
     .lesson-sidebar {
         width: 100%;       
-        box-sizing: border-box; /* Ensure padding doesn't push width out */
-        margin: 0 0 1rem 0;     /* Remove side margins if any */
+        margin: 0 0 1rem 0;     
     }
 
-    /* 3. Text Panel: Keep this scrollable so it doesn't take 10 pages of scrolling */
     .lesson-content-panel {
-        height: 50vh;      /* Takes top half of screen */
+        height: 50vh;      
         margin-bottom: 1.5rem;
     }
 
-    /* 4. Sidebar: CRITICAL FIX - Let it grow to fit the Quiz! */
     .lesson-sidebar {
-        height: auto;      /* Remove fixed constraint */
-        overflow: visible; /* Ensure nothing gets cut off */
+        height: auto;      
+        overflow: visible; 
     }
 
-    /* 5. Hide Main Menu Grid Columns (1 column only) */
     .main-subject-grid, .card-grid {
         grid-template-columns: 1fr;
     }
-}
-
-/* 12. FOOTER PROTECTION */
-/* Add this to ensure the footer never gets covered */
-body {
-    padding-bottom: 5rem; /* Adds empty space at the very bottom of the page */
 }

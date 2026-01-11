@@ -9,42 +9,82 @@ let allData = {};
 let currentSubject = null; 
 
 // ==========================================
-// 0. HELPER FUNCTIONS (CRITICAL FIXES)
+// 0. HELPER FUNCTIONS
 // ==========================================
 
 // HELPER: Rescue the Chat Box before clearing the screen
-// This prevents the "Cannot read properties of null" error when navigating back
 function rescueChatInterface() {
     const chatContainer = document.getElementById('chat-interface');
-    // If chat exists and is NOT attached to the body (meaning it's inside the container), move it out!
     if (chatContainer && chatContainer.parentElement !== document.body) {
         document.body.appendChild(chatContainer);
         chatContainer.classList.add('hidden');
     }
 }
 
+// HELPER: Toggle Hero Section Visibility
+// Shows Hero only on Main Menu, hides it for inner pages
+function toggleHero(show) {
+    const hero = document.querySelector('.hero-section');
+    if (hero) {
+        if (show) hero.style.display = 'flex';
+        else hero.style.display = 'none';
+    }
+}
+
 // ==========================================
-// 1. BROWSER HISTORY & NAVIGATION LOGIC
+// 1. GLOBAL EVENT LISTENERS (NAVBAR & HERO)
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Logo Click -> Go Home
+    const logoLink = document.getElementById('nav-logo');
+    if (logoLink) {
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            renderMainMenu(true);
+        });
+    }
+
+    // 2. Home Text Click -> Go Home
+    const homeLink = document.getElementById('nav-home');
+    if (homeLink) {
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            renderMainMenu(true);
+        });
+    }
+
+    // 3. Hero CTA Click -> Scroll to Grid
+    const heroBtn = document.getElementById('hero-cta');
+    if (heroBtn) {
+        heroBtn.addEventListener('click', () => {
+            const grid = document.querySelector('.main-subject-grid') || document.getElementById('curriculum-container');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+});
+
+// ==========================================
+// 2. BROWSER HISTORY & NAVIGATION LOGIC
 // ==========================================
 
 window.addEventListener('popstate', (event) => {
     const state = event.state;
 
-    // 1. RESCUE FIRST! Before we do anything else.
     rescueChatInterface(); 
 
-    // 2. Safety Check: If no state or data isn't loaded, reset.
     if (!state || !allData.subjects) {
         renderMainMenu(false); 
         return;
     }
 
-    // 3. Restore Global Context
     if (state.subject) {
         currentSubject = state.subject;
     }
 
-    // 4. Try to Render (with Error Boundary)
     try {
         if (state.view === 'main') renderMainMenu(false);
         else if (state.view === 'modules') renderModuleList(state.subject, false);
@@ -53,20 +93,19 @@ window.addEventListener('popstate', (event) => {
         else if (state.view === 'lesson') showLessonContent(state.section, state.topic, state.module, false);
     } catch (error) {
         console.warn("State Restore Failed:", error);
-        rescueChatInterface(); // Try to rescue again just in case
+        rescueChatInterface();
         renderMainMenu(false);
     }
 });
 
 // ==========================================
-// 2. INITIALIZATION
+// 3. INITIALIZATION
 // ==========================================
 
 fetch(`${API_BASE_URL}/api/curriculum`)
     .then(response => response.json())
     .then(data => {
         allData = data; 
-        // Initial History State
         history.replaceState({ view: 'main' }, '', '#main'); 
         renderMainMenu(false); 
     })
@@ -77,19 +116,20 @@ fetch(`${API_BASE_URL}/api/curriculum`)
 
 
 // ==========================================
-// 3. CORE RENDERING FUNCTIONS
+// 4. CORE RENDERING FUNCTIONS
 // ==========================================
 
 function renderMainMenu(pushToHistory = true) {
-    if (!allData.subjects) return; // Safety
+    if (!allData.subjects) return; 
 
     if (pushToHistory) history.pushState({ view: 'main' }, '', '#main');
 
-    rescueChatInterface(); // SAFETY: Save chat before clearing
+    rescueChatInterface(); 
+    toggleHero(true); // SHOW HERO on Home Page
+
     container.innerHTML = ''; 
     currentSubject = null;    
 
-    // Safe Hide
     const chat = document.getElementById('chat-interface');
     if (chat) chat.classList.add('hidden');
 
@@ -123,7 +163,9 @@ function renderModuleList(subject, pushToHistory = true) {
         history.pushState({ view: 'modules', subject: subject }, '', `#${subject.name.replace(/\s/g, '')}`);
     }
 
-    rescueChatInterface(); // SAFETY: Save chat before clearing
+    rescueChatInterface(); 
+    toggleHero(false); // HIDE HERO on inner pages
+
     container.innerHTML = '';
     
     const chat = document.getElementById('chat-interface');
@@ -158,7 +200,6 @@ function renderModuleList(subject, pushToHistory = true) {
 
 function showTopics(module, pushToHistory = true) {
     if (!module || !module.topics) {
-        // Fallback safety
         if (currentSubject) renderModuleList(currentSubject, false);
         else renderMainMenu(false);
         return;
@@ -168,7 +209,9 @@ function showTopics(module, pushToHistory = true) {
         history.pushState({ view: 'topics', module: module, subject: currentSubject }, '', '#topics');
     }
 
-    rescueChatInterface(); // SAFETY: Save chat before clearing
+    rescueChatInterface(); 
+    toggleHero(false); // HIDE HERO
+
     container.innerHTML = ''; 
     
     const chat = document.getElementById('chat-interface');
@@ -226,7 +269,9 @@ function showSections(topic, module, pushToHistory = true) {
         history.pushState({ view: 'sections', topic: topic, module: module, subject: currentSubject }, '', '#sections');
     }
 
-    rescueChatInterface(); // SAFETY: Save chat before clearing
+    rescueChatInterface(); 
+    toggleHero(false); // HIDE HERO
+
     container.innerHTML = '';
     
     const chat = document.getElementById('chat-interface');
@@ -266,7 +311,9 @@ function showLessonContent(section, topic, module, pushToHistory = true) {
         history.pushState({ view: 'lesson', section: section, topic: topic, module: module, subject: currentSubject }, '', '#lesson');
     }
 
-    rescueChatInterface(); // SAFETY: Save chat before clearing
+    rescueChatInterface(); 
+    toggleHero(false); // HIDE HERO
+
     container.innerHTML = ''; 
 
     // Header & Navigation
@@ -275,7 +322,7 @@ function showLessonContent(section, topic, module, pushToHistory = true) {
     
     const backBtn = document.createElement('button');
     const goBack = () => {
-        rescueChatInterface(); // Move chat out before navigating away
+        rescueChatInterface(); 
         if (topic.sections) showSections(topic, module, true); 
         else showTopics(module, true);
     };
@@ -359,7 +406,7 @@ function renderQuiz(qData, parentContainer) {
 }
 
 // ==========================================
-// 4. CHAT LOGIC
+// 5. CHAT LOGIC
 // ==========================================
 
 const sendBtn = document.getElementById('send-btn');
