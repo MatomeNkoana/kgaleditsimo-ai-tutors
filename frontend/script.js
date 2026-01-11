@@ -1,8 +1,8 @@
 // PRODUCTION URL (Uncomment this line when deploying)
-const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
+// const API_BASE_URL = 'https://kgaleditsimo-ai-tutors.onrender.com';
 
 // LOCAL URL
-// const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = 'http://127.0.0.1:5000';
 
 const container = document.getElementById('curriculum-container');
 let allData = {}; 

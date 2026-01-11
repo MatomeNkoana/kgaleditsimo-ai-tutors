@@ -111,16 +111,41 @@
               ],
               "sections": [
                   {
-                      "title": "Introduction & Fundamentals",
-                      "content": "<h3>What is Titrimetry?</h3><p>Titrimetry includes a group of analytical methods based on determining the quantity of a reagent of known concentration that is required to react completely with the analyte.</p><h3>The Setup</h3><p>A standard titration uses a <strong>buret</strong> to dispense the reagent (titrant) into a flask containing the sample (analyte).</p><h3>Key Terms</h3><ul><li><strong>Titrant:</strong> The reagent solution of known concentration (usually in the buret).</li><li><strong>Analyte:</strong> The solution of unknown concentration (usually in the flask).</li><li><strong>Equivalence Point:</strong> The theoretical point where the amount of added titrant is chemically equivalent to the amount of analyte.</li><li><strong>End Point:</strong> The physical change (e.g., color change) observed in the experiment. Ideally, End Point ≈ Equivalence Point.</li><li><strong>Titration Error:</strong> The difference in volume between the equivalence point and the end point (Et = Vep - Veq).</li></ul>",
-                      "quiz": [
-                          {
-                              "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
-                              "options": ["End Point", "Equivalence Point", "Standard Point", "Neutral Point"],
-                              "answer": "Equivalence Point"
-                          }
-                      ]
-                  },
+                    "title": "Introduction & Fundamentals",
+                    "content": "<h3>1. Core Definition</h3><p>Titrimetry (or Titrimetric Analysis) is a group of quantitative analytical methods in which the amount of an analyte is determined by measuring the quantity of a reagent of known concentration that reacts essentially completely with the analyte.</p><h3>2. Fundamental Vocabulary</h3><ul><li><strong>Titrant:</strong> The reagent solution of known concentration (usually in the burette).</li><li><strong>Analyte (Titrand):</strong> The solution containing the sample of unknown concentration (usually in the flask).</li><li><strong>Equivalence Point:</strong> The <em>theoretical</em> point where the moles of titrant added are chemically equivalent to the moles of analyte.</li><li><strong>End Point:</strong> The <em>experimental</em> point where a physical change (e.g., color change) signals you to stop.</li><li><strong>Titration Error:</strong> The difference between the Equivalence Point and the End Point ($E_t = V_{ep} - V_{eq}$).</li></ul><h3>3. Standards (The Reference System)</h3><p>To ensure accuracy, we rely on two types of standards:</p><ul><li><strong>Primary Standard:</strong> A highly purified compound (>99.9%), stable in air, with high molar mass. This is the ultimate reference (e.g., KHP).</li><li><strong>Standardization:</strong> The process of determining the exact concentration of a secondary standard by titrating it against a primary standard.</li></ul><h3>4. Classification of Methods</h3><p>We classify methods in two ways:</p><h4>A. By Measurement Principle (Technique)</h4><ul><li><strong>Volumetric:</strong> Measures volume of liquid reagent (Tool: Burette).</li><li><strong>Gravimetric:</strong> Measures mass of liquid reagent (Tool: Balance).</li><li><strong>Coulometric:</strong> Measures electrical charge (Tool: Electrodes).</li></ul><h4>B. By Chemical Reaction</h4><ul><li><strong>Neutralization:</strong> Acid-Base proton transfer.</li><li><strong>Precipitation:</strong> Formation of low-solubility solid (e.g., AgCl).</li><li><strong>Complexometric:</strong> Formation of soluble complex (e.g., EDTA).</li><li><strong>Redox:</strong> Electron transfer.</li></ul>",
+                    "quiz": [
+                        {
+                        "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
+                        "options": [
+                            "End Point",
+                            "Equivalence Point",
+                            "Standard Point",
+                            "Neutral Point"
+                        ],
+                        "answer": "Equivalence Point"
+                        },
+                        {
+                        "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?",
+                        "options": [
+                            "One measures acid, the other measures base",
+                            "One uses a burette (Volume), the other uses a balance (Mass)",
+                            "One uses electricity, the other uses liquid",
+                            "There is no difference"
+                        ],
+                        "answer": "One uses a burette (Volume), the other uses a balance (Mass)"
+                        },
+                        {
+                        "question": "Which of the following is a requirement for a Primary Standard?",
+                        "options": [
+                            "It must be a liquid",
+                            "It must be highly purified and stable in air",
+                            "It must change color automatically",
+                            "It must have a low molar mass"
+                        ],
+                        "answer": "It must be highly purified and stable in air"
+                        }
+                    ]
+                 },
                   {
                       "title": "Standard Solutions",
                       "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material. It must be stable, pure, non-hygroscopic, and have a high molar mass.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>"
