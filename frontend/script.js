@@ -22,12 +22,22 @@ function rescueChatInterface() {
 }
 
 // HELPER: Toggle Hero Section Visibility
-// Shows Hero only on Main Menu, hides it for inner pages
 function toggleHero(show) {
     const hero = document.querySelector('.hero-section');
     if (hero) {
-        if (show) hero.style.display = 'flex';
-        else hero.style.display = 'none';
+        if (show) {
+            hero.style.display = 'flex'; // FLEX keeps the side-by-side layout!
+        } else {
+            hero.style.display = 'none';
+        }
+    }
+}
+
+// HELPER: Rerender Math Symbols (The Fix for LaTeX)
+function triggerMathJax() {
+    if (window.MathJax) {
+        // Tell MathJax to scan the page for new symbols
+        window.MathJax.typesetPromise().catch((err) => console.log('MathJax Error:', err));
     }
 }
 
@@ -125,7 +135,7 @@ function renderMainMenu(pushToHistory = true) {
     if (pushToHistory) history.pushState({ view: 'main' }, '', '#main');
 
     rescueChatInterface(); 
-    toggleHero(true); // SHOW HERO on Home Page
+    toggleHero(true); // SHOW HERO
 
     container.innerHTML = ''; 
     currentSubject = null;    
@@ -153,6 +163,7 @@ function renderMainMenu(pushToHistory = true) {
     });
 
     container.appendChild(grid);
+    triggerMathJax(); // <--- RENDER MATH
 }
 
 function renderModuleList(subject, pushToHistory = true) {
@@ -164,7 +175,7 @@ function renderModuleList(subject, pushToHistory = true) {
     }
 
     rescueChatInterface(); 
-    toggleHero(false); // HIDE HERO on inner pages
+    toggleHero(false); // HIDE HERO
 
     container.innerHTML = '';
     
@@ -196,6 +207,7 @@ function renderModuleList(subject, pushToHistory = true) {
     }
 
     container.appendChild(grid);
+    triggerMathJax(); // <--- RENDER MATH
 }
 
 function showTopics(module, pushToHistory = true) {
@@ -251,6 +263,7 @@ function showTopics(module, pushToHistory = true) {
         listContainer.appendChild(card);
     });
     container.appendChild(listContainer);
+    triggerMathJax(); // <--- RENDER MATH
 }
 
 function showSections(topic, module, pushToHistory = true) {
@@ -298,6 +311,7 @@ function showSections(topic, module, pushToHistory = true) {
         grid.appendChild(card);
     });
     container.appendChild(grid);
+    triggerMathJax(); // <--- RENDER MATH
 }
 
 function showLessonContent(section, topic, module, pushToHistory = true) {
@@ -371,6 +385,7 @@ function showLessonContent(section, topic, module, pushToHistory = true) {
 
     dashboard.appendChild(sidebar);
     container.appendChild(dashboard);
+    triggerMathJax(); // <--- RENDER MATH (Critical for Lesson Content!)
 }
 
 // Helper: Render Quiz Widget
@@ -378,13 +393,14 @@ function renderQuiz(qData, parentContainer) {
     const quizBox = document.createElement('div');
     quizBox.className = 'quiz-box';
     
+    // RENDER MATH IN QUIZ QUESTIONS TOO
     quizBox.innerHTML = `<div class="quiz-header">⚡ Quick Check</div><p style="font-size:0.9rem">${qData.question}</p>`;
     
     const optionsDiv = document.createElement('div');
     qData.options.forEach(opt => {
         const btn = document.createElement('button');
         btn.className = 'quiz-option';
-        btn.innerText = opt;
+        btn.innerText = opt; // MathJax will pick this up later via triggerMathJax()
         btn.onclick = () => {
             const feedback = quizBox.querySelector('.quiz-feedback');
             if (opt === qData.answer) {
@@ -442,4 +458,7 @@ function appendMessage(sender, text, className) {
     messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
     chatHistory.appendChild(messageDiv);
     chatHistory.scrollTop = chatHistory.scrollHeight; 
+    
+    // RENDER MATH IN CHAT RESPONSES
+    triggerMathJax(); 
 }

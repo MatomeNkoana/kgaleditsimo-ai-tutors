@@ -21,217 +21,217 @@
           "title": "Analytical Chemistry", 
           "id": "chem-ana", 
           "description": "The science of obtaining, processing, and communicating information about the composition and structure of matter. Based on 'Fundamentals of Analytical Chemistry' by Skoog et al.",
-         "topics": [
-        { 
-            "title": "Introduction to Analytical Chemistry", 
-            "id": "topic-intro",
-            "description": "The foundational overview of the scope, methods, and systematic process of analytical chemistry.",
-            "outcomes": [
-                "Define analytical chemistry and distinguish between qualitative and quantitative analysis.",
-                "Classify analytical methods into gravimetric, volumetric, electroanalytical, and spectroscopic categories.",
-                "Outline the steps in a typical quantitative analysis, from sampling to reporting results."
-            ],
-            "sections": [
-            {
-                "title": "1A: The Role of Analytical Chemistry",
-                "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>"
-            },
-            {
-                "title": "1B: Classifying Quantitative Analytical Methods",
-                "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>"
-            },
-            {
-                "title": "1C: Stepping Through a Typical Quantitative Analysis",
-                "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>"
-            }
-            ]
-        },
-        { 
-            "title": "Errors in Chemical Analysis", 
-            "id": "topic-errors",
-            "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
-            "outcomes": [
-                "Distinguish between systematic (determinate) and random (indeterminate) errors.",
-                "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
-                "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
-            ],
-            "sections": [
-            {
-                "title": "5A: Mean and Median",
-                "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
-            },
-            {
-                "title": "5B: Precision and Accuracy",
-                "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
-            },
-            {
-                "title": "5C: Types of Errors in Experimental Data",
-                "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
-            }
-            ]
-        },
-        { 
-            "title": "Gravimetric Methods of Analysis", 
-            "id": "topic-gravimetry",
-            "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
-            "outcomes": [
-                "Explain the mechanism of precipitate formation: nucleation and particle growth.",
-                "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
-                "Differentiate between colloidal and crystalline precipitates.",
-                "Understand the principles of volatilization gravimetry."
-            ],
-            "sections": [
-            {
-                "title": "12A: Precipitation Gravimetry",
-                "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
-            },
-            {
-                "title": "12B: Calculation of Results from Gravimetric Data",
-                "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
-            },
-            {
-                "title": "12C: Properties of Precipitates and Precipitating Agents",
-                "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
-            },
-            {
-                "title": "12D: Volatilization Gravimetry",
-                "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
-            }
-            ]
-        },
-        { 
-              "title": "Titrimetric Methods (Volumetry)", 
-              "id": "topic-titrimetry",
-              "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
-              "outcomes": [
-                  "Define standard solution, equivalence point, and end point.",
-                  "Classify titrations into Neutralization, Precipitation, Complexometric, and Redox types.",
-                  "Construct and interpret titration curves (pH, pAg, pM, E) for all method types.",
-                  "Perform stoichiometric calculations for each titration category."
-              ],
-              "sections": [
-                  {
-                    "title": "Introduction & Fundamentals",
-                    "content": "<h3>1. Core Definition</h3><p>Titrimetry (or Titrimetric Analysis) is a group of quantitative analytical methods in which the amount of an analyte is determined by measuring the quantity of a reagent of known concentration that reacts essentially completely with the analyte.</p><h3>2. Fundamental Vocabulary</h3><ul><li><strong>Titrant:</strong> The reagent solution of known concentration (usually in the burette).</li><li><strong>Analyte (Titrand):</strong> The solution containing the sample of unknown concentration (usually in the flask).</li><li><strong>Equivalence Point:</strong> The <em>theoretical</em> point where the moles of titrant added are chemically equivalent to the moles of analyte.</li><li><strong>End Point:</strong> The <em>experimental</em> point where a physical change (e.g., color change) signals you to stop.</li><li><strong>Titration Error:</strong> The difference between the Equivalence Point and the End Point ($E_t = V_{ep} - V_{eq}$).</li></ul><h3>3. Standards (The Reference System)</h3><p>To ensure accuracy, we rely on two types of standards:</p><ul><li><strong>Primary Standard:</strong> A highly purified compound (>99.9%), stable in air, with high molar mass. This is the ultimate reference (e.g., KHP).</li><li><strong>Standardization:</strong> The process of determining the exact concentration of a secondary standard by titrating it against a primary standard.</li></ul><h3>4. Classification of Methods</h3><p>We classify methods in two ways:</p><h4>A. By Measurement Principle (Technique)</h4><ul><li><strong>Volumetric:</strong> Measures volume of liquid reagent (Tool: Burette).</li><li><strong>Gravimetric:</strong> Measures mass of liquid reagent (Tool: Balance).</li><li><strong>Coulometric:</strong> Measures electrical charge (Tool: Electrodes).</li></ul><h4>B. By Chemical Reaction</h4><ul><li><strong>Neutralization:</strong> Acid-Base proton transfer.</li><li><strong>Precipitation:</strong> Formation of low-solubility solid (e.g., AgCl).</li><li><strong>Complexometric:</strong> Formation of soluble complex (e.g., EDTA).</li><li><strong>Redox:</strong> Electron transfer.</li></ul>",
-                    "quiz": [
-                        {
-                        "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
-                        "options": [
-                            "End Point",
-                            "Equivalence Point",
-                            "Standard Point",
-                            "Neutral Point"
-                        ],
-                        "answer": "Equivalence Point"
-                        },
-                        {
-                        "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?",
-                        "options": [
-                            "One measures acid, the other measures base",
-                            "One uses a burette (Volume), the other uses a balance (Mass)",
-                            "One uses electricity, the other uses liquid",
-                            "There is no difference"
-                        ],
-                        "answer": "One uses a burette (Volume), the other uses a balance (Mass)"
-                        },
-                        {
-                        "question": "Which of the following is a requirement for a Primary Standard?",
-                        "options": [
-                            "It must be a liquid",
-                            "It must be highly purified and stable in air",
-                            "It must change color automatically",
-                            "It must have a low molar mass"
-                        ],
-                        "answer": "It must be highly purified and stable in air"
-                        }
-                    ]
-                 },
-                  {
-                      "title": "Standard Solutions",
-                      "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material. It must be stable, pure, non-hygroscopic, and have a high molar mass.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>"
-                  },
-                  {
-                      "title": "Neutralization Titrations (Theory)",
-                      "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-) to form water. Includes Strong Acid/Strong Base and Weak/Strong combinations.</p>"
-                  },
-                  {
-                      "title": "Neutralization: Calculations & Curves",
-                      "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence (Buffer), Equivalence, and Post-Equivalence stages.</p>"
-                  },
-                  {
-                      "title": "Precipitation Titrations (Theory)",
-                      "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl). Common methods include Mohr, Volhard, and Fjans.</p>"
-                  },
-                  {
-                      "title": "Precipitation: Calculations & Curves",
-                      "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>"
-                  },
-                  {
-                      "title": "Complexometric Titrations (Theory)",
-                      "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>, used to determine water hardness.</p>"
-                  },
-                  {
-                      "title": "Complexometric: Calculations & Curves",
-                      "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>"
-                  },
-                  {
-                      "title": "Redox Titrations (Theory)",
-                      "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant. Common oxidants include Permanganate (MnO4-) and Dichromate.</p>"
-                  },
-                  {
-                      "title": "Redox: Calculations & Curves",
-                      "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell) at various stages.</p>"
-                  }
-              ]
-            },
-        { 
-            "title": "Introduction to Electrochemistry", 
-            "id": "topic-electrochem",
-            "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
-            "outcomes": [
-                "Describe the operation of an electrochemical cell.",
-                "Calculate electrode potentials using the Nernst Equation.",
-                "Differentiate between galvanic and electrolytic cells."
-            ],
-            "sections": [
+          "topics": [
+            { 
+                "title": "Introduction to Analytical Chemistry", 
+                "id": "topic-intro",
+                "description": "The foundational overview of the scope, methods, and systematic process of analytical chemistry.",
+                "outcomes": [
+                    "Define analytical chemistry and distinguish between qualitative and quantitative analysis.",
+                    "Classify analytical methods into gravimetric, volumetric, electroanalytical, and spectroscopic categories.",
+                    "Outline the steps in a typical quantitative analysis, from sampling to reporting results."
+                ],
+                "sections": [
                 {
-                    "title": "18A: Characterizing Oxidation-Reduction Reactions",
-                    "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
+                    "title": "1A: The Role of Analytical Chemistry",
+                    "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>"
                 },
                 {
-                    "title": "18B: Electrochemical Cells",
-                    "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge and anode/cathode definition.</p>"
+                    "title": "1B: Classifying Quantitative Analytical Methods",
+                    "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>"
                 },
                 {
-                    "title": "18C: Electrode Potentials",
-                    "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
+                    "title": "1C: Stepping Through a Typical Quantitative Analysis",
+                    "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>"
                 }
-            ]
-        },
-        { 
-            "title": "Introduction to Spectrochemical Methods", 
-            "id": "topic-spectroscopy",
-            "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
-            "outcomes": [
-                "Describe the wave and particle properties of electromagnetic radiation.",
-                "Explain the phenomena of absorption, emission, and scattering.",
-                "Understand the relationship between frequency, wavelength, and energy."
-            ],
-            "sections": [
+                ]
+            },
+            { 
+                "title": "Errors in Chemical Analysis", 
+                "id": "topic-errors",
+                "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
+                "outcomes": [
+                    "Distinguish between systematic (determinate) and random (indeterminate) errors.",
+                    "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
+                    "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
+                ],
+                "sections": [
                 {
-                    "title": "24A: Properties of Electromagnetic Radiation",
-                    "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
+                    "title": "5A: Mean and Median",
+                    "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
                 },
                 {
-                    "title": "24B: Interaction of Radiation with Matter",
-                    "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
+                    "title": "5B: Precision and Accuracy",
+                    "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
                 },
                 {
-                    "title": "24C: Absorption of Radiation",
-                    "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
+                    "title": "5C: Types of Errors in Experimental Data",
+                    "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
                 }
-            ]
-        }
+                ]
+            },
+            { 
+                "title": "Gravimetric Methods of Analysis", 
+                "id": "topic-gravimetry",
+                "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
+                "outcomes": [
+                    "Explain the mechanism of precipitate formation: nucleation and particle growth.",
+                    "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
+                    "Differentiate between colloidal and crystalline precipitates.",
+                    "Understand the principles of volatilization gravimetry."
+                ],
+                "sections": [
+                {
+                    "title": "12A: Precipitation Gravimetry",
+                    "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
+                },
+                {
+                    "title": "12B: Calculation of Results from Gravimetric Data",
+                    "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
+                },
+                {
+                    "title": "12C: Properties of Precipitates and Precipitating Agents",
+                    "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
+                },
+                {
+                    "title": "12D: Volatilization Gravimetry",
+                    "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
+                }
+                ]
+            },
+            { 
+                  "title": "Titrimetric Methods (Volumetry)", 
+                  "id": "topic-titrimetry",
+                  "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
+                  "outcomes": [
+                      "Define standard solution, equivalence point, and end point.",
+                      "Classify titrations into Neutralization, Precipitation, Complexometric, and Redox types.",
+                      "Construct and interpret titration curves (pH, pAg, pM, E) for all method types.",
+                      "Perform stoichiometric calculations for each titration category."
+                  ],
+                  "sections": [
+                      {
+                        "title": "Introduction & Fundamentals",
+                        "content": "<h3>1. Core Definition</h3><p>Titrimetry (or Titrimetric Analysis) is a group of quantitative analytical methods in which the amount of an analyte is determined by measuring the quantity of a reagent of known concentration that reacts essentially completely with the analyte.</p><h3>2. Fundamental Vocabulary</h3><ul><li><strong>Titrant:</strong> The reagent solution of known concentration (usually in the burette).</li><li><strong>Analyte (Titrand):</strong> The solution containing the sample of unknown concentration (usually in the flask).</li><li><strong>Equivalence Point:</strong> The <em>theoretical</em> point where the moles of titrant added are chemically equivalent to the moles of analyte.</li><li><strong>End Point:</strong> The <em>experimental</em> point where a physical change (e.g., color change) signals you to stop.</li><li><strong>Titration Error:</strong> The difference between the Equivalence Point and the End Point ($E_t = V_{ep} - V_{eq}$).</li></ul><h3>3. Standards (The Reference System)</h3><p>To ensure accuracy, we rely on two types of standards:</p><ul><li><strong>Primary Standard:</strong> A highly purified compound (>99.9%), stable in air, with high molar mass. This is the ultimate reference (e.g., KHP).</li><li><strong>Standardization:</strong> The process of determining the exact concentration of a secondary standard by titrating it against a primary standard.</li></ul><h3>4. Classification of Methods</h3><p>We classify methods in two ways:</p><h4>A. By Measurement Principle (Technique)</h4><ul><li><strong>Volumetric:</strong> Measures volume of liquid reagent (Tool: Burette).</li><li><strong>Gravimetric:</strong> Measures mass of liquid reagent (Tool: Balance).</li><li><strong>Coulometric:</strong> Measures electrical charge (Tool: Electrodes).</li></ul><h4>B. By Chemical Reaction</h4><ul><li><strong>Neutralization:</strong> Acid-Base proton transfer.</li><li><strong>Precipitation:</strong> Formation of low-solubility solid (e.g., AgCl).</li><li><strong>Complexometric:</strong> Formation of soluble complex (e.g., EDTA).</li><li><strong>Redox:</strong> Electron transfer.</li></ul>",
+                        "quiz": [
+                            {
+                            "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
+                            "options": [
+                                "End Point",
+                                "Equivalence Point",
+                                "Standard Point",
+                                "Neutral Point"
+                            ],
+                            "answer": "Equivalence Point"
+                            },
+                            {
+                            "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?",
+                            "options": [
+                                "One measures acid, the other measures base",
+                                "One uses a burette (Volume), the other uses a balance (Mass)",
+                                "One uses electricity, the other uses liquid",
+                                "There is no difference"
+                            ],
+                            "answer": "One uses a burette (Volume), the other uses a balance (Mass)"
+                            },
+                            {
+                            "question": "Which of the following is a requirement for a Primary Standard?",
+                            "options": [
+                                "It must be a liquid",
+                                "It must be highly purified and stable in air",
+                                "It must change color automatically",
+                                "It must have a low molar mass"
+                            ],
+                            "answer": "It must be highly purified and stable in air"
+                            }
+                        ]
+                     },
+                      {
+                          "title": "Standard Solutions",
+                          "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material. It must be stable, pure, non-hygroscopic, and have a high molar mass.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>"
+                      },
+                      {
+                          "title": "Neutralization Titrations (Theory)",
+                          "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-) to form water. Includes Strong Acid/Strong Base and Weak/Strong combinations.</p>"
+                      },
+                      {
+                          "title": "Neutralization: Calculations & Curves",
+                          "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence (Buffer), Equivalence, and Post-Equivalence stages.</p>"
+                      },
+                      {
+                          "title": "Precipitation Titrations (Theory)",
+                          "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl). Common methods include Mohr, Volhard, and Fjans.</p>"
+                      },
+                      {
+                          "title": "Precipitation: Calculations & Curves",
+                          "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>"
+                      },
+                      {
+                          "title": "Complexometric Titrations (Theory)",
+                          "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>, used to determine water hardness.</p>"
+                      },
+                      {
+                          "title": "Complexometric: Calculations & Curves",
+                          "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>"
+                      },
+                      {
+                          "title": "Redox Titrations (Theory)",
+                          "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant. Common oxidants include Permanganate (MnO4-) and Dichromate.</p>"
+                      },
+                      {
+                          "title": "Redox: Calculations & Curves",
+                          "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell) at various stages.</p>"
+                      }
+                  ]
+                },
+            { 
+                "title": "Introduction to Electrochemistry", 
+                "id": "topic-electrochem",
+                "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
+                "outcomes": [
+                    "Describe the operation of an electrochemical cell.",
+                    "Calculate electrode potentials using the Nernst Equation.",
+                    "Differentiate between galvanic and electrolytic cells."
+                ],
+                "sections": [
+                    {
+                        "title": "18A: Characterizing Oxidation-Reduction Reactions",
+                        "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
+                    },
+                    {
+                        "title": "18B: Electrochemical Cells",
+                        "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge and anode/cathode definition.</p>"
+                    },
+                    {
+                        "title": "18C: Electrode Potentials",
+                        "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
+                    }
+                ]
+            },
+            { 
+                "title": "Introduction to Spectrochemical Methods", 
+                "id": "topic-spectroscopy",
+                "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
+                "outcomes": [
+                    "Describe the wave and particle properties of electromagnetic radiation.",
+                    "Explain the phenomena of absorption, emission, and scattering.",
+                    "Understand the relationship between frequency, wavelength, and energy."
+                ],
+                "sections": [
+                    {
+                        "title": "24A: Properties of Electromagnetic Radiation",
+                        "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
+                    },
+                    {
+                        "title": "24B: Interaction of Radiation with Matter",
+                        "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
+                    },
+                    {
+                        "title": "24C: Absorption of Radiation",
+                        "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
+                    }
+                ]
+            }
           ]
         },
         { 
@@ -250,8 +250,172 @@
         { 
             "title": "Formal Logic", 
             "id": "cs-logic",
-            "description": "The study of inference with purely formal content, including Propositional and Predicate Logic.",
-            "topics": [] 
+            "description": "The study of inference with purely formal content, based on 'Logic in Computer Science' by Huth and Ryan. Covers Propositional, Predicate, and Modal Logic.",
+            "topics": [
+              {
+                "title": "Propositional Logic",
+                "id": "logic-prop",
+                "description": "The calculus of reasoning about propositions, using natural deduction and truth-table semantics.",
+                "outcomes": [
+                  "Distinguish between declarative sentences and non-declarative ones.",
+                  "Construct proofs using Natural Deduction rules (conjunction, disjunction, implication, negation).",
+                  "Verify validity using Truth Tables and understand the concept of Tautology.",
+                  "Convert logical formulas into Conjunctive Normal Form (CNF)."
+                ],
+                "sections": [
+                  {
+                    "title": "1.1: Declarative Sentences",
+                    "content": "<h3>Propositions</h3><p>Propositional logic is based on <strong>declarative sentences</strong> (propositions) which can, in principle, be declared true or false. Examples include 'The sum of 3 and 5 is 8' or 'All Martians like pepperoni'.</p>"
+                  },
+                  {
+                    "title": "1.2: Natural Deduction",
+                    "content": "<h3>Proof Rules</h3><p>Natural deduction allows us to infer conclusions from premises using specific rules:</p><ul><li><strong>Conjunction ($\\wedge$):</strong> If we have $\\phi$ and $\\psi$, we conclude $\\phi \\wedge \\psi$.</li><li><strong>Modus Ponens ($\\rightarrow e$):</strong> If $\\phi$ and $\\phi \\rightarrow \\psi$, then $\\psi$.</li><li><strong>Modus Tollens (MT):</strong> If $\\phi \\rightarrow \\psi$ and $\\neg\\psi$, then $\\neg\\phi$.</li></ul>"
+                  },
+                  {
+                    "title": "1.4: Semantics of Propositional Logic",
+                    "content": "<h3>Truth and Models</h3><p>The meaning of logical connectives is defined by <strong>Truth Tables</strong>. A formula $\\phi$ is <strong>valid</strong> (a tautology) if it evaluates to True in all possible valuations.</p>"
+                  },
+                  {
+                    "title": "1.5: Normal Forms",
+                    "content": "<h3>CNF</h3><p>Algorithms exist to transform any formula into <strong>Conjunctive Normal Form (CNF)</strong>, which is a conjunction of clauses (disjunctions of literals). This is crucial for SAT solvers.</p>"
+                  }
+                ],
+                "quiz": [
+                  {
+                    "question": "Which of the following is a declarative sentence?",
+                    "options": [
+                      "Please close the door.",
+                      "The square root of 4 is 2.",
+                      "Are you hungry?",
+                      "Go away!"
+                    ],
+                    "answer": "The square root of 4 is 2."
+                  },
+                  {
+                    "question": "A formula is 'Valid' (a tautology) if:",
+                    "options": [
+                      "It is true in at least one scenario.",
+                      "It is true in ALL possible scenarios.",
+                      "It contains no negation.",
+                      "It is written in CNF."
+                    ],
+                    "answer": "It is true in ALL possible scenarios."
+                  }
+                ]
+              },
+              {
+                "title": "Predicate Logic",
+                "id": "logic-pred",
+                "description": "An extension of propositional logic that uses quantifiers and predicates to express properties of objects.",
+                "outcomes": [
+                  "Translate natural language sentences into predicate logic using quantifiers.",
+                  "Distinguish between Free and Bound variables.",
+                  "Apply Natural Deduction rules for Universal ($\\forall$) and Existential ($\\exists$) quantifiers.",
+                  "Understand the difference between Syntax (formulas) and Semantics (models)."
+                ],
+                "sections": [
+                  {
+                    "title": "2.1: The Need for a Richer Language",
+                    "content": "<h3>Limitations of Propositions</h3><p>Propositional logic cannot express relationships between objects. Predicate logic introduces:</p><ul><li><strong>Predicates:</strong> $S(x)$ for 'x is a student'.</li><li><strong>Variables:</strong> Placeholders like $x, y$.</li><li><strong>Quantifiers:</strong> $\\forall$ (For all) and $\\exists$ (There exists).</li></ul>"
+                  },
+                  {
+                    "title": "2.2: Predicate Logic as a Formal Language",
+                    "content": "<h3>Syntax</h3><p><strong>Terms</strong> represent objects. <strong>Formulas</strong> represent truth values. A variable is <strong>free</strong> if it is not inside the scope of a quantifier; otherwise, it is <strong>bound</strong>.</p>"
+                  },
+                  {
+                    "title": "2.3: Proof Theory of Predicate Logic",
+                    "content": "<h3>Quantifier Rules</h3><p>New natural deduction rules include:</p><ul><li><strong>$\\forall x$ elimination:</strong> If $\\forall x \\phi$, then $\\phi[t/x]$ (substituting any term $t$).</li><li><strong>$\\exists x$ introduction:</strong> If $\\phi[t/x]$, then $\\exists x \\phi$.</li></ul>"
+                  },
+                  {
+                    "title": "2.4: Semantics of Predicate Logic",
+                    "content": "<h3>Models</h3><p>To evaluate a predicate formula, we need a <strong>Model</strong> which defines the domain of objects and the specific meaning of predicates (e.g., defining exactly who 'Students' are in a specific context).</p>"
+                  }
+                ],
+                "quiz": [
+                  {
+                    "question": "Which quantifier translates to 'For all' or 'Every'?",
+                    "options": [
+                      "$\\exists$",
+                      "$\\forall$",
+                      "$\\in$",
+                      "$\\subset$"
+                    ],
+                    "answer": "$\\forall$"
+                  },
+                  {
+                    "question": "In the formula $\\forall x (P(x) \\rightarrow Q(y))$, which variable is Free?",
+                    "options": [
+                      "x",
+                      "y",
+                      "Both x and y",
+                      "Neither"
+                    ],
+                    "answer": "y"
+                  }
+                ]
+              },
+              {
+                "title": "Modal Logic",
+                "id": "logic-modal",
+                "description": "Logic engineering for reasoning about necessity, time, and knowledge using possible worlds semantics.",
+                "outcomes": [
+                  "Differentiate between various modes of truth (necessity, belief, knowledge).",
+                  "Evaluate formulas using Kripke Models (Worlds, Accessibility Relation).",
+                  "Understand Correspondence Theory: how axioms relate to properties of the accessibility relation (Reflexive, Transitive, Euclidean).",
+                  "Apply the logic KT45 (S5) to reasoning about knowledge."
+                ],
+                "sections": [
+                  {
+                    "title": "5.1: Modes of Truth",
+                    "content": "<h3>Beyond True and False</h3><p>Modal logic adds unary connectives to express 'modes' of truth, such as:</p><ul><li><strong>Necessity:</strong> It is necessarily true that $\\phi$.</li><li><strong>Time:</strong> It will always be true that $\\phi$.</li><li><strong>Knowledge:</strong> Agent Q knows that $\\phi$.</li></ul>"
+                  },
+                  {
+                    "title": "5.2: Basic Modal Logic (Syntax & Semantics)",
+                    "content": "<h3>Kripke Models</h3><p>A model consists of a set of <strong>Worlds (W)</strong> and an <strong>Accessibility Relation (R)</strong> between them.</p><ul><li>$\\Box \\phi$ (Box): True if $\\phi$ is true in <em>all</em> accessible worlds.</li><li>$\\Diamond \\phi$ (Diamond): True if $\\phi$ is true in <em>at least one</em> accessible world.</li></ul>"
+                  },
+                  {
+                    "title": "5.3: Logic Engineering & Correspondence",
+                    "content": "<h3>Designing Logic</h3><p>We can 'engineer' a logic by choosing axioms that force the accessibility relation to have specific properties:</p><ul><li><strong>Axiom T ($\\Box \\phi \\rightarrow \\phi$):</strong> Requires R to be <strong>Reflexive</strong>. (Used for Knowledge).</li><li><strong>Axiom 4 ($\\Box \\phi \\rightarrow \\Box \\Box \\phi$):</strong> Requires R to be <strong>Transitive</strong>. (Positive Introspection).</li><li><strong>Axiom 5 ($\\Diamond \\phi \\rightarrow \\Box \\Diamond \\phi$):</strong> Requires R to be <strong>Euclidean</strong>. (Negative Introspection).</li></ul>"
+                  },
+                  {
+                    "title": "5.5: Reasoning about Knowledge (KT45)",
+                    "content": "<h3>The Logic of Knowledge</h3><p>The logic <strong>KT45</strong> (also called S5) models the knowledge of idealised agents. It assumes agents are truthful (T), know what they know (4), and know what they do not know (5).</p>"
+                  }
+                ],
+                "quiz": [
+                  {
+                    "question": "In a Kripke model, when is $\\Box \\phi$ true at world w?",
+                    "options": [
+                      "If $\\phi$ is true in w.",
+                      "If $\\phi$ is true in at least one world accessible from w.",
+                      "If $\\phi$ is true in ALL worlds accessible from w.",
+                      "If $\\phi$ is false in all worlds."
+                    ],
+                    "answer": "If $\\phi$ is true in ALL worlds accessible from w."
+                  },
+                  {
+                    "question": "Which property of the accessibility relation R corresponds to the axiom $\\Box \\phi \\rightarrow \\phi$ (Truth)?",
+                    "options": [
+                      "Transitive",
+                      "Reflexive",
+                      "Serial",
+                      "Symmetric"
+                    ],
+                    "answer": "Reflexive"
+                  },
+                  {
+                    "question": "In the logic of knowledge (KT45), what does the axiom '5' (Negative Introspection) state?",
+                    "options": [
+                      "If I know P, then P is true.",
+                      "If I know P, I know that I know P.",
+                      "If I don't know P, I know that I don't know P.",
+                      "I know everything."
+                    ],
+                    "answer": "If I don't know P, I know that I don't know P."
+                  }
+                ]
+              }
+            ]
         },
         { 
             "title": "Theoretical Computer Science", 
