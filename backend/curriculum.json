@@ -7,20 +7,20 @@
       "modules": [
         { 
           "title": "Organic Chemistry", 
-          "id": "chem-org",
-          "description": "The study of carbon-containing compounds, their structure, reactions, and synthesis. [Textbook alignment pending]", 
+          "id": "chem-org", 
+          "description": "The study of carbon-containing compounds, their structure, reactions, and synthesis.", 
           "topics": [] 
         },
         { 
           "title": "Inorganic Chemistry", 
-          "id": "chem-inorg",
-          "description": "The study of inorganic compounds, metals, minerals, and organometallics. [Textbook alignment pending]",
+          "id": "chem-inorg", 
+          "description": "The study of inorganic compounds, metals, minerals, and organometallics.", 
           "topics": [] 
         },
         { 
           "title": "Analytical Chemistry", 
           "id": "chem-ana", 
-          "description": "The science of obtaining, processing, and communicating information about the composition and structure of matter. Based on 'Fundamentals of Analytical Chemistry' by Skoog et al.",
+          "description": "The science of obtaining, processing, and communicating information about the composition and structure of matter.",
           "topics": [
             { 
                 "title": "Introduction to Analytical Chemistry", 
@@ -29,21 +29,12 @@
                 "outcomes": [
                     "Define analytical chemistry and distinguish between qualitative and quantitative analysis.",
                     "Classify analytical methods into gravimetric, volumetric, electroanalytical, and spectroscopic categories.",
-                    "Outline the steps in a typical quantitative analysis, from sampling to reporting results."
+                    "Outline the steps in a typical quantitative analysis."
                 ],
                 "sections": [
-                {
-                    "title": "1A: The Role of Analytical Chemistry",
-                    "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>"
-                },
-                {
-                    "title": "1B: Classifying Quantitative Analytical Methods",
-                    "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>"
-                },
-                {
-                    "title": "1C: Stepping Through a Typical Quantitative Analysis",
-                    "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>"
-                }
+                    { "title": "1A: The Role of Analytical Chemistry", "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>" },
+                    { "title": "1B: Classifying Quantitative Analytical Methods", "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>" },
+                    { "title": "1C: Stepping Through a Typical Quantitative Analysis", "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>" }
                 ]
             },
             { 
@@ -56,18 +47,9 @@
                     "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
                 ],
                 "sections": [
-                {
-                    "title": "5A: Mean and Median",
-                    "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
-                },
-                {
-                    "title": "5B: Precision and Accuracy",
-                    "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
-                },
-                {
-                    "title": "5C: Types of Errors in Experimental Data",
-                    "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
-                }
+                    { "title": "5A: Mean and Median", "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>" },
+                    { "title": "5B: Precision and Accuracy", "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>" },
+                    { "title": "5C: Types of Errors in Experimental Data", "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>" }
                 ]
             },
             { 
@@ -81,27 +63,15 @@
                     "Understand the principles of volatilization gravimetry."
                 ],
                 "sections": [
-                {
-                    "title": "12A: Precipitation Gravimetry",
-                    "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
-                },
-                {
-                    "title": "12B: Calculation of Results from Gravimetric Data",
-                    "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
-                },
-                {
-                    "title": "12C: Properties of Precipitates and Precipitating Agents",
-                    "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
-                },
-                {
-                    "title": "12D: Volatilization Gravimetry",
-                    "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
-                }
+                    { "title": "12A: Precipitation Gravimetry", "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>" },
+                    { "title": "12B: Calculation of Results from Gravimetric Data", "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>" },
+                    { "title": "12C: Properties of Precipitates and Precipitating Agents", "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>" },
+                    { "title": "12D: Volatilization Gravimetry", "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>" }
                 ]
             },
             { 
                   "title": "Titrimetric Methods (Volumetry)", 
-                  "id": "topic-titrimetry",
+                  "id": "topic-titrimetry", 
                   "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
                   "outcomes": [
                       "Define standard solution, equivalence point, and end point.",
@@ -110,78 +80,22 @@
                       "Perform stoichiometric calculations for each titration category."
                   ],
                   "sections": [
-                      {
-                        "title": "Introduction & Fundamentals",
-                        "content": "<h3>1. Core Definition</h3><p>Titrimetry (or Titrimetric Analysis) is a group of quantitative analytical methods in which the amount of an analyte is determined by measuring the quantity of a reagent of known concentration that reacts essentially completely with the analyte.</p><h3>2. Fundamental Vocabulary</h3><ul><li><strong>Titrant:</strong> The reagent solution of known concentration (usually in the burette).</li><li><strong>Analyte (Titrand):</strong> The solution containing the sample of unknown concentration (usually in the flask).</li><li><strong>Equivalence Point:</strong> The <em>theoretical</em> point where the moles of titrant added are chemically equivalent to the moles of analyte.</li><li><strong>End Point:</strong> The <em>experimental</em> point where a physical change (e.g., color change) signals you to stop.</li><li><strong>Titration Error:</strong> The difference between the Equivalence Point and the End Point ($E_t = V_{ep} - V_{eq}$).</li></ul><h3>3. Standards (The Reference System)</h3><p>To ensure accuracy, we rely on two types of standards:</p><ul><li><strong>Primary Standard:</strong> A highly purified compound (>99.9%), stable in air, with high molar mass. This is the ultimate reference (e.g., KHP).</li><li><strong>Standardization:</strong> The process of determining the exact concentration of a secondary standard by titrating it against a primary standard.</li></ul><h3>4. Classification of Methods</h3><p>We classify methods in two ways:</p><h4>A. By Measurement Principle (Technique)</h4><ul><li><strong>Volumetric:</strong> Measures volume of liquid reagent (Tool: Burette).</li><li><strong>Gravimetric:</strong> Measures mass of liquid reagent (Tool: Balance).</li><li><strong>Coulometric:</strong> Measures electrical charge (Tool: Electrodes).</li></ul><h4>B. By Chemical Reaction</h4><ul><li><strong>Neutralization:</strong> Acid-Base proton transfer.</li><li><strong>Precipitation:</strong> Formation of low-solubility solid (e.g., AgCl).</li><li><strong>Complexometric:</strong> Formation of soluble complex (e.g., EDTA).</li><li><strong>Redox:</strong> Electron transfer.</li></ul>",
+                      { "title": "Introduction & Fundamentals", "content": "<h3>1. Core Definition</h3><p>Titrimetry is a group of quantitative analytical methods determining analyte amount by measuring the quantity of a reagent.</p><h3>2. Vocabulary</h3><ul><li><strong>Titrant:</strong> Reagent of known concentration.</li><li><strong>Analyte:</strong> Solution of unknown concentration.</li><li><strong>Equivalence Point:</strong> Theoretical point where moles of titrant = moles of analyte.</li><li><strong>End Point:</strong> Experimental point of physical change.</li></ul>",
                         "quiz": [
-                            {
-                            "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
-                            "options": [
-                                "End Point",
-                                "Equivalence Point",
-                                "Standard Point",
-                                "Neutral Point"
-                            ],
-                            "answer": "Equivalence Point"
-                            },
-                            {
-                            "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?",
-                            "options": [
-                                "One measures acid, the other measures base",
-                                "One uses a burette (Volume), the other uses a balance (Mass)",
-                                "One uses electricity, the other uses liquid",
-                                "There is no difference"
-                            ],
-                            "answer": "One uses a burette (Volume), the other uses a balance (Mass)"
-                            },
-                            {
-                            "question": "Which of the following is a requirement for a Primary Standard?",
-                            "options": [
-                                "It must be a liquid",
-                                "It must be highly purified and stable in air",
-                                "It must change color automatically",
-                                "It must have a low molar mass"
-                            ],
-                            "answer": "It must be highly purified and stable in air"
-                            }
+                            { "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?", "options": ["End Point", "Equivalence Point", "Standard Point", "Neutral Point"], "answer": "Equivalence Point" },
+                            { "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?", "options": ["One measures acid, the other measures base", "One uses a burette (Volume), the other uses a balance (Mass)", "One uses electricity, the other uses liquid", "There is no difference"], "answer": "One uses a burette (Volume), the other uses a balance (Mass)" },
+                            { "question": "Which of the following is a requirement for a Primary Standard?", "options": ["It must be a liquid", "It must be highly purified and stable in air", "It must change color automatically", "It must have a low molar mass"], "answer": "It must be highly purified and stable in air" }
                         ]
                      },
-                      {
-                          "title": "Standard Solutions",
-                          "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material. It must be stable, pure, non-hygroscopic, and have a high molar mass.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>"
-                      },
-                      {
-                          "title": "Neutralization Titrations (Theory)",
-                          "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-) to form water. Includes Strong Acid/Strong Base and Weak/Strong combinations.</p>"
-                      },
-                      {
-                          "title": "Neutralization: Calculations & Curves",
-                          "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence (Buffer), Equivalence, and Post-Equivalence stages.</p>"
-                      },
-                      {
-                          "title": "Precipitation Titrations (Theory)",
-                          "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl). Common methods include Mohr, Volhard, and Fjans.</p>"
-                      },
-                      {
-                          "title": "Precipitation: Calculations & Curves",
-                          "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>"
-                      },
-                      {
-                          "title": "Complexometric Titrations (Theory)",
-                          "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>, used to determine water hardness.</p>"
-                      },
-                      {
-                          "title": "Complexometric: Calculations & Curves",
-                          "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>"
-                      },
-                      {
-                          "title": "Redox Titrations (Theory)",
-                          "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant. Common oxidants include Permanganate (MnO4-) and Dichromate.</p>"
-                      },
-                      {
-                          "title": "Redox: Calculations & Curves",
-                          "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell) at various stages.</p>"
-                      }
+                      { "title": "Standard Solutions", "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>" },
+                      { "title": "Neutralization Titrations (Theory)", "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-).</p>" },
+                      { "title": "Neutralization: Calculations & Curves", "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence, Equivalence, and Post-Equivalence stages.</p>" },
+                      { "title": "Precipitation Titrations (Theory)", "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl).</p>" },
+                      { "title": "Precipitation: Calculations & Curves", "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>" },
+                      { "title": "Complexometric Titrations (Theory)", "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>.</p>" },
+                      { "title": "Complexometric: Calculations & Curves", "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>" },
+                      { "title": "Redox Titrations (Theory)", "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant.</p>" },
+                      { "title": "Redox: Calculations & Curves", "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell).</p>" }
                   ]
                 },
             { 
@@ -194,18 +108,9 @@
                     "Differentiate between galvanic and electrolytic cells."
                 ],
                 "sections": [
-                    {
-                        "title": "18A: Characterizing Oxidation-Reduction Reactions",
-                        "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
-                    },
-                    {
-                        "title": "18B: Electrochemical Cells",
-                        "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge and anode/cathode definition.</p>"
-                    },
-                    {
-                        "title": "18C: Electrode Potentials",
-                        "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
-                    }
+                    { "title": "18A: Characterizing Oxidation-Reduction Reactions", "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>" },
+                    { "title": "18B: Electrochemical Cells", "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge.</p>" },
+                    { "title": "18C: Electrode Potentials", "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>" }
                 ]
             },
             { 
@@ -218,18 +123,9 @@
                     "Understand the relationship between frequency, wavelength, and energy."
                 ],
                 "sections": [
-                    {
-                        "title": "24A: Properties of Electromagnetic Radiation",
-                        "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
-                    },
-                    {
-                        "title": "24B: Interaction of Radiation with Matter",
-                        "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
-                    },
-                    {
-                        "title": "24C: Absorption of Radiation",
-                        "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
-                    }
+                    { "title": "24A: Properties of Electromagnetic Radiation", "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>" },
+                    { "title": "24B: Interaction of Radiation with Matter", "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>" },
+                    { "title": "24C: Absorption of Radiation", "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>" }
                 ]
             }
           ]
@@ -237,7 +133,7 @@
         { 
            "title": "Physical Chemistry", 
            "id": "chem-phys", 
-           "description": "The branch of chemistry concerned with the application of the techniques and theories of physics to the study of chemical systems. [Textbook alignment pending]",
+           "description": "The branch of chemistry concerned with the application of the techniques and theories of physics to the study of chemical systems.",
            "topics": [] 
         }
       ]
@@ -255,51 +151,58 @@
               {
                 "title": "Propositional Logic",
                 "id": "logic-prop",
-                "description": "The calculus of reasoning about propositions, using natural deduction and truth-table semantics.",
+                "description": "The calculus of reasoning about propositions, analyzing argument structure over content.",
                 "outcomes": [
-                  "Distinguish between declarative sentences and non-declarative ones.",
-                  "Construct proofs using Natural Deduction rules (conjunction, disjunction, implication, negation).",
-                  "Verify validity using Truth Tables and understand the concept of Tautology.",
-                  "Convert logical formulas into Conjunctive Normal Form (CNF)."
+                  "Distinguish between argument structure and content using real-world examples.",
+                  "Translate natural language into atomic symbols ($p, q$) and connectives.",
+                  "Construct sequents using the Turnstile symbol ($\\vdash$).",
+                  "Apply Natural Deduction rules (Conjunction, Disjunction, Implication, Negation)."
                 ],
                 "sections": [
+                    {
+                    "title": "1.0: The Aim of Logic",
+                    "content": "<h3>Why do we need Logic?</h3><p>As computer scientists, our job is to model the real world. But the real world is messy! We need a way to reason about situations formally so that our arguments - and our code - are airtight.</p><hr><h4>1. The Intuition Trap (The Toaster Problem)</h4><p>In everyday life, we use intuition to judge arguments. Consider this argument in plain English:</p><div style='background:#f8f9fa; padding:15px; border-radius:8px; border-left: 5px solid #e74c3c; margin-bottom:15px;'><strong>The Argument (English):</strong><br>1. If an object is a computer, then it needs electricity.<br>2. My toaster needs electricity.<br>3. Therefore, my toaster is a computer.</div><p><strong>Wait, that's obviously wrong.</strong> But why? To find the bug, we need to translate this from English into Logic.</p><h4>2. Step 1: Defining the Atoms</h4><p>First, we identify the independent declarative sentences (facts) and assign them a variable, usually starting with $p$ and $q$. These are called <strong>Atoms</strong>.</p><table style='width:100%; border-collapse: collapse; margin-bottom:15px;'><thead><tr style='background:#f1f1f1; border-bottom: 2px solid #ddd;'><th style='text-align:left; padding:8px;'>Symbol</th><th style='text-align:left; padding:8px;'>English Meaning</th></tr></thead><tbody><tr><td style='padding:8px; font-weight:bold;'>$p$</td><td>The object is a computer</td></tr><tr><td style='padding:8px; font-weight:bold;'>$q$</td><td>The object needs electricity</td></tr></tbody></table><h4>3. Step 2: The Formal Structure</h4><p>Now, we replace the English sentences with our symbols to see the skeleton of the argument:</p><div class='proof-box' style='text-align:center; font-size:1.1rem; margin-top:15px;'>Rule: $p \\rightarrow q$ (If Computer, then Electricity)<br>Fact: $q$ (Has Electricity)<br><strong>Conclusion: $p$ (Must be Computer)</strong></div><p><strong>This is a logical bug!</strong> This specific pattern is called <em>Affirming the Consequent</em>. Just because you have the result ($q$), doesn't mean you have the specific cause ($p$).</p><hr><h4>4. Comparing with a Valid Argument</h4><p>Now look at a valid example (The Commuter) to see the difference:</p><div class='proof-box' style='text-align:center; font-size:1.1rem; margin-top:15px;'>If the train is late ($p$) and no taxis ($\\neg q$), then John is late ($r$).<br>John is NOT late ($\\neg r$). The train is late ($p$).<br><strong>Therefore, there were taxis ($q$).</strong></div><p>This structure is <strong>VALID</strong>. By translating English to symbols, we can ignore the 'toaster' or 'train' details and focus purely on proving the logic is sound.</p><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=Adp55XF58w8' target='_blank'>Video: Introduction to Arguments and Validity</a></p><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up: The Rules of the Game</strong><br>We now know that <em>structure</em> is the key to validity. But how do we build these structures? We can't use just any sentence (like \"Pass the salt!\"). In the next lesson, <strong>1.1 Declarative Sentences</strong>, we will learn exactly which sentences are allowed in logic and how to translate the real world into code-ready syntax.</div>"
+                    },
                   {
-                    "title": "1.1: Declarative Sentences",
-                    "content": "<h3>Propositions</h3><p>Propositional logic is based on <strong>declarative sentences</strong> (propositions) which can, in principle, be declared true or false. Examples include 'The sum of 3 and 5 is 8' or 'All Martians like pepperoni'.</p>"
+                    "title": "1.1: Declarative Sentences & Syntax",
+                    "content": "<h3>Atomic Sentences</h3><p>We abstract specific facts into atomic symbols ($p, q, r$).</p><ul><li>$p$: 'The instance is running.'</li><li>$q$: 'The port is open.'</li></ul><h3>Logical Connectives</h3><p>We combine atoms using operators that mimic boolean logic in programming:</p><ul><li><strong>Negation ($\\neg$):</strong> 'Not' (reverses truth value).</li><li><strong>Disjunction ($\\vee$):</strong> 'Or' (inclusive; true if at least one side is true).</li><li><strong>Conjunction ($\\wedge$):</strong> 'And' (true only if both sides are true).</li><li><strong>Implication ($\\rightarrow$):</strong> 'If... then' (preserves truth from antecedent to consequent).</li></ul><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=dlUkeN7KqVA' target='_blank'>Video: Propositional Logic | Symbolic Logic Tutorial</a></p>"
                   },
                   {
-                    "title": "1.2: Natural Deduction",
-                    "content": "<h3>Proof Rules</h3><p>Natural deduction allows us to infer conclusions from premises using specific rules:</p><ul><li><strong>Conjunction ($\\wedge$):</strong> If we have $\\phi$ and $\\psi$, we conclude $\\phi \\wedge \\psi$.</li><li><strong>Modus Ponens ($\\rightarrow e$):</strong> If $\\phi$ and $\\phi \\rightarrow \\psi$, then $\\psi$.</li><li><strong>Modus Tollens (MT):</strong> If $\\phi \\rightarrow \\psi$ and $\\neg\\psi$, then $\\neg\\phi$.</li></ul>"
+                    "title": "1.2: Natural Deduction: The Framework",
+                    "content": "<h3>The Sequent</h3><p>Natural deduction is a calculus for reasoning. Instead of checking 2<sup>n</sup> truth tables, we use rules to derive conclusions step-by-step.</p><p>We express a proof as a <strong>Sequent</strong>:</p>$$ \\phi_1, \\phi_2 \\vdash \\psi $$<ul><li><strong>Premises ($\\phi$):</strong> The inputs or known facts.</li><li><strong>Turnstile ($\\vdash$):</strong> Syntactic entailment (read as 'proves').</li><li><strong>Conclusion ($\\psi$):</strong> The output we must derive.</li></ul><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=dlUkeN7KqVA' target='_blank'>Video: Rules for Natural Deduction</a></p>"
                   },
                   {
-                    "title": "1.4: Semantics of Propositional Logic",
-                    "content": "<h3>Truth and Models</h3><p>The meaning of logical connectives is defined by <strong>Truth Tables</strong>. A formula $\\phi$ is <strong>valid</strong> (a tautology) if it evaluates to True in all possible valuations.</p>"
+                    "title": "1.3A: The Rules: Conjunction & Disjunction",
+                    "content": "<h3>1. Conjunction (AND)</h3><ul><li><strong>Introduction ($\\wedge i$):</strong> If you have $p$ and you have $q$, you can build $p \\wedge q$.</li><li><strong>Elimination ($\\wedge e$):</strong> If you have $p \\wedge q$, you can extract $p$.</li></ul><h3>2. Disjunction (OR)</h3><ul><li><strong>Introduction ($\\vee i$):</strong> If you have $p$, you can conclude $p \\vee q$. (e.g., If server is up, then 'server is up OR down' is true).</li><li><strong>Elimination ($\\vee e$ - Case Analysis):</strong> If you have $p \\vee q$, you must prove your conclusion assuming $p$, and then prove it again assuming $q$. If both cases work, the conclusion is valid.</li></ul><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=NAAvpt3lIlA' target='_blank'>Video: AND-Introduction and Elimination Rules</a></p>"
                   },
                   {
-                    "title": "1.5: Normal Forms",
-                    "content": "<h3>CNF</h3><p>Algorithms exist to transform any formula into <strong>Conjunctive Normal Form (CNF)</strong>, which is a conjunction of clauses (disjunctions of literals). This is crucial for SAT solvers.</p>"
+                    "title": "1.3B: The Rules: Implication & Scope",
+                    "content": "<h3>1. Elimination (Modus Ponens)</h3><p>If you have $p \\rightarrow q$ (the rule) and $p$ (the trigger), you derive $q$.<br><em>Cloud Context:</em> If CPU > 90% then Scale Out. We observe CPU > 90%. Therefore, Scale Out.</p><h3>2. Introduction (The Box Method)</h3><p>To prove $p \\rightarrow q$, we do not need $p$ to be true effectively. We open a temporary scope (a 'Box'), assume $p$, and try to reach $q$. If successful, we close the box and conclude $p \\rightarrow q$.<br><em>Coding Context:</em> This is identical to defining a function: <code>function(p) { ... return q; }</code>. The function is valid logic even if it is never called.</p><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=HbANy9V8ZfQ' target='_blank'>Video: Modus Ponens & Modus Tollens</a></p>"
+                  },
+                  {
+                    "title": "1.3C: The Rules: Negation & Contradiction",
+                    "content": "<h3>1. Contradiction ($\\bot$)</h3><p>A contradiction occurs when we hold both a fact and its negation simultaneously ($p \\wedge \\neg p$). In logic, this is a fatal error (crashes the argument).</p><h3>2. Proof by Contradiction ($\\neg i$)</h3><p>To prove $\\neg p$, we assume $p$. If this assumption leads to a contradiction ($\\bot$), then the assumption must be false. Therefore, $\\neg p$ is true.</p><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=AqMN2xMUMIY' target='_blank'>Video: Proof by Contradiction</a></p>"
+                  },
+                  {
+                    "title": "1.4: Practice Exercises",
+                    "content": "<h3>Exercise 1: Commutativity of AND</h3><p>Sequent: $p \\wedge q \\vdash q \\wedge p$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\wedge q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p$</span><span class='proof-rule'>$\\wedge e_1$ 1</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\wedge e_2$ 1</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q \\wedge p$</span><span class='proof-rule'>$\\wedge i$ 3,2</span></div></div><h3>Exercise 2: Modus Tollens (Derived)</h3><p>Sequent: $p \\rightarrow q, \\neg q \\vdash \\neg p$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$\\neg q$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\rightarrow e$ 1,3</span></div><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$\\bot$</span><span class='proof-rule'>$\\neg e$ 4,2</span></div></div><div class='proof-row'><span class='proof-num'>6</span><span class='proof-math'>$\\neg p$</span><span class='proof-rule'>$\\neg i$ 3-5</span></div></div><h3>Exercise 3: Case Analysis</h3><p>Sequent: $q \\rightarrow r \\vdash (p \\vee q) \\rightarrow (p \\vee r)$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$q \\rightarrow r$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p \\vee q$</span><span class='proof-rule'>assumption</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee i$ 3</span></div></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$q$</span><span class='proof-rule'>assumption</span></div><div class='proof-row'><span class='proof-num'>6</span><span class='proof-math'>$r$</span><span class='proof-rule'>$\\rightarrow e$ 1,5</span></div><div class='proof-row'><span class='proof-num'>7</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee i$ 6</span></div></div><div class='proof-row'><span class='proof-num'>8</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee e$ 2, 3-4, 5-7</span></div></div><div class='proof-row'><span class='proof-num'>9</span><span class='proof-math'>$(p \\vee q) \\rightarrow (p \\vee r)$</span><span class='proof-rule'>$\\rightarrow i$ 2-8</span></div></div>"
                   }
                 ],
                 "quiz": [
                   {
-                    "question": "Which of the following is a declarative sentence?",
-                    "options": [
-                      "Please close the door.",
-                      "The square root of 4 is 2.",
-                      "Are you hungry?",
-                      "Go away!"
-                    ],
-                    "answer": "The square root of 4 is 2."
+                    "question": "Which of the following describes the goal of propositional logic?",
+                    "options": ["Analyze content of arguments", "Analyze structure of arguments", "Verify intuition", "Debug code"],
+                    "answer": "Analyze structure of arguments"
                   },
                   {
-                    "question": "A formula is 'Valid' (a tautology) if:",
-                    "options": [
-                      "It is true in at least one scenario.",
-                      "It is true in ALL possible scenarios.",
-                      "It contains no negation.",
-                      "It is written in CNF."
-                    ],
-                    "answer": "It is true in ALL possible scenarios."
+                    "question": "In Natural Deduction, what is the 'Box Method' used for?",
+                    "options": ["Disjunction Elimination", "Implication Introduction", "Negation Elimination", "Conjunction Introduction"],
+                    "answer": "Implication Introduction"
+                  },
+                  {
+                    "question": "What is a 'Sequent'?",
+                    "options": ["A programming loop", "A list of axioms", "A format expressing Premises ⊢ Conclusion", "A contradiction"],
+                    "answer": "A format expressing Premises ⊢ Conclusion"
                   }
                 ]
               },
@@ -332,26 +235,8 @@
                   }
                 ],
                 "quiz": [
-                  {
-                    "question": "Which quantifier translates to 'For all' or 'Every'?",
-                    "options": [
-                      "$\\exists$",
-                      "$\\forall$",
-                      "$\\in$",
-                      "$\\subset$"
-                    ],
-                    "answer": "$\\forall$"
-                  },
-                  {
-                    "question": "In the formula $\\forall x (P(x) \\rightarrow Q(y))$, which variable is Free?",
-                    "options": [
-                      "x",
-                      "y",
-                      "Both x and y",
-                      "Neither"
-                    ],
-                    "answer": "y"
-                  }
+                  { "question": "Which quantifier translates to 'For all' or 'Every'?", "options": ["$\\exists$", "$\\forall$", "$\\in$", "$\\subset$"], "answer": "$\\forall$" },
+                  { "question": "In the formula $\\forall x (P(x) \\rightarrow Q(y))$, which variable is Free?", "options": ["x", "y", "Both x and y", "Neither"], "answer": "y" }
                 ]
               },
               {
@@ -383,62 +268,35 @@
                   }
                 ],
                 "quiz": [
-                  {
-                    "question": "In a Kripke model, when is $\\Box \\phi$ true at world w?",
-                    "options": [
-                      "If $\\phi$ is true in w.",
-                      "If $\\phi$ is true in at least one world accessible from w.",
-                      "If $\\phi$ is true in ALL worlds accessible from w.",
-                      "If $\\phi$ is false in all worlds."
-                    ],
-                    "answer": "If $\\phi$ is true in ALL worlds accessible from w."
-                  },
-                  {
-                    "question": "Which property of the accessibility relation R corresponds to the axiom $\\Box \\phi \\rightarrow \\phi$ (Truth)?",
-                    "options": [
-                      "Transitive",
-                      "Reflexive",
-                      "Serial",
-                      "Symmetric"
-                    ],
-                    "answer": "Reflexive"
-                  },
-                  {
-                    "question": "In the logic of knowledge (KT45), what does the axiom '5' (Negative Introspection) state?",
-                    "options": [
-                      "If I know P, then P is true.",
-                      "If I know P, I know that I know P.",
-                      "If I don't know P, I know that I don't know P.",
-                      "I know everything."
-                    ],
-                    "answer": "If I don't know P, I know that I don't know P."
-                  }
+                  { "question": "In a Kripke model, when is $\\Box \\phi$ true at world w?", "options": ["If $\\phi$ is true in w.", "If $\\phi$ is true in at least one world accessible from w.", "If $\\phi$ is true in ALL worlds accessible from w.", "If $\\phi$ is false in all worlds."], "answer": "If $\\phi$ is true in ALL worlds accessible from w." },
+                  { "question": "Which property of the accessibility relation R corresponds to the axiom $\\Box \\phi \\rightarrow \\phi$ (Truth)?", "options": ["Transitive", "Reflexive", "Serial", "Symmetric"], "answer": "Reflexive" },
+                  { "question": "In the logic of knowledge (KT45), what does the axiom '5' (Negative Introspection) state?", "options": ["If I know P, then P is true.", "If I know P, I know that I know P.", "If I don't know P, I know that I don't know P.", "I know everything."], "answer": "If I don't know P, I know that I don't know P." }
                 ]
               }
             ]
         },
         { 
             "title": "Theoretical Computer Science", 
-            "id": "cs-theory",
-            "description": "Mathematical aspects of computer science, including complexity theory and automata.",
+            "id": "cs-theory", 
+            "description": "Mathematical aspects of computer science.", 
             "topics": [] 
         },
         { 
             "title": "Artificial Intelligence", 
-            "id": "cs-ai",
-            "description": "The simulation of human intelligence processes by computer systems, specifically learning and reasoning.",
+            "id": "cs-ai", 
+            "description": "The simulation of human intelligence processes.", 
             "topics": [] 
         },
         { 
             "title": "Data Structures & Algorithms", 
-            "id": "cs-dsa",
-            "description": "The study of methods for storing data and the algorithms used to access and manipulate it.",
+            "id": "cs-dsa", 
+            "description": "The study of methods for storing data.", 
             "topics": [] 
         },
         { 
             "title": "Software Engineering Projects", 
-            "id": "cs-se-proj",
-            "description": "Practical application of engineering principles to the development of software.",
+            "id": "cs-se-proj", 
+            "description": "Practical application of engineering principles.", 
             "topics": [] 
         }
       ]
