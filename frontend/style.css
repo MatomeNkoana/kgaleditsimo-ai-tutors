@@ -2,8 +2,8 @@
    1. GLOBAL SETTINGS & COLORS
    ========================================= */
 :root {
-    --primary-color: #2c3e50; /* Dark Blue */
-    --accent-color: #3498db;  /* Bright Blue */
+    --primary-color: #0a801d; /* Dark Blue */
+    --accent-color: #68f774;  /* Bright Blue */
     --bg-color: #ecf0f1;      /* Light Grey */
     --card-bg: #ffffff;       /* White */
     --text-color: #2c3e50;
@@ -732,4 +732,74 @@ button:not(.back-button):not(.hero-btn):not(.quiz-option):hover {
     .main-subject-grid, .card-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   10. LOGIC PROOF STYLING (The Box Method)
+   ========================================= */
+.logic-proof {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+/* A single line in the proof */
+.proof-row {
+    display: flex;
+    align-items: center; /* Vertically align math */
+    padding: 4px 0;
+    min-height: 30px;
+}
+
+/* Column 1: Line Number */
+.proof-num {
+    width: 30px;
+    min-width: 30px;
+    color: #888;
+    font-size: 0.85rem;
+    text-align: right;
+    margin-right: 15px;
+    user-select: none; /* Can't select line numbers */
+}
+
+/* Column 2: The Math Formula */
+.proof-math {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* Column 3: The Justification/Rule */
+.proof-rule {
+    font-size: 0.9rem;
+    color: #2980b9; /* Accent color for rules */
+    font-style: italic;
+    margin-left: 20px;
+    white-space: nowrap; /* Keep rules on one line if possible */
+}
+
+/* THE BOX (Subproof Container) */
+.proof-box {
+    border: 2px solid #2c3e50; /* Dark border for the scope */
+    margin: 8px 0 8px 45px;    /* Indent to right of line numbers */
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgba(236, 240, 241, 0.3); /* Very light grey background */
+    position: relative;
+}
+
+/* Optional: Label for the assumption line if needed */
+.proof-box::before {
+    /* content: "assumption"; -> Optional label */
+    position: absolute;
+    right: 5px;
+    top: 0;
+    font-size: 0.6rem;
+    color: #aaa;
+    text-transform: uppercase;
 }
