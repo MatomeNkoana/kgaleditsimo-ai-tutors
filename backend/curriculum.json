@@ -5,136 +5,240 @@
       "name": "Chemistry",
       "description": "The scientific study of the properties and behavior of matter.",
       "modules": [
-        { 
-          "title": "Organic Chemistry", 
-          "id": "chem-org", 
-          "description": "The study of carbon-containing compounds, their structure, reactions, and synthesis.", 
-          "topics": [] 
+        {
+          "title": "Organic Chemistry",
+          "id": "chem-org",
+          "description": "The study of carbon-containing compounds, their structure, reactions, and synthesis.",
+          "topics": []
         },
-        { 
-          "title": "Inorganic Chemistry", 
-          "id": "chem-inorg", 
-          "description": "The study of inorganic compounds, metals, minerals, and organometallics.", 
-          "topics": [] 
+        {
+          "title": "Inorganic Chemistry",
+          "id": "chem-inorg",
+          "description": "The study of inorganic compounds, metals, minerals, and organometallics.",
+          "topics": []
         },
-        { 
-          "title": "Analytical Chemistry", 
-          "id": "chem-ana", 
+        {
+          "title": "Analytical Chemistry",
+          "id": "chem-ana",
           "description": "The science of obtaining, processing, and communicating information about the composition and structure of matter.",
           "topics": [
-            { 
-                "title": "Introduction to Analytical Chemistry", 
-                "id": "topic-intro",
-                "description": "The foundational overview of the scope, methods, and systematic process of analytical chemistry.",
-                "outcomes": [
-                    "Define analytical chemistry and distinguish between qualitative and quantitative analysis.",
-                    "Classify analytical methods into gravimetric, volumetric, electroanalytical, and spectroscopic categories.",
-                    "Outline the steps in a typical quantitative analysis."
-                ],
-                "sections": [
-                    { "title": "1A: The Role of Analytical Chemistry", "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>" },
-                    { "title": "1B: Classifying Quantitative Analytical Methods", "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>" },
-                    { "title": "1C: Stepping Through a Typical Quantitative Analysis", "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>" }
-                ]
+            {
+              "title": "Introduction to Analytical Chemistry",
+              "id": "topic-intro",
+              "description": "The foundational overview of the scope, methods, and systematic process of analytical chemistry.",
+              "outcomes": [
+                "Define analytical chemistry and distinguish between qualitative and quantitative analysis.",
+                "Classify analytical methods into gravimetric, volumetric, electroanalytical, and spectroscopic categories.",
+                "Outline the steps in a typical quantitative analysis."
+              ],
+              "sections": [
+                {
+                  "title": "1A: The Role of Analytical Chemistry",
+                  "content": "<h3>The Nature of Analytical Chemistry</h3><p>Analytical chemistry is a measurement science consisting of a set of powerful ideas and methods that are useful in all fields of science, engineering, and medicine.</p>"
+                },
+                {
+                  "title": "1B: Classifying Quantitative Analytical Methods",
+                  "content": "<h3>Classification of Methods</h3><p><strong>Classical Methods:</strong> Wet chemical methods such as precipitation and extraction.<br><strong>Instrumental Methods:</strong> Measurements of physical properties like conductivity, electrode potential, or light absorption.</p>"
+                },
+                {
+                  "title": "1C: Stepping Through a Typical Quantitative Analysis",
+                  "content": "<h3>The Analytical Process</h3><p>The flow of analysis: 1. Select Method 2. Acquire Sample 3. Process Sample 4. Eliminate Interferences 5. Calibrate & Measure 6. Calculate Results 7. Evaluate Reliability.</p>"
+                }
+              ]
             },
-            { 
-                "title": "Errors in Chemical Analysis", 
-                "id": "topic-errors",
-                "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
-                "outcomes": [
-                    "Distinguish between systematic (determinate) and random (indeterminate) errors.",
-                    "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
-                    "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
-                ],
-                "sections": [
-                    { "title": "5A: Mean and Median", "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>" },
-                    { "title": "5B: Precision and Accuracy", "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>" },
-                    { "title": "5C: Types of Errors in Experimental Data", "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>" }
-                ]
+            {
+              "title": "Errors in Chemical Analysis",
+              "id": "topic-errors",
+              "description": "An introduction to the statistical treatment of data, ensuring reliability in analytical results.",
+              "outcomes": [
+                "Distinguish between systematic (determinate) and random (indeterminate) errors.",
+                "Calculate the mean, standard deviation, and coefficient of variation for a data set.",
+                "Differentiate between accuracy (closeness to true value) and precision (reproducibility)."
+              ],
+              "sections": [
+                {
+                  "title": "5A: Mean and Median",
+                  "content": "<h3>Mean and Median</h3><p>Definition and calculation of central tendency measures.</p>"
+                },
+                {
+                  "title": "5B: Precision and Accuracy",
+                  "content": "<h3>Precision and Accuracy</h3><p>Exploring the difference between reproducibility and truth in measurements.</p>"
+                },
+                {
+                  "title": "5C: Types of Errors in Experimental Data",
+                  "content": "<h3>Types of Errors</h3><p>Systematic vs. Random errors and their sources.</p>"
+                }
+              ]
             },
-            { 
-                "title": "Gravimetric Methods of Analysis", 
-                "id": "topic-gravimetry",
-                "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
-                "outcomes": [
-                    "Explain the mechanism of precipitate formation: nucleation and particle growth.",
-                    "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
-                    "Differentiate between colloidal and crystalline precipitates.",
-                    "Understand the principles of volatilization gravimetry."
-                ],
-                "sections": [
-                    { "title": "12A: Precipitation Gravimetry", "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>" },
-                    { "title": "12B: Calculation of Results from Gravimetric Data", "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>" },
-                    { "title": "12C: Properties of Precipitates and Precipitating Agents", "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>" },
-                    { "title": "12D: Volatilization Gravimetry", "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>" }
-                ]
+            {
+              "title": "Gravimetric Methods of Analysis",
+              "id": "topic-gravimetry",
+              "description": "Quantitative methods based on determining the mass of a pure compound to which the analyte is chemically related.",
+              "outcomes": [
+                "Explain the mechanism of precipitate formation: nucleation and particle growth.",
+                "Perform stoichiometric calculations to determine analyte concentration from precipitate mass.",
+                "Differentiate between colloidal and crystalline precipitates.",
+                "Understand the principles of volatilization gravimetry."
+              ],
+              "sections": [
+                {
+                  "title": "12A: Precipitation Gravimetry",
+                  "content": "<h3>Precipitation Gravimetry</h3><p>The analyte is separated from a solution of the sample as a precipitate and converted to a compound of known composition that can be weighed.</p>"
+                },
+                {
+                  "title": "12B: Calculation of Results from Gravimetric Data",
+                  "content": "<h3>Calculation of Results</h3><p>Using stoichiometric ratios and gravimetric factors to find the mass of the analyte.</p>"
+                },
+                {
+                  "title": "12C: Properties of Precipitates and Precipitating Agents",
+                  "content": "<h3>Properties of Precipitates</h3><p>Discussion on particle size, filterability, and purity (coprecipitation).</p>"
+                },
+                {
+                  "title": "12D: Volatilization Gravimetry",
+                  "content": "<h3>Volatilization Gravimetry</h3><p>The analyte is separated from other constituents of the sample by conversion to a gas of known chemical composition.</p>"
+                }
+              ]
             },
-            { 
-                  "title": "Titrimetric Methods (Volumetry)", 
-                  "id": "topic-titrimetry", 
-                  "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
-                  "outcomes": [
-                      "Define standard solution, equivalence point, and end point.",
-                      "Classify titrations into Neutralization, Precipitation, Complexometric, and Redox types.",
-                      "Construct and interpret titration curves (pH, pAg, pM, E) for all method types.",
-                      "Perform stoichiometric calculations for each titration category."
-                  ],
-                  "sections": [
-                      { "title": "Introduction & Fundamentals", "content": "<h3>1. Core Definition</h3><p>Titrimetry is a group of quantitative analytical methods determining analyte amount by measuring the quantity of a reagent.</p><h3>2. Vocabulary</h3><ul><li><strong>Titrant:</strong> Reagent of known concentration.</li><li><strong>Analyte:</strong> Solution of unknown concentration.</li><li><strong>Equivalence Point:</strong> Theoretical point where moles of titrant = moles of analyte.</li><li><strong>End Point:</strong> Experimental point of physical change.</li></ul>",
-                        "quiz": [
-                            { "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?", "options": ["End Point", "Equivalence Point", "Standard Point", "Neutral Point"], "answer": "Equivalence Point" },
-                            { "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?", "options": ["One measures acid, the other measures base", "One uses a burette (Volume), the other uses a balance (Mass)", "One uses electricity, the other uses liquid", "There is no difference"], "answer": "One uses a burette (Volume), the other uses a balance (Mass)" },
-                            { "question": "Which of the following is a requirement for a Primary Standard?", "options": ["It must be a liquid", "It must be highly purified and stable in air", "It must change color automatically", "It must have a low molar mass"], "answer": "It must be highly purified and stable in air" }
-                        ]
-                     },
-                      { "title": "Standard Solutions", "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>" },
-                      { "title": "Neutralization Titrations (Theory)", "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-).</p>" },
-                      { "title": "Neutralization: Calculations & Curves", "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence, Equivalence, and Post-Equivalence stages.</p>" },
-                      { "title": "Precipitation Titrations (Theory)", "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl).</p>" },
-                      { "title": "Precipitation: Calculations & Curves", "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>" },
-                      { "title": "Complexometric Titrations (Theory)", "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>.</p>" },
-                      { "title": "Complexometric: Calculations & Curves", "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>" },
-                      { "title": "Redox Titrations (Theory)", "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant.</p>" },
-                      { "title": "Redox: Calculations & Curves", "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell).</p>" }
+            {
+              "title": "Titrimetric Methods (Volumetry)",
+              "id": "topic-titrimetry",
+              "description": "Methods in which the volume of a reagent of known concentration is used to determine the analyte.",
+              "outcomes": [
+                "Define standard solution, equivalence point, and end point.",
+                "Classify titrations into Neutralization, Precipitation, Complexometric, and Redox types.",
+                "Construct and interpret titration curves (pH, pAg, pM, E) for all method types.",
+                "Perform stoichiometric calculations for each titration category."
+              ],
+              "sections": [
+                {
+                  "title": "Introduction & Fundamentals",
+                  "content": "<h3>1. Core Definition</h3><p>Titrimetry is a group of quantitative analytical methods determining analyte amount by measuring the quantity of a reagent.</p><h3>2. Vocabulary</h3><ul><li><strong>Titrant:</strong> Reagent of known concentration.</li><li><strong>Analyte:</strong> Solution of unknown concentration.</li><li><strong>Equivalence Point:</strong> Theoretical point where moles of titrant = moles of analyte.</li><li><strong>End Point:</strong> Experimental point of physical change.</li></ul>",
+                  "quiz": [
+                    {
+                      "question": "Which term describes the theoretical point where moles of titrant equals moles of analyte?",
+                      "options": [
+                        "End Point",
+                        "Equivalence Point",
+                        "Standard Point",
+                        "Neutral Point"
+                      ],
+                      "answer": "Equivalence Point"
+                    },
+                    {
+                      "question": "What is the primary difference between Volumetric and Gravimetric Titrimetry?",
+                      "options": [
+                        "One measures acid, the other measures base",
+                        "One uses a burette (Volume), the other uses a balance (Mass)",
+                        "One uses electricity, the other uses liquid",
+                        "There is no difference"
+                      ],
+                      "answer": "One uses a burette (Volume), the other uses a balance (Mass)"
+                    },
+                    {
+                      "question": "Which of the following is a requirement for a Primary Standard?",
+                      "options": [
+                        "It must be a liquid",
+                        "It must be highly purified and stable in air",
+                        "It must change color automatically",
+                        "It must have a low molar mass"
+                      ],
+                      "answer": "It must be highly purified and stable in air"
+                    }
                   ]
                 },
-            { 
-                "title": "Introduction to Electrochemistry", 
-                "id": "topic-electrochem",
-                "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
-                "outcomes": [
-                    "Describe the operation of an electrochemical cell.",
-                    "Calculate electrode potentials using the Nernst Equation.",
-                    "Differentiate between galvanic and electrolytic cells."
-                ],
-                "sections": [
-                    { "title": "18A: Characterizing Oxidation-Reduction Reactions", "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>" },
-                    { "title": "18B: Electrochemical Cells", "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge.</p>" },
-                    { "title": "18C: Electrode Potentials", "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>" }
-                ]
+                {
+                  "title": "Standard Solutions",
+                  "content": "<h3>Primary Standards</h3><p>A highly purified compound that serves as the reference material.</p><h3>Standardization</h3><p>The process of determining the concentration of a solution by titrating it against a primary standard.</p>"
+                },
+                {
+                  "title": "Neutralization Titrations (Theory)",
+                  "content": "<h3>Acid-Base Reactions</h3><p>Titrations relying on the reaction between hydronium ions (H3O+) and hydroxide ions (OH-).</p>"
+                },
+                {
+                  "title": "Neutralization: Calculations & Curves",
+                  "content": "<h3>Calculating pH Profiles</h3><p>Methodology for calculating pH at the Initial, Pre-Equivalence, Equivalence, and Post-Equivalence stages.</p>"
+                },
+                {
+                  "title": "Precipitation Titrations (Theory)",
+                  "content": "<h3>Formation of Solids</h3><p>Based on reactions that yield ionic compounds of limited solubility (e.g., AgCl).</p>"
+                },
+                {
+                  "title": "Precipitation: Calculations & Curves",
+                  "content": "<h3>Calculating p-Functions</h3><p>Using solubility products (Ksp) to calculate pAg or pCl concentrations.</p>"
+                },
+                {
+                  "title": "Complexometric Titrations (Theory)",
+                  "content": "<h3>Metal-Ligand Complexation</h3><p>Based on the formation of a complex. The most famous titrant is <strong>EDTA</strong>.</p>"
+                },
+                {
+                  "title": "Complexometric: Calculations & Curves",
+                  "content": "<h3>Calculating pM</h3><p>Using Formation Constants (Kf) to determine free metal ion concentration.</p>"
+                },
+                {
+                  "title": "Redox Titrations (Theory)",
+                  "content": "<h3>Electron Transfer</h3><p>Based on the transfer of electrons between the analyte and titrant.</p>"
+                },
+                {
+                  "title": "Redox: Calculations & Curves",
+                  "content": "<h3>Calculating Potentials</h3><p>Using the Nernst Equation to calculate the system potential (E_cell).</p>"
+                }
+              ]
             },
-            { 
-                "title": "Introduction to Spectrochemical Methods", 
-                "id": "topic-spectroscopy",
-                "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
-                "outcomes": [
-                    "Describe the wave and particle properties of electromagnetic radiation.",
-                    "Explain the phenomena of absorption, emission, and scattering.",
-                    "Understand the relationship between frequency, wavelength, and energy."
-                ],
-                "sections": [
-                    { "title": "24A: Properties of Electromagnetic Radiation", "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>" },
-                    { "title": "24B: Interaction of Radiation with Matter", "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>" },
-                    { "title": "24C: Absorption of Radiation", "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>" }
-                ]
+            {
+              "title": "Introduction to Electrochemistry",
+              "id": "topic-electrochem",
+              "description": "The study of oxidation-reduction reactions and their application in analytical techniques.",
+              "outcomes": [
+                "Describe the operation of an electrochemical cell.",
+                "Calculate electrode potentials using the Nernst Equation.",
+                "Differentiate between galvanic and electrolytic cells."
+              ],
+              "sections": [
+                {
+                  "title": "18A: Characterizing Oxidation-Reduction Reactions",
+                  "content": "<h3>Redox Reactions</h3><p>Review of oxidation, reduction, oxidizing agents, and reducing agents.</p>"
+                },
+                {
+                  "title": "18B: Electrochemical Cells",
+                  "content": "<h3>Electrochemical Cells</h3><p>Structure of Galvanic and Electrolytic cells, including the salt bridge.</p>"
+                },
+                {
+                  "title": "18C: Electrode Potentials",
+                  "content": "<h3>Electrode Potentials</h3><p>Understanding the standard hydrogen electrode (SHE) and standard electrode potentials.</p>"
+                }
+              ]
+            },
+            {
+              "title": "Introduction to Spectrochemical Methods",
+              "id": "topic-spectroscopy",
+              "description": "Analysis based on the interaction of electromagnetic radiation with matter.",
+              "outcomes": [
+                "Describe the wave and particle properties of electromagnetic radiation.",
+                "Explain the phenomena of absorption, emission, and scattering.",
+                "Understand the relationship between frequency, wavelength, and energy."
+              ],
+              "sections": [
+                {
+                  "title": "24A: Properties of Electromagnetic Radiation",
+                  "content": "<h3>Properties of Light</h3><p>Wavelength, frequency, velocity, and the electromagnetic spectrum.</p>"
+                },
+                {
+                  "title": "24B: Interaction of Radiation with Matter",
+                  "content": "<h3>Interaction with Matter</h3><p>How photons interact with atoms and molecules to cause transitions.</p>"
+                },
+                {
+                  "title": "24C: Absorption of Radiation",
+                  "content": "<h3>Absorption</h3><p>The principle of ground state to excited state transitions.</p>"
+                }
+              ]
             }
           ]
         },
-        { 
-           "title": "Physical Chemistry", 
-           "id": "chem-phys", 
-           "description": "The branch of chemistry concerned with the application of the techniques and theories of physics to the study of chemical systems.",
-           "topics": [] 
+        {
+          "title": "Physical Chemistry",
+          "id": "chem-phys",
+          "description": "The branch of chemistry concerned with the application of the techniques and theories of physics to the study of chemical systems.",
+          "topics": []
         }
       ]
     },
@@ -143,161 +247,209 @@
       "name": "Computer Science",
       "description": "The study of computation, automation, and information.",
       "modules": [
-        { 
-            "title": "Formal Logic", 
-            "id": "cs-logic",
-            "description": "The study of inference with purely formal content, based on 'Logic in Computer Science' by Huth and Ryan. Covers Propositional, Predicate, and Modal Logic.",
-            "topics": [
-              {
-                "title": "Propositional Logic",
-                "id": "logic-prop",
-                "description": "The calculus of reasoning about propositions, analyzing argument structure over content.",
-                "outcomes": [
-                  "Distinguish between argument structure and content using real-world examples.",
-                  "Translate natural language into atomic symbols ($p, q$) and connectives.",
-                  "Construct sequents using the Turnstile symbol ($\\vdash$).",
-                  "Apply Natural Deduction rules (Conjunction, Disjunction, Implication, Negation)."
-                ],
-                "sections": [
-                    {
-                    "title": "1.0: The Aim of Logic",
-                    "content": "<h3>Why do we need Logic?</h3><p>As computer scientists, our job is to model the real world. But the real world is messy! We need a way to reason about situations formally so that our arguments - and our code - are airtight.</p><hr><h4>1. The Intuition Trap (The Toaster Problem)</h4><p>In everyday life, we use intuition to judge arguments. Consider this argument in plain English:</p><div style='background:#f8f9fa; padding:15px; border-radius:8px; border-left: 5px solid #e74c3c; margin-bottom:15px;'><strong>The Argument (English):</strong><br>1. If an object is a computer, then it needs electricity.<br>2. My toaster needs electricity.<br>3. Therefore, my toaster is a computer.</div><p><strong>Wait, that's obviously wrong.</strong> But why? To find the bug, we need to translate this from English into Logic.</p><h4>2. Step 1: Defining the Atoms</h4><p>First, we identify the independent declarative sentences (facts) and assign them a variable, usually starting with $p$ and $q$. These are called <strong>Atoms</strong>.</p><table style='width:100%; border-collapse: collapse; margin-bottom:15px;'><thead><tr style='background:#f1f1f1; border-bottom: 2px solid #ddd;'><th style='text-align:left; padding:8px;'>Symbol</th><th style='text-align:left; padding:8px;'>English Meaning</th></tr></thead><tbody><tr><td style='padding:8px; font-weight:bold;'>$p$</td><td>The object is a computer</td></tr><tr><td style='padding:8px; font-weight:bold;'>$q$</td><td>The object needs electricity</td></tr></tbody></table><h4>3. Step 2: The Formal Structure</h4><p>Now, we replace the English sentences with our symbols to see the skeleton of the argument:</p><div class='proof-box' style='text-align:center; font-size:1.1rem; margin-top:15px;'>Rule: $p \\rightarrow q$ (If Computer, then Electricity)<br>Fact: $q$ (Has Electricity)<br><strong>Conclusion: $p$ (Must be Computer)</strong></div><p><strong>This is a logical bug!</strong> This specific pattern is called <em>Affirming the Consequent</em>. Just because you have the result ($q$), doesn't mean you have the specific cause ($p$).</p><hr><h4>4. Comparing with a Valid Argument</h4><p>Now look at a valid example (The Commuter) to see the difference:</p><div class='proof-box' style='text-align:center; font-size:1.1rem; margin-top:15px;'>If the train is late ($p$) and no taxis ($\\neg q$), then John is late ($r$).<br>John is NOT late ($\\neg r$). The train is late ($p$).<br><strong>Therefore, there were taxis ($q$).</strong></div><p>This structure is <strong>VALID</strong>. By translating English to symbols, we can ignore the 'toaster' or 'train' details and focus purely on proving the logic is sound.</p><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=Adp55XF58w8' target='_blank'>Video: Introduction to Arguments and Validity</a></p><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up: The Rules of the Game</strong><br>We now know that <em>structure</em> is the key to validity. But how do we build these structures? We can't use just any sentence (like \"Pass the salt!\"). In the next lesson, <strong>1.1 Declarative Sentences</strong>, we will learn exactly which sentences are allowed in logic and how to translate the real world into code-ready syntax.</div>"
-                    },
-                  {
-                    "title": "1.1: Declarative Sentences & Syntax",
-                    "content": "<h3>Atomic Sentences</h3><p>We abstract specific facts into atomic symbols ($p, q, r$).</p><ul><li>$p$: 'The instance is running.'</li><li>$q$: 'The port is open.'</li></ul><h3>Logical Connectives</h3><p>We combine atoms using operators that mimic boolean logic in programming:</p><ul><li><strong>Negation ($\\neg$):</strong> 'Not' (reverses truth value).</li><li><strong>Disjunction ($\\vee$):</strong> 'Or' (inclusive; true if at least one side is true).</li><li><strong>Conjunction ($\\wedge$):</strong> 'And' (true only if both sides are true).</li><li><strong>Implication ($\\rightarrow$):</strong> 'If... then' (preserves truth from antecedent to consequent).</li></ul><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=dlUkeN7KqVA' target='_blank'>Video: Propositional Logic | Symbolic Logic Tutorial</a></p>"
-                  },
-                  {
-                    "title": "1.2: Natural Deduction: The Framework",
-                    "content": "<h3>The Sequent</h3><p>Natural deduction is a calculus for reasoning. Instead of checking 2<sup>n</sup> truth tables, we use rules to derive conclusions step-by-step.</p><p>We express a proof as a <strong>Sequent</strong>:</p>$$ \\phi_1, \\phi_2 \\vdash \\psi $$<ul><li><strong>Premises ($\\phi$):</strong> The inputs or known facts.</li><li><strong>Turnstile ($\\vdash$):</strong> Syntactic entailment (read as 'proves').</li><li><strong>Conclusion ($\\psi$):</strong> The output we must derive.</li></ul><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=dlUkeN7KqVA' target='_blank'>Video: Rules for Natural Deduction</a></p>"
-                  },
-                  {
-                    "title": "1.3A: The Rules: Conjunction & Disjunction",
-                    "content": "<h3>1. Conjunction (AND)</h3><ul><li><strong>Introduction ($\\wedge i$):</strong> If you have $p$ and you have $q$, you can build $p \\wedge q$.</li><li><strong>Elimination ($\\wedge e$):</strong> If you have $p \\wedge q$, you can extract $p$.</li></ul><h3>2. Disjunction (OR)</h3><ul><li><strong>Introduction ($\\vee i$):</strong> If you have $p$, you can conclude $p \\vee q$. (e.g., If server is up, then 'server is up OR down' is true).</li><li><strong>Elimination ($\\vee e$ - Case Analysis):</strong> If you have $p \\vee q$, you must prove your conclusion assuming $p$, and then prove it again assuming $q$. If both cases work, the conclusion is valid.</li></ul><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=NAAvpt3lIlA' target='_blank'>Video: AND-Introduction and Elimination Rules</a></p>"
-                  },
-                  {
-                    "title": "1.3B: The Rules: Implication & Scope",
-                    "content": "<h3>1. Elimination (Modus Ponens)</h3><p>If you have $p \\rightarrow q$ (the rule) and $p$ (the trigger), you derive $q$.<br><em>Cloud Context:</em> If CPU > 90% then Scale Out. We observe CPU > 90%. Therefore, Scale Out.</p><h3>2. Introduction (The Box Method)</h3><p>To prove $p \\rightarrow q$, we do not need $p$ to be true effectively. We open a temporary scope (a 'Box'), assume $p$, and try to reach $q$. If successful, we close the box and conclude $p \\rightarrow q$.<br><em>Coding Context:</em> This is identical to defining a function: <code>function(p) { ... return q; }</code>. The function is valid logic even if it is never called.</p><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=HbANy9V8ZfQ' target='_blank'>Video: Modus Ponens & Modus Tollens</a></p>"
-                  },
-                  {
-                    "title": "1.3C: The Rules: Negation & Contradiction",
-                    "content": "<h3>1. Contradiction ($\\bot$)</h3><p>A contradiction occurs when we hold both a fact and its negation simultaneously ($p \\wedge \\neg p$). In logic, this is a fatal error (crashes the argument).</p><h3>2. Proof by Contradiction ($\\neg i$)</h3><p>To prove $\\neg p$, we assume $p$. If this assumption leads to a contradiction ($\\bot$), then the assumption must be false. Therefore, $\\neg p$ is true.</p><p><strong>Resource:</strong> <a href='https://www.youtube.com/watch?v=AqMN2xMUMIY' target='_blank'>Video: Proof by Contradiction</a></p>"
-                  },
-                  {
-                    "title": "1.4: Practice Exercises",
-                    "content": "<h3>Exercise 1: Commutativity of AND</h3><p>Sequent: $p \\wedge q \\vdash q \\wedge p$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\wedge q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p$</span><span class='proof-rule'>$\\wedge e_1$ 1</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\wedge e_2$ 1</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q \\wedge p$</span><span class='proof-rule'>$\\wedge i$ 3,2</span></div></div><h3>Exercise 2: Modus Tollens (Derived)</h3><p>Sequent: $p \\rightarrow q, \\neg q \\vdash \\neg p$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$\\neg q$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\rightarrow e$ 1,3</span></div><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$\\bot$</span><span class='proof-rule'>$\\neg e$ 4,2</span></div></div><div class='proof-row'><span class='proof-num'>6</span><span class='proof-math'>$\\neg p$</span><span class='proof-rule'>$\\neg i$ 3-5</span></div></div><h3>Exercise 3: Case Analysis</h3><p>Sequent: $q \\rightarrow r \\vdash (p \\vee q) \\rightarrow (p \\vee r)$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$q \\rightarrow r$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p \\vee q$</span><span class='proof-rule'>assumption</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee i$ 3</span></div></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$q$</span><span class='proof-rule'>assumption</span></div><div class='proof-row'><span class='proof-num'>6</span><span class='proof-math'>$r$</span><span class='proof-rule'>$\\rightarrow e$ 1,5</span></div><div class='proof-row'><span class='proof-num'>7</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee i$ 6</span></div></div><div class='proof-row'><span class='proof-num'>8</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee e$ 2, 3-4, 5-7</span></div></div><div class='proof-row'><span class='proof-num'>9</span><span class='proof-math'>$(p \\vee q) \\rightarrow (p \\vee r)$</span><span class='proof-rule'>$\\rightarrow i$ 2-8</span></div></div>"
-                  }
-                ],
-                "quiz": [
-                  {
-                    "question": "Which of the following describes the goal of propositional logic?",
-                    "options": ["Analyze content of arguments", "Analyze structure of arguments", "Verify intuition", "Debug code"],
-                    "answer": "Analyze structure of arguments"
-                  },
-                  {
-                    "question": "In Natural Deduction, what is the 'Box Method' used for?",
-                    "options": ["Disjunction Elimination", "Implication Introduction", "Negation Elimination", "Conjunction Introduction"],
-                    "answer": "Implication Introduction"
-                  },
-                  {
-                    "question": "What is a 'Sequent'?",
-                    "options": ["A programming loop", "A list of axioms", "A format expressing Premises ⊢ Conclusion", "A contradiction"],
-                    "answer": "A format expressing Premises ⊢ Conclusion"
-                  }
-                ]
-              },
-              {
-                "title": "Predicate Logic",
-                "id": "logic-pred",
-                "description": "An extension of propositional logic that uses quantifiers and predicates to express properties of objects.",
-                "outcomes": [
-                  "Translate natural language sentences into predicate logic using quantifiers.",
-                  "Distinguish between Free and Bound variables.",
-                  "Apply Natural Deduction rules for Universal ($\\forall$) and Existential ($\\exists$) quantifiers.",
-                  "Understand the difference between Syntax (formulas) and Semantics (models)."
-                ],
-                "sections": [
-                  {
-                    "title": "2.1: The Need for a Richer Language",
-                    "content": "<h3>Limitations of Propositions</h3><p>Propositional logic cannot express relationships between objects. Predicate logic introduces:</p><ul><li><strong>Predicates:</strong> $S(x)$ for 'x is a student'.</li><li><strong>Variables:</strong> Placeholders like $x, y$.</li><li><strong>Quantifiers:</strong> $\\forall$ (For all) and $\\exists$ (There exists).</li></ul>"
-                  },
-                  {
-                    "title": "2.2: Predicate Logic as a Formal Language",
-                    "content": "<h3>Syntax</h3><p><strong>Terms</strong> represent objects. <strong>Formulas</strong> represent truth values. A variable is <strong>free</strong> if it is not inside the scope of a quantifier; otherwise, it is <strong>bound</strong>.</p>"
-                  },
-                  {
-                    "title": "2.3: Proof Theory of Predicate Logic",
-                    "content": "<h3>Quantifier Rules</h3><p>New natural deduction rules include:</p><ul><li><strong>$\\forall x$ elimination:</strong> If $\\forall x \\phi$, then $\\phi[t/x]$ (substituting any term $t$).</li><li><strong>$\\exists x$ introduction:</strong> If $\\phi[t/x]$, then $\\exists x \\phi$.</li></ul>"
-                  },
-                  {
-                    "title": "2.4: Semantics of Predicate Logic",
-                    "content": "<h3>Models</h3><p>To evaluate a predicate formula, we need a <strong>Model</strong> which defines the domain of objects and the specific meaning of predicates (e.g., defining exactly who 'Students' are in a specific context).</p>"
-                  }
-                ],
-                "quiz": [
-                  { "question": "Which quantifier translates to 'For all' or 'Every'?", "options": ["$\\exists$", "$\\forall$", "$\\in$", "$\\subset$"], "answer": "$\\forall$" },
-                  { "question": "In the formula $\\forall x (P(x) \\rightarrow Q(y))$, which variable is Free?", "options": ["x", "y", "Both x and y", "Neither"], "answer": "y" }
-                ]
-              },
-              {
-                "title": "Modal Logic",
-                "id": "logic-modal",
-                "description": "Logic engineering for reasoning about necessity, time, and knowledge using possible worlds semantics.",
-                "outcomes": [
-                  "Differentiate between various modes of truth (necessity, belief, knowledge).",
-                  "Evaluate formulas using Kripke Models (Worlds, Accessibility Relation).",
-                  "Understand Correspondence Theory: how axioms relate to properties of the accessibility relation (Reflexive, Transitive, Euclidean).",
-                  "Apply the logic KT45 (S5) to reasoning about knowledge."
-                ],
-                "sections": [
-                  {
-                    "title": "5.1: Modes of Truth",
-                    "content": "<h3>Beyond True and False</h3><p>Modal logic adds unary connectives to express 'modes' of truth, such as:</p><ul><li><strong>Necessity:</strong> It is necessarily true that $\\phi$.</li><li><strong>Time:</strong> It will always be true that $\\phi$.</li><li><strong>Knowledge:</strong> Agent Q knows that $\\phi$.</li></ul>"
-                  },
-                  {
-                    "title": "5.2: Basic Modal Logic (Syntax & Semantics)",
-                    "content": "<h3>Kripke Models</h3><p>A model consists of a set of <strong>Worlds (W)</strong> and an <strong>Accessibility Relation (R)</strong> between them.</p><ul><li>$\\Box \\phi$ (Box): True if $\\phi$ is true in <em>all</em> accessible worlds.</li><li>$\\Diamond \\phi$ (Diamond): True if $\\phi$ is true in <em>at least one</em> accessible world.</li></ul>"
-                  },
-                  {
-                    "title": "5.3: Logic Engineering & Correspondence",
-                    "content": "<h3>Designing Logic</h3><p>We can 'engineer' a logic by choosing axioms that force the accessibility relation to have specific properties:</p><ul><li><strong>Axiom T ($\\Box \\phi \\rightarrow \\phi$):</strong> Requires R to be <strong>Reflexive</strong>. (Used for Knowledge).</li><li><strong>Axiom 4 ($\\Box \\phi \\rightarrow \\Box \\Box \\phi$):</strong> Requires R to be <strong>Transitive</strong>. (Positive Introspection).</li><li><strong>Axiom 5 ($\\Diamond \\phi \\rightarrow \\Box \\Diamond \\phi$):</strong> Requires R to be <strong>Euclidean</strong>. (Negative Introspection).</li></ul>"
-                  },
-                  {
-                    "title": "5.5: Reasoning about Knowledge (KT45)",
-                    "content": "<h3>The Logic of Knowledge</h3><p>The logic <strong>KT45</strong> (also called S5) models the knowledge of idealised agents. It assumes agents are truthful (T), know what they know (4), and know what they do not know (5).</p>"
-                  }
-                ],
-                "quiz": [
-                  { "question": "In a Kripke model, when is $\\Box \\phi$ true at world w?", "options": ["If $\\phi$ is true in w.", "If $\\phi$ is true in at least one world accessible from w.", "If $\\phi$ is true in ALL worlds accessible from w.", "If $\\phi$ is false in all worlds."], "answer": "If $\\phi$ is true in ALL worlds accessible from w." },
-                  { "question": "Which property of the accessibility relation R corresponds to the axiom $\\Box \\phi \\rightarrow \\phi$ (Truth)?", "options": ["Transitive", "Reflexive", "Serial", "Symmetric"], "answer": "Reflexive" },
-                  { "question": "In the logic of knowledge (KT45), what does the axiom '5' (Negative Introspection) state?", "options": ["If I know P, then P is true.", "If I know P, I know that I know P.", "If I don't know P, I know that I don't know P.", "I know everything."], "answer": "If I don't know P, I know that I don't know P." }
-                ]
-              }
-            ]
+        {
+          "title": "Formal Logic",
+          "id": "cs-logic",
+          "description": "The study of inference with purely formal content, based on 'Logic in Computer Science' by Huth and Ryan. Covers Propositional, Predicate, and Modal Logic.",
+          "topics": [
+{
+  "title": "Propositional Logic",
+  "id": "logic-prop",
+  "description": "The calculus of reasoning about propositions, analyzing argument structure over content.",
+  "outcomes": [
+    "Distinguish between argument structure and content.",
+    "Translate natural language into atomic symbols ($p, q$).",
+    "Apply the complete set of Natural Deduction rules.",
+    "Construct rigorous proofs using sub-proofs (boxes)."
+  ],
+  "sections": [
+    {
+      "title": "1.0: The Aim of Logic",
+      "content": "<h3>Why do we need Logic?</h3><p>As computer scientists, our job is to model the real world. But the real world is messy! We need a way to reason about situations formally so that our arguments - and our code - are airtight.</p><hr><h4>1. The Intuition Trap (The Toaster Problem)</h4><p>In everyday life, we use intuition to judge arguments. Consider this argument in plain English:</p><div style='background:#f8f9fa; padding:15px; border-radius:8px; border-left: 5px solid #e74c3c; margin-bottom:15px;'><strong>The Argument (English):</strong><br>1. If an object is a computer, then it needs electricity.<br>2. My toaster needs electricity.<br>3. Therefore, my toaster is a computer.</div><p><strong>Wait, that's obviously wrong.</strong> But why? To find the bug, we need to translate this from English into Logic.</p><h4>2. Step 1: Defining the Atoms</h4><p>First, we identify the independent declarative sentences (facts) and assign them a variable, usually starting with $p$ and $q$. These are called <strong>Atoms</strong>.</p><table style='width:100%; border-collapse: collapse; margin-bottom:15px;'><thead><tr style='background:#f1f1f1; border-bottom: 2px solid #ddd;'><th style='text-align:left; padding:8px;'>Symbol</th><th style='text-align:left; padding:8px;'>English Meaning</th></tr></thead><tbody><tr><td style='padding:8px; font-weight:bold;'>$p$</td><td>The object is a computer</td></tr><tr><td style='padding:8px; font-weight:bold;'>$q$</td><td>The object needs electricity</td></tr></tbody></table><h4>3. Step 2: The Formal Structure</h4><p>Now, we replace the English sentences with our symbols to see the skeleton of the argument:</p><div class='proof-box' style='text-align:center; font-size:1.1rem; margin-top:15px;'>Rule: $p \\rightarrow q$ (If Computer, then Electricity)<br>Fact: $q$ (Has Electricity)<br><strong>Conclusion: $p$ (Must be Computer)</strong></div><p><strong>This is a logical bug!</strong> This specific pattern is called <em>Affirming the Consequent</em>. Just because you have the result ($q$), doesn't mean you have the specific cause ($p$).</p><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>We can spot the bug, but how do we speak the language? In the next lesson, we define exactly what sentences are allowed.</div>"
+    },
+    {
+      "title": "1.1: Declarative Sentences & Syntax",
+      "content": "<h3>Talking to Machines</h3><p>Natural language is messy. Computers require absolute precision. We use <strong>Propositional Logic</strong>, built on sentences that have exactly one meaning.</p><hr><h4>1. The Declarative Filter</h4><div style='background:#e8f4fd; padding:15px; border-left:5px solid #2980b9; margin-bottom:15px;'><strong>Definition: Declarative Sentence</strong><br>A sentence is <em>declarative</em> if and only if it can, in principle, be declared <strong>True</strong> or <strong>False</strong>.</div><p><strong>Test Yourself:</strong></p><ol><li>The sum of 3 and 5 is 8. (<strong>YES</strong>: True)</li><li>Could you pass the salt? (<strong>NO</strong>: Request)</li><li>Ready, steady, go! (<strong>NO</strong>: Command)</li></ol><hr><h4>2. The Logic Hierarchy (BODMAS)</h4><p>To avoid ambiguity in expressions like $\\neg p \\wedge q \\rightarrow r$, we follow binding rules:</p><ol><li><strong>$\\neg$ (Tightest):</strong> Binds to neighbor.</li><li><strong>$\\wedge, \\vee$:</strong> Bind next.</li><li><strong>$\\rightarrow$ (Loosest):</strong> Binds last.</li></ol><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>Now that we have the syntax, how do we use it? We need a framework to manipulate these symbols.</div>"
+    },
+    {
+      "title": "1.2: Natural Deduction Framework",
+      "content": "<h3>The Calculus of Reasoning</h3><p>Instead of massive Truth Tables, we use <strong>Natural Deduction</strong> to derive answers step-by-step.</p><hr><h4>The Sequent</h4><div class='proof-box' style='text-align:center; font-size:1.4rem; padding:20px;'>$\\phi_1, \\phi_2 \\vdash \\psi$</div><ul><li><strong>$\\vdash$ (Turnstile):</strong> \"Given the inputs on the left, I can prove the output on the right.\"</li><li><strong>Introduction Rules:</strong> Building complex sentences.</li><li><strong>Elimination Rules:</strong> Breaking sentences down.</li></ul><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>Let's start with the easiest tool in the box: The Stapler (Conjunction).</div>"
+    },
+    {
+      "title": "1.3: Conjunction Rules (∧)",
+      "content": "<h3>The Stapler</h3><p>Conjunction is the most intuitive logical operator. It simply means \"Both are true\".</p><hr><h4>1. And-Introduction ($\\wedge I$)</h4><p><strong>The Formula:</strong> $$\\frac{\\phi \\quad \\psi}{\\phi \\wedge \\psi}$$</p><p><strong>Analogy (The Stapler):</strong> Imagine you have two loose pages ($p$ and $q$). This rule allows you to staple them together into a single packet ($p \\wedge q$).</p><p><strong>Example 1 (Abstract):</strong> $p, q \\vdash p \\wedge q$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p \\wedge q$</span><span class='proof-rule'>$\\wedge I$ 1,2</span></div></div><hr><h4>2. And-Elimination ($\\wedge E$)</h4><p><strong>The Formula:</strong> $$\\frac{\\phi \\wedge \\psi}{\\phi} \\quad \\text{and} \\quad \\frac{\\phi \\wedge \\psi}{\\psi}$$</p><p><strong>Analogy (The Remover):</strong> If you have a stapled packet, you can rip the pages apart to use just one of them. You can discard the other if you don't need it.</p><p><strong>Example 2 (Extraction):</strong> $p \\wedge q, r \\vdash q \\wedge r$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\wedge q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$r$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\wedge E_2$ 1</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q \\wedge r$</span><span class='proof-rule'>$\\wedge I$ 3,2</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>Sometimes we have negatives. What happens if we have two negatives? Next, we look at Double Negation.</div>"
+    },
+    {
+      "title": "1.4: Double Negation Rules (¬¬)",
+      "content": "<h3>The Toggle Switch</h3><p>In classical logic, negating a negation brings you back to the start.</p><hr><h4>1. Double Negation Introduction ($\\neg \\neg I$)</h4><p><strong>The Formula:</strong> $$\\frac{\\phi}{\\neg \\neg \\phi}$$</p><p><strong>Analogy:</strong> If a light is ON ($p$), it is true that \"It is not the case that the light is NOT on\" ($\\neg \\neg p$). You can add the double negative freely.</p><hr><h4>2. Double Negation Elimination ($\\neg \\neg E$)</h4><p><strong>The Formula:</strong> $$\\frac{\\neg \\neg \\phi}{\\phi}$$</p><p><strong>Analogy:</strong> If I say \"I don't disagree\", that means \"I agree\". Two negatives cancel out.</p><p><strong>Example 1:</strong> $p, \\neg \\neg (p \\rightarrow q) \\vdash q$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$\\neg \\neg (p \\rightarrow q)$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>$\\neg \\neg E$ 2</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\rightarrow E$ 3,1</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>We just used an arrow ($\\rightarrow$) in the example above. How does that actually work? Next is the most famous rule in logic.</div>"
+    },
+    {
+      "title": "1.5: Implication Elimination (→E)",
+      "content": "<h3>Modus Ponens (The Trigger)</h3><p>This is the engine of logic. It allows us to apply rules to facts.</p><hr><h4>The Formula</h4><p>$$\\frac{\\phi \\rightarrow \\psi \\quad \\phi}{\\psi}$$</p><p><strong>Definition:</strong> If you have a Rule ($p \\rightarrow q$) and you have the Trigger ($p$), you are compelled to accept the Result ($q$).</p><hr><h4>The Analogy: Function Calls</h4><p>Think of $p \\rightarrow q$ as a function definition in code:</p><pre style='background:#333; color:#fff; padding:10px; border-radius:5px;'>def calculate_tax(income):  return tax</pre><p>The function sits there doing nothing until you <strong>Call</strong> it with an input (`income`). Once you have the input ($p$), the function runs and gives you the output ($q$).</p><hr><h4>Example 1: The Chain</h4><p><strong>Sequent:</strong> $p, p \\rightarrow q, q \\rightarrow r \\vdash r$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$q \\rightarrow r$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\rightarrow E$ 2,1 (Fire first rule)</span></div><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$r$</span><span class='proof-rule'>$\\rightarrow E$ 3,4 (Fire second rule)</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>We know how to <em>use</em> rules. But how do we <em>make</em> them? To prove \"If P then Q\", we need to enter a hypothetical world. Before we do that, we need to learn about Scope.</div>"
+    },
+    {
+      "title": "1.6: Structural Rule: Copy",
+      "content": "<h3>Scope Management</h3><p>Before we learn how to open sub-proofs (boxes), we must learn how to move data into them.</p><hr><h4>The Rule</h4><p><strong>Definition:</strong> Any line appearing in a main proof can be repeated (copied) inside a sub-proof box.</p><p><strong>Analogy: Global Variables</strong><br>In programming, if you declare a variable at the top of your file (Global Scope), you can use it inside any function (Local Scope). <br><br>The <strong>Copy Rule</strong> is just pulling a global variable into your local function so you can use it.</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p$</span><span class='proof-rule'>Global Variable</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>...</span><span class='proof-rule'>Local Scope Start</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p$</span><span class='proof-rule'>Copy 1</span></div></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>Now that we know how to handle scope, we are ready to open our first Box. Next: Creating Implications.</div>"
+    },
+    {
+      "title": "1.7: Implication Introduction (→I)",
+      "content": "<h3>The Virtual Machine (Boxes)</h3><p>This is the first rule that requires a <strong>Sub-proof</strong>.</p><hr><h4>The Concept</h4><p>To prove $p \\rightarrow q$, we don't need $p$ to be true in reality. We just need to show that <em>IF</em> $p$ were true, $q$ would follow.</p><p><strong>Analogy: The Sandbox</strong><br>Imagine you want to test if a virus code ($p$) crashes a computer ($q$). You don't run it on your main PC! You open a <strong>Virtual Machine</strong> (a Box). <br>1. You safely assume the virus runs (Assumption).<br>2. You watch what happens.<br>3. If it crashes ($q$), you close the VM and report: \"If Virus, Then Crash\".</p><hr><h4>Example 1: Simple Derivation</h4><p><strong>Sequent:</strong> $p \\rightarrow q \\vdash p \\rightarrow q$ (Trivial, but shows structure)</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption (Open VM)</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\rightarrow E$ 1,2 (Use Global fact)</span></div></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>$\\rightarrow I$ 2-3 (Close VM)</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>We have mastered AND and IMPLIES. Now, let's look at the tricky one: OR.</div>"
+    },
+    {
+      "title": "1.8: Disjunction Introduction (∨I)",
+      "content": "<h3>The Safe Bet</h3><p>Making an OR statement is surprisingly easy.</p><hr><h4>The Formula</h4><p>$$\\frac{\\phi}{\\phi \\vee \\psi} \\quad (\\vee I_1) \\quad \\quad \\frac{\\psi}{\\phi \\vee \\psi} \\quad (\\vee I_2)$$</p><p><strong>Analogy: The Insurance</strong><br>If you hold a winning lottery ticket ($p$), you can confidently say \"I have a winning ticket OR I am a Martian\" ($p \\vee q$). <br>It doesn't matter that the second part is nonsense. As long as <em>one</em> part is true, the whole statement is true.</p><hr><h4>Example 1: Padding Truth</h4><p><strong>Sequent:</strong> $p \\vdash (p \\vee q) \\wedge (p \\vee r)$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p \\vee q$</span><span class='proof-rule'>$\\vee I_1$ 1</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p \\vee r$</span><span class='proof-rule'>$\\vee I_1$ 1</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$(p \\vee q) \\wedge (p \\vee r)$</span><span class='proof-rule'>$\\wedge I$ 2,3</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>Creating an OR is easy. Using one is hard. If I tell you \"A or B is true\", how do you prove C? You need Case Analysis.</div>"
+    },
+    {
+      "title": "1.9: Disjunction Elimination (∨E)",
+      "content": "<h3>Case Analysis (The Switch Statement)</h3><p>This is widely considered the hardest rule for beginners because it requires <strong>two</strong> sub-proof boxes.</p><hr><h4>The Formula</h4><p>If you have $\\phi \\vee \\psi$, you must show that $\\chi$ follows from $\\phi$, AND that $\\chi$ follows from $\\psi$.</p><hr><h4>The Analogy: The Switch Statement</h4><p>In programming, if a variable `user_input` can be 'A' or 'B', you must write code to handle both.</p><pre style='background:#333; color:#fff; padding:10px; border-radius:5px;'>switch(user_input):  case 'A': return true;  case 'B': return true;</pre><p>If both cases return True, then the function is valid regardless of the input.</p><hr><h4>Example 1: Commutativity</h4><p><strong>Sequent:</strong> $p \\vee q \\vdash q \\vee p$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\vee q$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption (Case 1)</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$q \\vee p$</span><span class='proof-rule'>$\\vee I_2$ 2</span></div></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q$</span><span class='proof-rule'>assumption (Case 2)</span></div><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$q \\vee p$</span><span class='proof-rule'>$\\vee I_1$ 4</span></div></div><div class='proof-row'><span class='proof-num'>6</span><span class='proof-math'>$q \\vee p$</span><span class='proof-rule'>$\\vee E$ 1, 2-3, 4-5</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>We have covered all standard operators. Now we enter the \"Upside Down\". How do we prove things by showing they are <em>impossible</em>? Next: Contradiction.</div>"
+    },
+    {
+      "title": "1.10: Contradiction Rules (⊥)",
+      "content": "<h3>The Crash Report</h3><p>In logic, a contradiction ($\\bot$, called 'Bottom') represents a state that is impossible, like \"It is raining AND It is not raining\".</p><hr><h4>1. Contradiction Introduction ($\\bot I$)</h4><p><strong>Definition:</strong> If you have $p$ and $\\neg p$, the universe crashes.</p><p><strong>Example:</strong> $p, \\neg p \\vdash \\bot$</p><hr><h4>2. Contradiction Elimination ($\\bot E$)</h4><p><strong>Definition:</strong> If you have reached $\\bot$, you can derive <strong>ANYTHING</strong>. This is called <em>Ex Falso Quodlibet</em> (From falsehood, anything follows).</p><p><strong>Analogy:</strong> If $1 = 0$, then I am the Pope. Once logic is broken, all rules disappear.</p><p><strong>Example:</strong> $p, \\neg p \\vdash \\text{UnicornsExist}$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$\\neg p$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$\\bot$</span><span class='proof-rule'>$\\neg E$ 1,2</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>UnicornsExist</span><span class='proof-rule'>$\\bot E$ 3</span></div></div><div style='background:#e8f4fd; padding:15px; border-radius:8px; margin-top:20px; border-left: 5px solid #2980b9;'><strong>Coming Up:</strong><br>Why is Contradiction useful? It's the core of our final and most powerful rule: Proof by Contradiction.</div>"
+    },
+    {
+      "title": "1.11: Negation Introduction (¬I)",
+      "content": "<h3>Proof by Contradiction</h3><p>This is the Sherlock Holmes rule: \"When you have eliminated the impossible, whatever remains, however improbable, must be the truth.\"</p><hr><h4>The Strategy</h4><p>To prove $\\neg p$ (that $p$ is false):</p><ol><li>Open a box and <strong>Assume $p$ is True</strong> (Play devil's advocate).</li><li>Reason forward until you hit a <strong>Contradiction ($\\bot$)</strong>.</li><li>Since assuming $p$ broke the universe, $p$ must be false.</li><li>Close the box and conclude $\\neg p$.</li></ol><hr><h4>Example 1: The Crash Test</h4><p><strong>Sequent:</strong> $p \\rightarrow q, p \\rightarrow \\neg q \\vdash \\neg p$</p><div class='logic-proof'><div class='proof-row'><span class='proof-num'>1</span><span class='proof-math'>$p \\rightarrow q$</span><span class='proof-rule'>premise</span></div><div class='proof-row'><span class='proof-num'>2</span><span class='proof-math'>$p \\rightarrow \\neg q$</span><span class='proof-rule'>premise</span></div><div class='proof-box'><div class='proof-row'><span class='proof-num'>3</span><span class='proof-math'>$p$</span><span class='proof-rule'>assumption (Let's pretend...)</span></div><div class='proof-row'><span class='proof-num'>4</span><span class='proof-math'>$q$</span><span class='proof-rule'>$\\rightarrow E$ 1,3</span></div><div class='proof-row'><span class='proof-num'>5</span><span class='proof-math'>$\\neg q$</span><span class='proof-rule'>$\\rightarrow E$ 2,3</span></div><div class='proof-row'><span class='proof-num'>6</span><span class='proof-math'>$\\bot$</span><span class='proof-rule'>$\\neg E$ 4,5 (Crash!)</span></div></div><div class='proof-row'><span class='proof-num'>7</span><span class='proof-math'>$\\neg p$</span><span class='proof-rule'>$\\neg I$ 3-6</span></div></div>"
+    }
+  ]
+},
+            {
+              "title": "Predicate Logic",
+              "id": "logic-pred",
+              "description": "An extension of propositional logic that uses quantifiers and predicates to express properties of objects.",
+              "outcomes": [
+                "Translate natural language sentences into predicate logic using quantifiers.",
+                "Distinguish between Free and Bound variables.",
+                "Apply Natural Deduction rules for Universal ($\\forall$) and Existential ($\\exists$) quantifiers.",
+                "Understand the difference between Syntax (formulas) and Semantics (models)."
+              ],
+              "sections": [
+                {
+                  "title": "2.1: The Need for a Richer Language",
+                  "content": "<h3>Limitations of Propositions</h3><p>Propositional logic cannot express relationships between objects. Predicate logic introduces:</p><ul><li><strong>Predicates:</strong> $S(x)$ for 'x is a student'.</li><li><strong>Variables:</strong> Placeholders like $x, y$.</li><li><strong>Quantifiers:</strong> $\\forall$ (For all) and $\\exists$ (There exists).</li></ul>"
+                },
+                {
+                  "title": "2.2: Predicate Logic as a Formal Language",
+                  "content": "<h3>Syntax</h3><p><strong>Terms</strong> represent objects. <strong>Formulas</strong> represent truth values. A variable is <strong>free</strong> if it is not inside the scope of a quantifier; otherwise, it is <strong>bound</strong>.</p>"
+                },
+                {
+                  "title": "2.3: Proof Theory of Predicate Logic",
+                  "content": "<h3>Quantifier Rules</h3><p>New natural deduction rules include:</p><ul><li><strong>$\\forall x$ elimination:</strong> If $\\forall x \\phi$, then $\\phi[t/x]$ (substituting any term $t$).</li><li><strong>$\\exists x$ introduction:</strong> If $\\phi[t/x]$, then $\\exists x \\phi$.</li></ul>"
+                },
+                {
+                  "title": "2.4: Semantics of Predicate Logic",
+                  "content": "<h3>Models</h3><p>To evaluate a predicate formula, we need a <strong>Model</strong> which defines the domain of objects and the specific meaning of predicates (e.g., defining exactly who 'Students' are in a specific context).</p>"
+                }
+              ],
+              "quiz": [
+                {
+                  "question": "Which quantifier translates to 'For all' or 'Every'?",
+                  "options": [
+                    "$\\exists$",
+                    "$\\forall$",
+                    "$\\in$",
+                    "$\\subset$"
+                  ],
+                  "answer": "$\\forall$"
+                },
+                {
+                  "question": "In the formula $\\forall x (P(x) \\rightarrow Q(y))$, which variable is Free?",
+                  "options": [
+                    "x",
+                    "y",
+                    "Both x and y",
+                    "Neither"
+                  ],
+                  "answer": "y"
+                }
+              ]
+            },
+            {
+              "title": "Modal Logic",
+              "id": "logic-modal",
+              "description": "Logic engineering for reasoning about necessity, time, and knowledge using possible worlds semantics.",
+              "outcomes": [
+                "Differentiate between various modes of truth (necessity, belief, knowledge).",
+                "Evaluate formulas using Kripke Models (Worlds, Accessibility Relation).",
+                "Understand Correspondence Theory: how axioms relate to properties of the accessibility relation (Reflexive, Transitive, Euclidean).",
+                "Apply the logic KT45 (S5) to reasoning about knowledge."
+              ],
+              "sections": [
+                {
+                  "title": "5.1: Modes of Truth",
+                  "content": "<h3>Beyond True and False</h3><p>Modal logic adds unary connectives to express 'modes' of truth, such as:</p><ul><li><strong>Necessity:</strong> It is necessarily true that $\\phi$.</li><li><strong>Time:</strong> It will always be true that $\\phi$.</li><li><strong>Knowledge:</strong> Agent Q knows that $\\phi$.</li></ul>"
+                },
+                {
+                  "title": "5.2: Basic Modal Logic (Syntax & Semantics)",
+                  "content": "<h3>Kripke Models</h3><p>A model consists of a set of <strong>Worlds (W)</strong> and an <strong>Accessibility Relation (R)</strong> between them.</p><ul><li>$\\Box \\phi$ (Box): True if $\\phi$ is true in <em>all</em> accessible worlds.</li><li>$\\Diamond \\phi$ (Diamond): True if $\\phi$ is true in <em>at least one</em> accessible world.</li></ul>"
+                },
+                {
+                  "title": "5.3: Logic Engineering & Correspondence",
+                  "content": "<h3>Designing Logic</h3><p>We can 'engineer' a logic by choosing axioms that force the accessibility relation to have specific properties:</p><ul><li><strong>Axiom T ($\\Box \\phi \\rightarrow \\phi$):</strong> Requires R to be <strong>Reflexive</strong>. (Used for Knowledge).</li><li><strong>Axiom 4 ($\\Box \\phi \\rightarrow \\Box \\Box \\phi$):</strong> Requires R to be <strong>Transitive</strong>. (Positive Introspection).</li><li><strong>Axiom 5 ($\\Diamond \\phi \\rightarrow \\Box \\Diamond \\phi$):</strong> Requires R to be <strong>Euclidean</strong>. (Negative Introspection).</li></ul>"
+                },
+                {
+                  "title": "5.5: Reasoning about Knowledge (KT45)",
+                  "content": "<h3>The Logic of Knowledge</h3><p>The logic <strong>KT45</strong> (also called S5) models the knowledge of idealised agents. It assumes agents are truthful (T), know what they know (4), and know what they do not know (5).</p>"
+                }
+              ],
+              "quiz": [
+                {
+                  "question": "In a Kripke model, when is $\\Box \\phi$ true at world w?",
+                  "options": [
+                    "If $\\phi$ is true in w.",
+                    "If $\\phi$ is true in at least one world accessible from w.",
+                    "If $\\phi$ is true in ALL worlds accessible from w.",
+                    "If $\\phi$ is false in all worlds."
+                  ],
+                  "answer": "If $\\phi$ is true in ALL worlds accessible from w."
+                },
+                {
+                  "question": "Which property of the accessibility relation R corresponds to the axiom $\\Box \\phi \\rightarrow \\phi$ (Truth)?",
+                  "options": [
+                    "Transitive",
+                    "Reflexive",
+                    "Serial",
+                    "Symmetric"
+                  ],
+                  "answer": "Reflexive"
+                },
+                {
+                  "question": "In the logic of knowledge (KT45), what does the axiom '5' (Negative Introspection) state?",
+                  "options": [
+                    "If I know P, then P is true.",
+                    "If I know P, I know that I know P.",
+                    "If I don't know P, I know that I don't know P.",
+                    "I know everything."
+                  ],
+                  "answer": "If I don't know P, I know that I don't know P."
+                }
+              ]
+            }
+          ]
         },
-        { 
-            "title": "Theoretical Computer Science", 
-            "id": "cs-theory", 
-            "description": "Mathematical aspects of computer science.", 
-            "topics": [] 
+        {
+          "title": "Theoretical Computer Science",
+          "id": "cs-theory",
+          "description": "Mathematical aspects of computer science.",
+          "topics": []
         },
-        { 
-            "title": "Artificial Intelligence", 
-            "id": "cs-ai", 
-            "description": "The simulation of human intelligence processes.", 
-            "topics": [] 
+        {
+          "title": "Artificial Intelligence",
+          "id": "cs-ai",
+          "description": "The simulation of human intelligence processes.",
+          "topics": []
         },
-        { 
-            "title": "Data Structures & Algorithms", 
-            "id": "cs-dsa", 
-            "description": "The study of methods for storing data.", 
-            "topics": [] 
+        {
+          "title": "Data Structures & Algorithms",
+          "id": "cs-dsa",
+          "description": "The study of methods for storing data.",
+          "topics": []
         },
-        { 
-            "title": "Software Engineering Projects", 
-            "id": "cs-se-proj", 
-            "description": "Practical application of engineering principles.", 
-            "topics": [] 
+        {
+          "title": "Software Engineering Projects",
+          "id": "cs-se-proj",
+          "description": "Practical application of engineering principles.",
+          "topics": []
         }
       ]
     }
