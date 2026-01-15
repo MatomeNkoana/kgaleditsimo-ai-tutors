@@ -1,5 +1,5 @@
 import os
-import json  # <--- NEW IMPORT
+import json 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import google.generativeai as genai
@@ -30,13 +30,14 @@ def get_curriculum():
         # Join it with the filename to get the full path
         json_path = os.path.join(base_dir, 'curriculum.json')
         
-        with open(json_path, 'r') as f:
+        # FIX APPLIED HERE: encoding='utf-8'
+        with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return jsonify(data)
         
     except FileNotFoundError:
-        print(f"ERROR: Could not find file at {json_path}") # Print error to terminal for debugging
-        return jsonify({"error": "Curriculum file not found"}), 500
+        print(f"ERROR: Could not find file at {json_path}") 
+        return jsonify({"error": "Curriculum file not found"}), 404
     except json.JSONDecodeError:
         print(f"ERROR: File at {json_path} is not valid JSON")
         return jsonify({"error": "Invalid JSON format"}), 500
